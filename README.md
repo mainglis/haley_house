@@ -7,3 +7,8 @@ What I did so far:
 - Installed Sequel Pro
 - Installed git
 - Installed rvm
+
+
+NEXT STEPS:
+- Install homebrew
+- Update rails version
