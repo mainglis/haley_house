@@ -7,3 +7,7 @@ What I did so far:
 - Installed Sequel Pro
 - Installed git
 - Installed rvm
+
+5/21/13
+
+Attempting to learn all of this
