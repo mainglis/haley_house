@@ -9,5 +9,8 @@ What I did so far:
 - Installed rvm
 
 5/21/13
+What we did:
+- Intalled homebrew
+- Successfully launched local server
+- Updated Rails version
 
-Attempting to learn all of this
