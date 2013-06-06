@@ -1,0 +1,39 @@
+<h1>Listing occupations</h1>
+
+<table>
+  <tr>
+    <th>Individual</th>
+    <th>Sector</th>
+    <th>Title</th>
+    <th>Employer name</th>
+    <th>Employer street address</th>
+    <th>Employer city</th>
+    <th>Employer zip</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @occupations.each do |occupation| %>
+  <tr>
+    <td><%= occupation.individual_id %></td>
+    <td><%= occupation.sector %></td>
+    <td><%= occupation.title %></td>
+    <td><%= occupation.employer_name %></td>
+    <td><%= occupation.employer_street_address %></td>
+    <td><%= occupation.employer_city %></td>
+    <td><%= occupation.employer_zip %></td>
+    <td><%= occupation.start_date %></td>
+    <td><%= occupation.end_date %></td>
+    <td><%= link_to 'Show', occupation %></td>
+    <td><%= link_to 'Edit', edit_occupation_path(occupation) %></td>
+    <td><%= link_to 'Destroy', occupation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Occupation', new_occupation_path %>

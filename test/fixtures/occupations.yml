@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  individual_id: 1
+  sector: MyString
+  title: MyString
+  employer_name: MyString
+  employer_street_address: MyString
+  employer_city: MyString
+  employer_zip: MyString
+  start_date: 2013-06-04
+  end_date: 2013-06-04
+
+two:
+  individual_id: 1
+  sector: MyString
+  title: MyString
+  employer_name: MyString
+  employer_street_address: MyString
+  employer_city: MyString
+  employer_zip: MyString
+  start_date: 2013-06-04
+  end_date: 2013-06-04

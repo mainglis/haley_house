@@ -1,0 +1,53 @@
+<%= form_for(@occupation) do |f| %>
+  <% if @occupation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@occupation.errors.count, "error") %> prohibited this occupation from being saved:</h2>
+
+      <ul>
+      <% @occupation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :individual_id %><br />
+    <%= f.number_field :individual_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sector %><br />
+    <%= f.text_field :sector %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :employer_name %><br />
+    <%= f.text_field :employer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :employer_street_address %><br />
+    <%= f.text_field :employer_street_address %>
+  </div>
+  <div class="field">
+    <%= f.label :employer_city %><br />
+    <%= f.text_field :employer_city %>
+  </div>
+  <div class="field">
+    <%= f.label :employer_zip %><br />
+    <%= f.text_field :employer_zip %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

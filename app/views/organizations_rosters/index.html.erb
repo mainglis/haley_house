@@ -1,0 +1,27 @@
+<h1>Listing organizations_rosters</h1>
+
+<table>
+  <tr>
+    <th>Individual</th>
+    <th>Organization</th>
+    <th>Start date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @organizations_rosters.each do |organizations_roster| %>
+  <tr>
+    <td><%= organizations_roster.individual_id %></td>
+    <td><%= organizations_roster.organization_id %></td>
+    <td><%= organizations_roster.start_date %></td>
+    <td><%= link_to 'Show', organizations_roster %></td>
+    <td><%= link_to 'Edit', edit_organizations_roster_path(organizations_roster) %></td>
+    <td><%= link_to 'Destroy', organizations_roster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Organizations roster', new_organizations_roster_path %>

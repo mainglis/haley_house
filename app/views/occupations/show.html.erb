@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Individual:</b>
+  <%= @occupation.individual_id %>
+</p>
+
+<p>
+  <b>Sector:</b>
+  <%= @occupation.sector %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @occupation.title %>
+</p>
+
+<p>
+  <b>Employer name:</b>
+  <%= @occupation.employer_name %>
+</p>
+
+<p>
+  <b>Employer street address:</b>
+  <%= @occupation.employer_street_address %>
+</p>
+
+<p>
+  <b>Employer city:</b>
+  <%= @occupation.employer_city %>
+</p>
+
+<p>
+  <b>Employer zip:</b>
+  <%= @occupation.employer_zip %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @occupation.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @occupation.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_occupation_path(@occupation) %> |
+<%= link_to 'Back', occupations_path %>

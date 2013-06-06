@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Individual:</b>
+  <%= @event_attendance_record.individual_id %>
+</p>
+
+<p>
+  <b>Organization:</b>
+  <%= @event_attendance_record.organization_id %>
+</p>
+
+<p>
+  <b>Event:</b>
+  <%= @event_attendance_record.event_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_attendance_record_path(@event_attendance_record) %> |
+<%= link_to 'Back', event_attendance_records_path %>

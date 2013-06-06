@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  individual_id: 1
+  date: 2013-06-04
+  amount: 9.99
+  method: MyString
+
+two:
+  individual_id: 1
+  date: 2013-06-04
+  amount: 9.99
+  method: MyString

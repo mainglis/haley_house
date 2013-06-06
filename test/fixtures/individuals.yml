@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  salutation: MyString
+  email: MyString
+  current_street_address: MyString
+  current_city: MyString
+  current_zip: MyString
+  permanent_street_address: MyString
+  permanent_city: MyString
+  permanent_zip: MyString
+  phone_mobile: MyString
+  phone_work: MyString
+  phone_home: MyString
+  phone_mobile: MyString
+  emergency_contact_name: MyString
+  emergency_contact_street_address: MyString
+  emergency_contact_city: MyString
+  emergency_contact_zip: MyString
+  email_newsletter: false
+  mail_newsletter: false
+  applied_date: 2013-06-04
+  processed_date: 2013-06-04
+  inactive_date: 2013-06-04
+
+two:
+  first_name: MyString
+  last_name: MyString
+  salutation: MyString
+  email: MyString
+  current_street_address: MyString
+  current_city: MyString
+  current_zip: MyString
+  permanent_street_address: MyString
+  permanent_city: MyString
+  permanent_zip: MyString
+  phone_mobile: MyString
+  phone_work: MyString
+  phone_home: MyString
+  phone_mobile: MyString
+  emergency_contact_name: MyString
+  emergency_contact_street_address: MyString
+  emergency_contact_city: MyString
+  emergency_contact_zip: MyString
+  email_newsletter: false
+  mail_newsletter: false
+  applied_date: 2013-06-04
+  processed_date: 2013-06-04
+  inactive_date: 2013-06-04

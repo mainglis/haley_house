@@ -1,0 +1,29 @@
+<h1>Listing roles_rosters</h1>
+
+<table>
+  <tr>
+    <th>Individual</th>
+    <th>Role</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @roles_rosters.each do |roles_roster| %>
+  <tr>
+    <td><%= roles_roster.individual_id %></td>
+    <td><%= roles_roster.role_id %></td>
+    <td><%= roles_roster.start_date %></td>
+    <td><%= roles_roster.end_date %></td>
+    <td><%= link_to 'Show', roles_roster %></td>
+    <td><%= link_to 'Edit', edit_roles_roster_path(roles_roster) %></td>
+    <td><%= link_to 'Destroy', roles_roster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Roles roster', new_roles_roster_path %>

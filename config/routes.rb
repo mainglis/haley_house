@@ -1,4 +1,43 @@
 HaleyHouse::Application.routes.draw do
+  resources :organizations_rosters
+
+
+  resources :roles_rosters
+
+
+  resources :skills_rosters
+
+
+  resources :events
+
+
+  resources :notes
+
+
+  resources :donations
+
+
+  resources :occupations
+
+
+  resources :roles
+
+
+  resources :skills
+
+
+  resources :event_attendance_records
+
+
+  resources :individuals
+
+
+  resources :deadlines
+
+
+  resources :volunteers
+
+
   resources :organizations
 
 

@@ -1,0 +1,67 @@
+<h1>Listing individuals</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Salutation</th>
+    <th>Email</th>
+    <th>Current street address</th>
+    <th>Current city</th>
+    <th>Current zip</th>
+    <th>Permanent street address</th>
+    <th>Permanent city</th>
+    <th>Permanent zip</th>
+    <th>Phone mobile</th>
+    <th>Phone work</th>
+    <th>Phone home</th>
+    <th>Phone mobile</th>
+    <th>Emergency contact name</th>
+    <th>Emergency contact street address</th>
+    <th>Emergency contact city</th>
+    <th>Emergency contact zip</th>
+    <th>Email newsletter</th>
+    <th>Mail newsletter</th>
+    <th>Applied date</th>
+    <th>Processed date</th>
+    <th>Inactive date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @individuals.each do |individual| %>
+  <tr>
+    <td><%= individual.first_name %></td>
+    <td><%= individual.last_name %></td>
+    <td><%= individual.salutation %></td>
+    <td><%= individual.email %></td>
+    <td><%= individual.current_street_address %></td>
+    <td><%= individual.current_city %></td>
+    <td><%= individual.current_zip %></td>
+    <td><%= individual.permanent_street_address %></td>
+    <td><%= individual.permanent_city %></td>
+    <td><%= individual.permanent_zip %></td>
+    <td><%= individual.phone_mobile %></td>
+    <td><%= individual.phone_work %></td>
+    <td><%= individual.phone_home %></td>
+    <td><%= individual.phone_mobile %></td>
+    <td><%= individual.emergency_contact_name %></td>
+    <td><%= individual.emergency_contact_street_address %></td>
+    <td><%= individual.emergency_contact_city %></td>
+    <td><%= individual.emergency_contact_zip %></td>
+    <td><%= individual.email_newsletter %></td>
+    <td><%= individual.mail_newsletter %></td>
+    <td><%= individual.applied_date %></td>
+    <td><%= individual.processed_date %></td>
+    <td><%= individual.inactive_date %></td>
+    <td><%= link_to 'Show', individual %></td>
+    <td><%= link_to 'Edit', edit_individual_path(individual) %></td>
+    <td><%= link_to 'Destroy', individual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Individual', new_individual_path %>

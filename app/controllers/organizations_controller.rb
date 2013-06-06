@@ -2,7 +2,13 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all
+    if params[:commit] == "Clear"
+      params[:search].each_key { |k| params[:search][k] = '' }
+    end
+
+    # @organizations = Organization.all
+    @search = Organization.search(params[:search])
+    @organizations = @search.all   # load all matching records
 
     respond_to do |format|
       format.html # index.html.erb

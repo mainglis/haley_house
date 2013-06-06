@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Grant record:</b>
+  <%= @deadline.grant_record_id %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @deadline.type %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @deadline.date %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @deadline.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_deadline_path(@deadline) %> |
+<%= link_to 'Back', deadlines_path %>

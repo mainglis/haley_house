@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Individual:</b>
+  <%= @organizations_roster.individual_id %>
+</p>
+
+<p>
+  <b>Organization:</b>
+  <%= @organizations_roster.organization_id %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @organizations_roster.start_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_organizations_roster_path(@organizations_roster) %> |
+<%= link_to 'Back', organizations_rosters_path %>

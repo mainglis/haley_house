@@ -1,0 +1,29 @@
+<h1>Listing deadlines</h1>
+
+<table>
+  <tr>
+    <th>Grant Record ID</th>
+    <th>Type</th>
+    <th>Date</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @deadlines.each do |deadline| %>
+  <tr>
+    <td><%= deadline.grant_record_id %></td>
+    <td><%= deadline.type %></td>
+    <td><%= deadline.date %></td>
+    <td><%= deadline.notes %></td>
+    <td><%= link_to 'Show', deadline %></td>
+    <td><%= link_to 'Edit', edit_deadline_path(deadline) %></td>
+    <td><%= link_to 'Destroy', deadline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Deadline', new_deadline_path %>

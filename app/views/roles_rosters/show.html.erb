@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Individual:</b>
+  <%= @roles_roster.individual_id %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%= @roles_roster.role_id %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @roles_roster.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @roles_roster.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_roles_roster_path(@roles_roster) %> |
+<%= link_to 'Back', roles_rosters_path %>
