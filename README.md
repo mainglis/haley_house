@@ -8,6 +8,10 @@ What I did so far:
 - Installed git
 - Installed rvm
 
+NEXT STEPS:
+- Install homebrew
+- Update rails version
+
 5/21/13
 What we did:
 - Intalled homebrew
