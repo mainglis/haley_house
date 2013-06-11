@@ -1,13 +1,4 @@
 HaleyHouse::Application.routes.draw do
-  resources :organizations_rosters
-
-
-  resources :roles_rosters
-
-
-  resources :skills_rosters
-
-
   resources :events
 
 
@@ -90,7 +81,7 @@ HaleyHouse::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'organizations#index'
+  root :to => 'application#index'
 
   # See how all your routes lay out with "rake routes"
 
