@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Individual:</b>
+  <%= @individual_skill_record.individual_id %>
+</p>
+
+<p>
+  <b>Skill:</b>
+  <%= @individual_skill_record.skill_id %>
+</p>
+
+<p>
+  <b>Date gained:</b>
+  <%= @individual_skill_record.date_gained %>
+</p>
+
+
+<%= link_to 'Edit', edit_individual_skill_record_path(@individual_skill_record) %> |
+<%= link_to 'Back', individual_skill_records_path %>

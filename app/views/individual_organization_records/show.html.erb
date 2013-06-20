@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Individual:</b>
+  <%= @individual_organization_record.individual_id %>
+</p>
+
+<p>
+  <b>Organization:</b>
+  <%= @individual_organization_record.organization_id %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @individual_organization_record.start_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_individual_organization_record_path(@individual_organization_record) %> |
+<%= link_to 'Back', individual_organization_records_path %>

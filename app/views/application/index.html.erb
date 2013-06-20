@@ -1,1 +1,55 @@
-<%= link_to "Events", events_path %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Haley House Database</title>
+    <style type="text/css" media="screen">
+      body {
+        margin: 10;
+        margin-bottom: 25px;
+        padding: 0;
+        background-color: #ffffff;
+        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+        font-size: 13px;
+        color: #4b352b;
+
+        
+      }
+
+      h1 {
+        font-size: 28px;
+        color: #000;
+      }
+
+      a  {color: #000}
+      a:hover {
+        background-color: #000;
+        color: white;
+        text-decoration: none;
+      }
+      p {
+	margin-left: 25px;
+}
+
+p.helptext {
+	font-style: italic;
+}
+
+      </style>
+  </head>
+ </html>
+
+<p class="helptext">Please choose what database you would like to work in by clicking the links below.</p>
+<p><%= link_to "Individuals", individuals_path %> (Volunteers, Donors, etc.)</p>
+<p><%= link_to "Organizations", organizations_path %> (Partners, Customers, etc.)</p>
+<p><%= link_to "Grantmakers", grantmakers_path %></p>
+<!-- 
+<p><%= link_to "Grant Records", grant_records_path %></p>
+<p><%= link_to "Deadlines", deadlines_path %></p>
+<p><%= link_to "Events", events_path %></p>
+<p><%= link_to "Attendance", event_attendance_records_path %></p>
+<p><%= link_to "Skills", skills_path %></p>
+<p><%= link_to "Roles", roles_path %></p>
+<p><%= link_to "Occupations", occupations_path %></p>
+<p><%= link_to "Notes", notes_path %></p>
+<p>Note - do I add a link for IndividualRoleRecord, IndividualOrganizationRecord, and IndividualSkillRecord here or do those belong on the pages they are linkign to/from.</p> -->

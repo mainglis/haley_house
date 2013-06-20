@@ -36,3 +36,15 @@ What MAI did:
 	c. donor Excel files
 	d. event attendance lists
 	e. employee files
+
+6/12/13
+
+- Rescaffolded the IndividualOrganizationRecord, IndividualRoleRecord, and IndividualSkillRecord models
+- Added links to homepage 
+- Scaffolded GrantRecord and Grantmaker models
+
+6/17/13
+- Scaffolded grantmakers, grant_records, and deadlines models. 
+- Created links to Individuals, Organizations, and Grantmakers on application/index.html.erb
+- Added grant_records to grantmakers view
+- Updated CSS in application/index.html.erb and in stylesheets/application.css

@@ -1,0 +1,41 @@
+<h1>Listing Grant Records</h1>
+
+<table>
+  <tr>
+    <th>Grantmaker</th>
+    <th>Organization</th>
+    <th>Fiscal year</th>
+    <th>Notification date</th>
+    <th>Ask status</th>
+    <th>Request type</th>
+    <th>Funding type</th>
+    <th>Amount</th>
+    <th>Program</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @grant_records.each do |grant_record| %>
+  <tr>
+    <td><%= grant_record.grantmaker_id %></td>
+    <td><%= grant_record.organization_id %></td>
+    <td><%= grant_record.fiscal_year %></td>
+    <td><%= grant_record.notification_date %></td>
+    <td><%= grant_record.ask_status %></td>
+    <td><%= grant_record.request_type %></td>
+    <td><%= grant_record.funding_type %></td>
+    <td><%= grant_record.amount %></td>
+    <td><%= grant_record.program %></td>
+    <td><%= grant_record.notes %></td>
+    <td><%= link_to 'Show', grant_record %></td>
+    <td><%= link_to 'Edit', edit_grant_record_path(grant_record) %></td>
+    <td><%= link_to 'Destroy', grant_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Grant record', new_grant_record_path %>

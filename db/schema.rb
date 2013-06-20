@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604192316) do
+ActiveRecord::Schema.define(:version => 20130612193129) do
 
   create_table "deadlines", :force => true do |t|
     t.integer  "grant_record_id"
@@ -46,6 +46,67 @@ ActiveRecord::Schema.define(:version => 20130604192316) do
     t.datetime "end_datetime"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "grant_records", :force => true do |t|
+    t.integer  "grantmaker_id"
+    t.integer  "organization_id"
+    t.string   "fiscal_year"
+    t.date     "notification_date"
+    t.string   "ask_status"
+    t.string   "request_type"
+    t.string   "funding_type"
+    t.decimal  "amount",            :precision => 10, :scale => 0
+    t.string   "program"
+    t.text     "notes"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
+
+  create_table "grantmakers", :force => true do |t|
+    t.string   "name"
+    t.integer  "rank"
+    t.boolean  "unsolicited_proposals"
+    t.text     "mission"
+    t.string   "website"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "contact_first_name"
+    t.string   "contact_last_name"
+    t.string   "contact_email"
+    t.string   "contact_phone_number"
+    t.text     "notes"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  create_table "individual_organization_records", :force => true do |t|
+    t.integer  "individual_id"
+    t.integer  "organization_id"
+    t.date     "start_date"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "individual_role_records", :force => true do |t|
+    t.integer  "individual_id"
+    t.integer  "role_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "individual_skill_records", :force => true do |t|
+    t.integer  "individual_id"
+    t.integer  "skill_id"
+    t.date     "date_gained"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "individuals", :force => true do |t|
@@ -121,6 +182,14 @@ ActiveRecord::Schema.define(:version => 20130604192316) do
     t.string   "contact_email"
   end
 
+  create_table "organizations_rosters", :force => true do |t|
+    t.integer  "individual_id"
+    t.integer  "organization_id"
+    t.date     "start_date"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "role_rosters", :force => true do |t|
     t.integer  "individual_id"
     t.integer  "role_id"
@@ -137,6 +206,15 @@ ActiveRecord::Schema.define(:version => 20130604192316) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "roles_rosters", :force => true do |t|
+    t.integer  "individual_id"
+    t.integer  "role_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "skill_rosters", :force => true do |t|
     t.integer  "individual_id"
     t.integer  "skill_id"
@@ -150,6 +228,14 @@ ActiveRecord::Schema.define(:version => 20130604192316) do
     t.string   "level"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "skills_rosters", :force => true do |t|
+    t.integer  "individual_id"
+    t.integer  "skill_id"
+    t.date     "date_gained"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "volunteers", :force => true do |t|

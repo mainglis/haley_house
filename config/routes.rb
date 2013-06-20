@@ -1,4 +1,19 @@
 HaleyHouse::Application.routes.draw do
+  resources :grantmakers
+
+
+  resources :grant_records
+
+
+  resources :individual_skill_records
+
+
+  resources :individual_organization_records
+
+
+  resources :individual_role_records
+
+
   resources :events
 
 

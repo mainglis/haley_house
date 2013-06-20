@@ -1,0 +1,53 @@
+<h1>Listing Grantmakers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Rank</th>
+    <th>Unsolicited proposals</th>
+    <th>Mission</th>
+    <th>Website</th>
+    <th>Street address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip code</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Contact first name</th>
+    <th>Contact last name</th>
+    <th>Contact email</th>
+    <th>Contact phone number</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @grantmakers.each do |grantmaker| %>
+  <tr>
+    <td><%= grantmaker.name %></td>
+    <td><%= grantmaker.rank %></td>
+    <td><%= grantmaker.unsolicited_proposals %></td>
+    <td><%= grantmaker.mission %></td>
+    <td><%= grantmaker.website %></td>
+    <td><%= grantmaker.street_address %></td>
+    <td><%= grantmaker.city %></td>
+    <td><%= grantmaker.state %></td>
+    <td><%= grantmaker.zip_code %></td>
+    <td><%= grantmaker.phone %></td>
+    <td><%= grantmaker.email %></td>
+    <td><%= grantmaker.contact_first_name %></td>
+    <td><%= grantmaker.contact_last_name %></td>
+    <td><%= grantmaker.contact_email %></td>
+    <td><%= grantmaker.contact_phone_number %></td>
+    <td><%= grantmaker.notes %></td>
+    <td><%= link_to 'Show', grantmaker %></td>
+    <td><%= link_to 'Edit', edit_grantmaker_path(grantmaker) %></td>
+    <td><%= link_to 'Destroy', grantmaker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Grantmaker', new_grantmaker_path %>
