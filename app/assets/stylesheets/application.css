@@ -11,11 +11,52 @@
  *= require_self
  *= require_tree .
  */
- 
-p {
+
+h1 {
+        font-size: 28px;
+        color: #4e372c;
+      }
+h2 { 
+		font-size:24px
+		color: #000;
+	}
+
+h3 { 
+		font-size: 20px
+		color: #fff;
+	}
+
+body {
 	margin-left: 25px;
+}
+
+p {
+	margin-left: 0px;
 }
 
 p.helptext {
 	font-style: italic;
 }
+
+a  {color: #4e372c}
+
+a:hover {
+        background-color: #484848;
+        color: white;
+        text-decoration: none;
+      }
+      
+.mainTable {
+	height=300 width=150 bgcolor=FF9900 border-radius=15px
+}
+			
+
+.button_blue {
+	display: block;
+	height: 100px;
+	width: 300px;
+	background: #C37445;
+	border: 2px solid;
+}
+
+

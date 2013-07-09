@@ -2,7 +2,12 @@ class GrantmakersController < ApplicationController
   # GET /grantmakers
   # GET /grantmakers.json
   def index
-    @grantmakers = Grantmaker.all
+    if params[:commit] == "Clear"
+      params[:search].each_key { |k| params[:search][k] = '' }
+    end
+
+    @search = Grantmaker.search(params[:search])
+    @grantmakers = @search.all   # load all matching records
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +19,7 @@ class GrantmakersController < ApplicationController
   # GET /grantmakers/1.json
   def show
     @grantmaker = Grantmaker.find(params[:id])
-    @grant_records = GrantRecord.where( "grantmaker_id = #{params[:id]}")
+    @grant_records = GrantRecord.where( grantmaker_id: params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @grantmaker }

@@ -1,5 +1,21 @@
-<h1>Listing Grantmakers</h1>
+<h3><%= link_to 'New Grantmaker', new_grantmaker_path %></h3>
 
+<h3>Search Grantmakers</h3>
+
+<%= form_for @search, :url => grantmakers_path, :html => {:method => :get} do |f| %>
+  <%= f.label :name_contains %>
+  <%= f.text_field :name_contains %><br />
+  <%= f.label :city_contains, 'City:' %>
+  <%= f.text_field :city_contains %><br />
+  <%= f.label :grant_records_fiscal_year_contains, 'Fiscal Year:' %>
+  <%= f.text_field :grant_records_fiscal_year_contains %><br />
+  <%= f.submit 'Search' %>
+  <%= f.submit 'Clear' %>
+<% end %>
+
+<h3>Listing Grantmakers</h3>
+
+<% if @grantmakers.size > 0 %>
 <table>
   <tr>
     <th>Name</th>
@@ -48,6 +64,11 @@
 <% end %>
 </table>
 
+<% else %>
+    Sorry, no organizations matched your search!
+<% end %>
+
+<br />
 <br />
 
-<%= link_to 'New Grantmaker', new_grantmaker_path %>
+

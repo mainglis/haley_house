@@ -1,4 +1,6 @@
-<h2>Search organizations</h2>
+<h3><%= link_to 'New Organization', new_organization_path %></h3>
+
+<h3>Search organizations</h3>
 
 <%= form_for @search, :url => organizations_path, :html => {:method => :get} do |f| %>
   <%= f.label :name_contains %>
@@ -10,7 +12,8 @@
 <% end %>
 
 
-<h2>Listing organizations</h2>
+
+<h3>Listing Organizations</h3>
 
 <% if @organizations.size > 0 %>
     <table>
@@ -51,4 +54,4 @@
 <br />
 <br />
 
-<%= link_to 'New Organization', new_organization_path %>
+
