@@ -1,73 +1,73 @@
-<h3><%= link_to 'Add New Individual', new_individual_path %></h3>
 
-<h3>Search Individuals</>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><a href="index.html">Haley House Database</a></title>
+  </head>
+<body>
+ <table cellspacing=5px>
+       <tr>
+        <th><a href="individuals" class="button_orangesub">Individuals</a></th>
 
-<h3>Listing Individuals</h3>
+       <th><a href="organizations" class="button_bluesub">Organizations</a></th>
 
-<table>
+       <th><a href="grantmakers" class="button_purplesub">Grants</a></th>
+   </tr></table>
+
+<table cellspacing=5px padding=15px>
+    <tr>
+        <th>
+<h3><%= link_to 'Add New Individual', new_individual_path %></h3> </th><th>
+
+<h3>Search Individuals</h3></th><th>
+
+<h3>Listing Individuals</h3></th><th></tr></table>
+
+<table class="maintable" cellspacing=10px>
   <tr>
-    <th>Salutation</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
+    <th>Salutation</th><td><% @individuals.each do |individual| %><%= individual.salutation %></td>
+    <th>First name</th><td><%= individual.first_name %></td>    
+    <th>Last name</th><td><%= individual.last_name %></td>
+    <th>Email</th><td><%= individual.email %></td>
+</tr>
+<tr>
 
-    <th>Current street address</th>
-    <th>Current city</th>
-    <th>Current zip</th>
+    <th>Current street address</th> <td><%= individual.current_street_address %></td>
+    <th>Current city</th>  <td><%= individual.current_city %></td>
+    <th>Current zip</th>    <td><%= individual.current_zip %></td>
+</tr>
 
-    <th>Permanent street address</th>
-    <th>Permanent city</th>
-    <th>Permanent zip</th>
-
-    <th>Phone mobile</th>
-    <th>Phone work</th>
-    <th>Phone home</th>
+<tr>
+    <th>Permanent street address</th>    <td><%= individual.permanent_street_address %></td>
+    <th>Permanent city</th>    <td><%= individual.permanent_city %></td>
+    <th>Permanent zip</th>    <td><%= individual.permanent_zip %></td>
+</tr>
+    <th>Phone mobile</th>    <td><%= individual.phone_mobile %></td>
+    <th>Phone work</th>    <td><%= individual.phone_work %></td>
+    <th>Phone home</th>    <td><%= individual.phone_home%></td>
     <!-- <th>Phone mobile</th> -->
-
-    <th>Emergency contact name</th>
-    <th>Emergency contact street address</th>
-    <th>Emergency contact city</th>
-    <th>Emergency contact zip</th>
-
-    <th>Email newsletter</th>
-    <th>Mail newsletter</th>
-
-    <th>Applied date</th>
-    <th>Processed date</th>
-    <th>Inactive date</th>
+<tr>
+    <th>Emergency contact name</th>  <td><%= individual.emergency_contact_name %></td>
+    <th>Emergency contact street address</th>   <td><%= individual.emergency_contact_street_address %></td>
+    <th>Emergency contact city</th>    <td><%= individual.emergency_contact_city %></td>
+    <th>Emergency contact zip</th>    <td><%= individual.emergency_contact_zip %></td>
+</tr>
+<tr>
+    <th>Email newsletter</th>    <td><%= individual.email_newsletter %></td>
+    <th>Mail newsletter</th>    <td><%= individual.mail_newsletter %></td>
+</tr>
+<tr>
+    <th>Applied date</th>    <td><%= individual.applied_date %></td>
+    <th>Processed date</th>    <td><%= individual.processed_date %></td>
+    <th>Inactive date</th>    <td><%= individual.inactive_date %></td>
+</tr>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
-<% @individuals.each do |individual| %>
-  <tr>
-    <td><%= individual.first_name %></td>
-    <td><%= individual.last_name %></td>
-    <td><%= individual.salutation %></td>
-    <td><%= individual.email %></td>
-    <td><%= individual.current_street_address %></td>
-    <td><%= individual.current_city %></td>
-    <td><%= individual.current_zip %></td>
-    <td><%= individual.permanent_street_address %></td>
-    <td><%= individual.permanent_city %></td>
-    <td><%= individual.permanent_zip %></td>
-    <td><%= individual.phone_mobile %></td>
-    <td><%= individual.phone_work %></td>
-    <td><%= individual.phone_home %></td>
-    <td><%= individual.phone_mobile %></td>
-    <td><%= individual.emergency_contact_name %></td>
-    <td><%= individual.emergency_contact_street_address %></td>
-    <td><%= individual.emergency_contact_city %></td>
-    <td><%= individual.emergency_contact_zip %></td>
-    <td><%= individual.email_newsletter %></td>
-    <td><%= individual.mail_newsletter %></td>
-    <td><%= individual.applied_date %></td>
-    <td><%= individual.processed_date %></td>
-    <td><%= individual.inactive_date %></td>
-    <td><%= link_to 'Show', individual %></td>
-    <td><%= link_to 'Edit', edit_individual_path(individual) %></td>
-    <td><%= link_to 'Destroy', individual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to 'Show', individual %></td>
+  <td><%= link_to 'Edit', edit_individual_path(individual) %></td>
+  <td><%= link_to 'Destroy', individual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

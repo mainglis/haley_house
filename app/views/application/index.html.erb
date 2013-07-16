@@ -2,23 +2,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Haley House Database</title>
+    <title><a href="index.html">Haley House Database</a></title>
   </head>
 <body>
 
   <p class="helptext">Please choose which database you would like to work in by clicking the links below.</p>
 
  <table cellspacing=20px>
-      <tr>
-        <th height=300 width=175 bgcolor=c37445><h2><a href="individuals_path" class="button_blue">Individuals</a></h2> (Volunteers, Donors, Staff, Friends, etc.)
-        <th height=300 width=175 bgcolor=7e9b9f><h2><%= link_to "Organizations", organizations_path %></h2> (Partners, Customers, Similar Organizations, etc.)</th>
-        <th height=300 width=175 bgcolor=b286a6><h2><%= link_to "Grants", grantmakers_path %></h2>(Find foundations, add grant records, etc.)</th></tr>
-</table>
+       <tr>
+        <th><a href="individuals" class="button_orange">Individuals<span style="font-size:14px;font-weight:normal"><br><br>(Volunteers, Donors, Staff, Friends, etc.)</span></a></th>
+
+       <th><a href="organizations" class="button_blue">Organizations<span style="font-size:14px;font-weight:normal"><br><br>(Partners, Customers, Similar Organizations, etc.)</span></a></th>
+
+       <th><a href="grantmakers" class="button_purple">Grants<span style="font-size:14px;font-weight:normal"><br><br>(Find foundations, add grant records, etc.)</span></a></th>
+   </tr></table>
 
 </body>
  </html>
 
-
+<!-- height=300 width=175 bgcolor=c37445 -->
 <!-- 
 <p><%= link_to "Grant Records", grant_records_path %></p>
 <p><%= link_to "Deadlines", deadlines_path %></p>

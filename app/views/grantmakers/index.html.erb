@@ -3,12 +3,13 @@
 <h3>Search Grantmakers</h3>
 
 <%= form_for @search, :url => grantmakers_path, :html => {:method => :get} do |f| %>
-  <%= f.label :name_contains %>
+  <%= f.label :name_contains, 'Name contains:' %>
   <%= f.text_field :name_contains %><br />
   <%= f.label :city_contains, 'City:' %>
   <%= f.text_field :city_contains %><br />
   <%= f.label :grant_records_fiscal_year_contains, 'Fiscal Year:' %>
   <%= f.text_field :grant_records_fiscal_year_contains %><br />
+  <!-- -->
   <%= f.submit 'Search' %>
   <%= f.submit 'Clear' %>
 <% end %>

@@ -14,7 +14,7 @@
 
 h1 {
         font-size: 28px;
-        color: #4e372c;
+        color: #6d8538;
       }
 h2 { 
 		font-size:24px
@@ -22,22 +22,33 @@ h2 {
 	}
 
 h3 { 
-		font-size: 20px
+		font-family: Arial, sans-serif;
+        font-size: 14px
 		color: #fff;
 	}
 
 body {
-	margin-left: 25px;
+	margin-left: 30px;
+	background-color: #000000;
 }
 
 p {
 	margin-left: 0px;
+	color: black;
 }
 
 p.helptext {
 	font-style: italic;
+
 }
 
+.field {
+	text-align: left;
+	vertical-align: top;
+
+}
+
+/* This is the original brown link color. a  {color: #4e372c} */
 a  {color: #4e372c}
 
 a:hover {
@@ -46,17 +57,213 @@ a:hover {
         text-decoration: none;
       }
       
-.mainTable {
-	height=300 width=150 bgcolor=FF9900 border-radius=15px
+#table_individuals {
+	padding: 0px;
+	text-align:bottom;
 }
 			
 
-.button_blue {
+.button_orange {
 	display: block;
-	height: 100px;
-	width: 300px;
+	height: 275px;
+	width: 195px;
 	background: #C37445;
-	border: 2px solid;
+	border: 2px solid rgba(33, 68, 72, 0.59);
+	color: rgba(0, 0, 0, 0.55);
+	padding-top: 100%;
+    text-align: center;
+    font-color: black; 
+    font-size: 24px;
+    font-weight: bold "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
+a.button_orange {
+	text-decoration: none;
+}
 
+a.button_orange:hover {
+	background: #C37445;
+    background: -webkit-linear-gradient(top, #C37445, #a7633a);
+    background: -moz-linear-gradient(top, #C37445, #a7633a);
+    background: -o-linear-gradient(top, #C37445, #a7633a);
+    background: -ms-linear-gradient(top, #C37445, #a7633a);
+    background: linear-gradient(top, #C37445, #a7633a);
+    color: black;
+    ;
+}
+
+.button_orangesub {
+	display: block;
+	height: 30px;
+	width: 195px;
+	background: #C37445;
+	border: 1px solid rgba(33, 68, 72, 0.59);
+	padding-top: 3%;
+    text-align: center;
+    color: black; 
+    font-size: 18px;
+    font: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+a.button_orangesub {
+	text-decoration: none;
+}
+
+a.button_orangesub:hover {
+	background: #C37445;
+    background: -webkit-linear-gradient(top, #C37445, #a7633a);
+    background: -moz-linear-gradient(top, #C37445, #a7633a);
+    background: -o-linear-gradient(top, #C37445, #a7633a);
+    background: -ms-linear-gradient(top, #C37445, #a7633a);
+    background: linear-gradient(top, #C37445, #a7633a);
+    color: black;
+    
+}
+
+.button_blue {
+	display: block;
+	height: 275px;
+	width: 195px;
+	background: #7e9b9f;
+	border: 2px solid rgba(33, 68, 72, 0.59);
+	color: rgba(0, 0, 0, 0.55);
+	padding-top: 100%;
+    text-align: center;
+    font-color: black; 
+    font-size: 24px;
+    font-weight: bold "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+a.button_blue {
+	text-decoration: none;
+}
+
+a.button_blue:hover {
+	background: #7e9b9f;
+    background: -webkit-linear-gradient(top, #7e9b9f, #5b777b);
+    background: -moz-linear-gradient(top, #7e9b9f, #5b777b);
+    background: -o-linear-gradient(top, #7e9b9f, #5b777b);
+    background: -ms-linear-gradient(top, #7e9b9f, #5b777b);
+    background: linear-gradient(top, #7e9b9f, #5b777b);
+    color: black;
+    ;
+}
+
+.button_bluesub {
+	display: block;
+	height: 30px;
+	width: 195px;
+	background: #7e9b9f;
+	border: 1px solid rgba(33, 68, 72, 0.59);
+	padding-top: 3%;
+    text-align: center;
+    color: black; 
+    font-size: 18px;
+    font-weight: normal "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+a.button_bluesub {
+	text-decoration: none;
+}
+
+a.button_bluesub:hover {
+	background: #7e9b9f;
+    background: -webkit-linear-gradient(top, #7e9b9f, #5b777b);
+    background: -moz-linear-gradient(top, #7e9b9f, #5b777b);
+    background: -o-linear-gradient(top, #7e9b9f, #5b777b);
+    background: -ms-linear-gradient(top, #7e9b9f, #5b777b);
+    background: linear-gradient(top, #7e9b9f, #5b777b);
+    color: black;
+    
+}
+.button_purple {
+	display: block;
+	height: 275px;
+	width: 195px;
+	background: #b286a6;
+	border: 2px solid rgba(33, 68, 72, 0.59);
+	color: rgba(0, 0, 0, 0.55);
+	padding-top: 100%;
+    text-align: center;
+    font-color: black; 
+    font-size: 24px;
+    font-weight: bold "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+a.button_purple {
+	text-decoration: none;
+}
+
+a.button_purple:hover {
+	background: #b286a6;
+    background: -webkit-linear-gradient(top, #b286a6, #8a6881);
+    background: -moz-linear-gradient(top, #b286a6, #8a6881);
+    background: -o-linear-gradient(top, #b286a6, #8a6881);
+    background: -ms-linear-gradient(top, #b286a6, #8a6881);
+    background: linear-gradient(top, #b286a6, #8a6881);
+    color: black;
+    ;
+}
+.button_purplesub {
+	display: block;
+	height: 30px;
+	width: 195px;
+	background: #b286a6;
+	border: 1px solid rgba(33, 68, 72, 0.59);
+	padding-top: 3%;
+    text-align: center;
+    color: black; 
+    font-size: 18px;
+    font-style: normal "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+a.button_purplesub {
+	text-decoration: none;
+}
+
+a.button_purplesub:hover {
+	background: #b286a6;
+    background: -webkit-linear-gradient(top, #b286a6, #8a6881);
+    background: -moz-linear-gradient(top, #b286a6, #8a6881);
+    background: -o-linear-gradient(top, #b286a6, #8a6881);
+    background: -ms-linear-gradient(top, #b286a6, #8a6881);
+    background: linear-gradient(top, #b286a6, #8a6881);
+    color: black;
+    }
+
+.button_index {
+	display: block;
+	height: 30px;
+	width: 300px;
+	background: #ffffff;
+	color: rgba(0, 0, 0, 0.55);
+	padding-top: 1%;
+    text-align: center;
+    font-color: #000000; 
+    font-size: 26px;
+    font-weight: bold "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+a.button_index {
+	text-decoration: none;
+}
+
+a.button_index:hover {
+	background: #000000;
+    background: -webkit-linear-gradient(top, #ffffff, #ffffff);
+    background: -moz-linear-gradient(top, #ffffff, #ffffff);
+    background: -o-linear-gradient(top, #ffffff, #ffffff);
+    background: -ms-linear-gradient(top, #ffffff, #ffffff);
+    background: linear-gradient(top, #ffffff, #ffffff);
+    color: black;
+    ;
+}
+
+.maintable {
+    background-color: #b9b9b9;
+    height: 500px;
+    width: 900px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid black;
+}
