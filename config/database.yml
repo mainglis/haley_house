@@ -22,7 +22,7 @@ test:
 
 production:
   adapter: mysql2
-  database: haleyhouse-production
-  username: rails
-  password: railspw
+  database: adamjcas_haleyhouse-production
+  username: adamjcas_rails
+  password: FXZ{dlzwA&}4
   host: 127.0.0.1
