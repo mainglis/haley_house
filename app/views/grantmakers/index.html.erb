@@ -1,7 +1,6 @@
 <h3><%= link_to 'New Grantmaker', new_grantmaker_path %></h3>
 
 <h3>Search Grantmakers</h3>
-
 <%= form_for @search, :url => grantmakers_path, :html => {:method => :get} do |f| %>
   <%= f.label :name_contains, 'Name contains:' %>
   <%= f.text_field :name_contains %><br />
@@ -60,7 +59,7 @@
     <td><%= grantmaker.notes %></td>
     <td><%= link_to 'Show', grantmaker %></td>
     <td><%= link_to 'Edit', edit_grantmaker_path(grantmaker) %></td>
-    <td><%= link_to 'Destroy', grantmaker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', grantmaker, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

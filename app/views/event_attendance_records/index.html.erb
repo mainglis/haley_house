@@ -17,7 +17,7 @@
     <td><%= event_attendance_record.event_id %></td>
     <td><%= link_to 'Show', event_attendance_record %></td>
     <td><%= link_to 'Edit', edit_event_attendance_record_path(event_attendance_record) %></td>
-    <td><%= link_to 'Destroy', event_attendance_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', event_attendance_record, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

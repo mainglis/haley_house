@@ -11,7 +11,7 @@ class GrantmakersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @grantmakers }
+      format.json { render :json => @grantmakers }
     end
   end
 
@@ -19,10 +19,10 @@ class GrantmakersController < ApplicationController
   # GET /grantmakers/1.json
   def show
     @grantmaker = Grantmaker.find(params[:id])
-    @grant_records = GrantRecord.where( grantmaker_id: params[:id])
+    @grant_records = GrantRecord.where( :grantmaker_id => params[:id])
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @grantmaker }
+      format.json { render :json => @grantmaker }
     end
   end
 
@@ -33,7 +33,7 @@ class GrantmakersController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @grantmaker }
+      format.json { render :json => @grantmaker }
     end
   end
 
@@ -49,11 +49,11 @@ class GrantmakersController < ApplicationController
 
     respond_to do |format|
       if @grantmaker.save
-        format.html { redirect_to @grantmaker, notice: 'Grantmaker was successfully created.' }
-        format.json { render json: @grantmaker, status: :created, location: @grantmaker }
+        format.html { redirect_to @grantmaker, :notice => 'Grantmaker was successfully created.' }
+        format.json { render :json => @grantmaker, :status => :created, :location => @grantmaker }
       else
-        format.html { render action: "new" }
-        format.json { render json: @grantmaker.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @grantmaker.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -65,11 +65,11 @@ class GrantmakersController < ApplicationController
 
     respond_to do |format|
       if @grantmaker.update_attributes(params[:grantmaker])
-        format.html { redirect_to @grantmaker, notice: 'Grantmaker was successfully updated.' }
+        format.html { redirect_to @grantmaker, :notice => 'Grantmaker was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @grantmaker.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @grantmaker.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -6,7 +6,7 @@ class OccupationsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @occupations }
+      format.json { render :json => @occupations }
     end
   end
 
@@ -17,7 +17,7 @@ class OccupationsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @occupation }
+      format.json { render :json => @occupation }
     end
   end
 
@@ -28,7 +28,7 @@ class OccupationsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @occupation }
+      format.json { render :json => @occupation }
     end
   end
 
@@ -44,11 +44,11 @@ class OccupationsController < ApplicationController
 
     respond_to do |format|
       if @occupation.save
-        format.html { redirect_to @occupation, notice: 'Occupation was successfully created.' }
-        format.json { render json: @occupation, status: :created, location: @occupation }
+        format.html { redirect_to @occupation, :notice => 'Occupation was successfully created.' }
+        format.json { render :json => @occupation, :status => :created, :location => @occupation }
       else
-        format.html { render action: "new" }
-        format.json { render json: @occupation.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @occupation.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class OccupationsController < ApplicationController
 
     respond_to do |format|
       if @occupation.update_attributes(params[:occupation])
-        format.html { redirect_to @occupation, notice: 'Occupation was successfully updated.' }
+        format.html { redirect_to @occupation, :notice => 'Occupation was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @occupation.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @occupation.errors, :status => :unprocessable_entity }
       end
     end
   end

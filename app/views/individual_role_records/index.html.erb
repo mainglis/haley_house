@@ -19,7 +19,7 @@
     <td><%= individual_role_record.end_date %></td>
     <td><%= link_to 'Show', individual_role_record %></td>
     <td><%= link_to 'Edit', edit_individual_role_record_path(individual_role_record) %></td>
-    <td><%= link_to 'Destroy', individual_role_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', individual_role_record, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

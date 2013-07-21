@@ -122,7 +122,7 @@
       <td><%= grant_record.notes %></td>
       <td><%= link_to 'Show', grant_record %></td>
       <td><%= link_to 'Edit', edit_grant_record_path(grant_record) %></td>
-      <td><%= link_to 'Destroy', grant_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Destroy', grant_record, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </table>

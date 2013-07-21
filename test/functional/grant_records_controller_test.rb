@@ -18,7 +18,7 @@ class GrantRecordsControllerTest < ActionController::TestCase
 
   test "should create grant_record" do
     assert_difference('GrantRecord.count') do
-      post :create, grant_record: { amount: @grant_record.amount, ask_status: @grant_record.ask_status, fiscal_year: @grant_record.fiscal_year, funding_type: @grant_record.funding_type, grantmaker_id: @grant_record.grantmaker_id, notes: @grant_record.notes, notification_date: @grant_record.notification_date, organization_id: @grant_record.organization_id, program: @grant_record.program, request_type: @grant_record.request_type }
+      post :create, grant_record: { amount: @grant_record.amount, ask_:status => @grant_record.ask_status, fiscal_year: @grant_record.fiscal_year, funding_type: @grant_record.funding_type, grantmaker_id: @grant_record.grantmaker_id, notes: @grant_record.notes, notification_date: @grant_record.notification_date, organization_id: @grant_record.organization_id, program: @grant_record.program, request_type: @grant_record.request_type }
     end
 
     assert_redirected_to grant_record_path(assigns(:grant_record))
@@ -35,7 +35,7 @@ class GrantRecordsControllerTest < ActionController::TestCase
   end
 
   test "should update grant_record" do
-    put :update, id: @grant_record, grant_record: { amount: @grant_record.amount, ask_status: @grant_record.ask_status, fiscal_year: @grant_record.fiscal_year, funding_type: @grant_record.funding_type, grantmaker_id: @grant_record.grantmaker_id, notes: @grant_record.notes, notification_date: @grant_record.notification_date, organization_id: @grant_record.organization_id, program: @grant_record.program, request_type: @grant_record.request_type }
+    put :update, id: @grant_record, grant_record: { amount: @grant_record.amount, ask_:status => @grant_record.ask_status, fiscal_year: @grant_record.fiscal_year, funding_type: @grant_record.funding_type, grantmaker_id: @grant_record.grantmaker_id, notes: @grant_record.notes, notification_date: @grant_record.notification_date, organization_id: @grant_record.organization_id, program: @grant_record.program, request_type: @grant_record.request_type }
     assert_redirected_to grant_record_path(assigns(:grant_record))
   end
 

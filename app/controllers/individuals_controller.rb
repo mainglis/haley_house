@@ -6,7 +6,7 @@ class IndividualsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @individuals }
+      format.json { render :json => @individuals }
     end
   end
 
@@ -17,7 +17,7 @@ class IndividualsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @individual }
+      format.json { render :json => @individual }
     end
   end
 
@@ -28,7 +28,7 @@ class IndividualsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @individual }
+      format.json { render :json => @individual }
     end
   end
 
@@ -44,11 +44,11 @@ class IndividualsController < ApplicationController
 
     respond_to do |format|
       if @individual.save
-        format.html { redirect_to @individual, notice: 'Individual was successfully created.' }
-        format.json { render json: @individual, status: :created, location: @individual }
+        format.html { redirect_to @individual, :notice => 'Individual was successfully created.' }
+        format.json { render :json => @individual, :status => :created, :location => @individual }
       else
-        format.html { render action: "new" }
-        format.json { render json: @individual.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @individual.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class IndividualsController < ApplicationController
 
     respond_to do |format|
       if @individual.update_attributes(params[:individual])
-        format.html { redirect_to @individual, notice: 'Individual was successfully updated.' }
+        format.html { redirect_to @individual, :notice => 'Individual was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @individual.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @individual.errors, :status => :unprocessable_entity }
       end
     end
   end

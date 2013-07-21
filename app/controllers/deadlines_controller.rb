@@ -6,7 +6,7 @@ class DeadlinesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @deadlines }
+      format.json { render :json => @deadlines }
     end
   end
 
@@ -17,7 +17,7 @@ class DeadlinesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @deadline }
+      format.json { render :json => @deadline }
     end
   end
 
@@ -28,7 +28,7 @@ class DeadlinesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @deadline }
+      format.json { render :json => @deadline }
     end
   end
 
@@ -44,11 +44,11 @@ class DeadlinesController < ApplicationController
 
     respond_to do |format|
       if @deadline.save
-        format.html { redirect_to @deadline, notice: 'Deadline was successfully created.' }
-        format.json { render json: @deadline, status: :created, location: @deadline }
+        format.html { redirect_to @deadline, :notice => 'Deadline was successfully created.' }
+        format.json { render :json => @deadline, :status => :created, :location => @deadline }
       else
-        format.html { render action: "new" }
-        format.json { render json: @deadline.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @deadline.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class DeadlinesController < ApplicationController
 
     respond_to do |format|
       if @deadline.update_attributes(params[:deadline])
-        format.html { redirect_to @deadline, notice: 'Deadline was successfully updated.' }
+        format.html { redirect_to @deadline, :notice => 'Deadline was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @deadline.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @deadline.errors, :status => :unprocessable_entity }
       end
     end
   end

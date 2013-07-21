@@ -17,7 +17,7 @@
     <td><%= individual_skill_record.date_gained %></td>
     <td><%= link_to 'Show', individual_skill_record %></td>
     <td><%= link_to 'Edit', edit_individual_skill_record_path(individual_skill_record) %></td>
-    <td><%= link_to 'Destroy', individual_skill_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', individual_skill_record, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

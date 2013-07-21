@@ -6,7 +6,7 @@ class IndividualRoleRecordsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @individual_role_records }
+      format.json { render :json => @individual_role_records }
     end
   end
 
@@ -17,7 +17,7 @@ class IndividualRoleRecordsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @individual_role_record }
+      format.json { render :json => @individual_role_record }
     end
   end
 
@@ -28,7 +28,7 @@ class IndividualRoleRecordsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @individual_role_record }
+      format.json { render :json => @individual_role_record }
     end
   end
 
@@ -44,11 +44,11 @@ class IndividualRoleRecordsController < ApplicationController
 
     respond_to do |format|
       if @individual_role_record.save
-        format.html { redirect_to @individual_role_record, notice: 'Individual role record was successfully created.' }
-        format.json { render json: @individual_role_record, status: :created, location: @individual_role_record }
+        format.html { redirect_to @individual_role_record, :notice => 'Individual role record was successfully created.' }
+        format.json { render :json => @individual_role_record, :status => :created, :location => @individual_role_record }
       else
-        format.html { render action: "new" }
-        format.json { render json: @individual_role_record.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @individual_role_record.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class IndividualRoleRecordsController < ApplicationController
 
     respond_to do |format|
       if @individual_role_record.update_attributes(params[:individual_role_record])
-        format.html { redirect_to @individual_role_record, notice: 'Individual role record was successfully updated.' }
+        format.html { redirect_to @individual_role_record, :notice => 'Individual role record was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @individual_role_record.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @individual_role_record.errors, :status => :unprocessable_entity }
       end
     end
   end

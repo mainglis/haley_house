@@ -6,7 +6,7 @@ class GrantRecordsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @grant_records }
+      format.json { render :json => @grant_records }
     end
   end
 
@@ -17,7 +17,7 @@ class GrantRecordsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @grant_record }
+      format.json { render :json => @grant_record }
     end
   end
 
@@ -28,7 +28,7 @@ class GrantRecordsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @grant_record }
+      format.json { render :json => @grant_record }
     end
   end
 
@@ -44,11 +44,11 @@ class GrantRecordsController < ApplicationController
 
     respond_to do |format|
       if @grant_record.save
-        format.html { redirect_to @grant_record, notice: 'Grant record was successfully created.' }
-        format.json { render json: @grant_record, status: :created, location: @grant_record }
+        format.html { redirect_to @grant_record, :notice => 'Grant record was successfully created.' }
+        format.json { render :json => @grant_record, :status => :created, :location => @grant_record }
       else
-        format.html { render action: "new" }
-        format.json { render json: @grant_record.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @grant_record.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class GrantRecordsController < ApplicationController
 
     respond_to do |format|
       if @grant_record.update_attributes(params[:grant_record])
-        format.html { redirect_to @grant_record, notice: 'Grant record was successfully updated.' }
+        format.html { redirect_to @grant_record, :notice => 'Grant record was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @grant_record.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @grant_record.errors, :status => :unprocessable_entity }
       end
     end
   end
