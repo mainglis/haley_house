@@ -157,14 +157,6 @@ ActiveRecord::Schema.define(:version => 20130612193129) do
     t.datetime "updated_at",              :null => false
   end
 
-  create_table "organization_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "organization_id"
-    t.date     "start_date"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
   create_table "organizations", :force => true do |t|
     t.string   "name"
     t.text     "mission"
@@ -182,23 +174,6 @@ ActiveRecord::Schema.define(:version => 20130612193129) do
     t.string   "contact_email"
   end
 
-  create_table "organizations_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "organization_id"
-    t.date     "start_date"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  create_table "role_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "role_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.string   "description"
@@ -206,36 +181,11 @@ ActiveRecord::Schema.define(:version => 20130612193129) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "roles_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "role_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "skill_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "skill_id"
-    t.date     "date_gained"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "skills", :force => true do |t|
     t.string   "name"
     t.string   "level"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "skills_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "skill_id"
-    t.date     "date_gained"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
   end
 
   create_table "volunteers", :force => true do |t|
