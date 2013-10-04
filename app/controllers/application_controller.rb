@@ -3,4 +3,16 @@ class ApplicationController < ActionController::Base
   def index
   	
   end
+ 
+  before_filter :basic_http_authentication
+ 
+  private
+ 
+  def basic_http_authentication
+    if Rails.env.production?
+      authenticate_or_request_with_http_basic do |username, password|
+        username == 'haleyhouse' && password == 'dbtest123'
+      end
+    end
+  end
 end

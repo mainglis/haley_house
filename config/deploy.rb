@@ -1,3 +1,5 @@
+require 'bundler/capistrano'
+
 set :user, 'adamjcas'
 set :domain, '75.98.164.214'
 set :application, "haley_house"
