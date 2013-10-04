@@ -22,6 +22,9 @@ end
 
 gem 'jquery-rails'
 
+gem 'execjs'
+gem 'therubyracer'
+
 gem 'meta_search'  # Last officially released gem
 # gem "meta_search", :git => "git://github.com/ernie/meta_search.git" # Track git repo
 
