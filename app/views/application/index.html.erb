@@ -12,13 +12,13 @@
  <table cellspacing=20px>
       <tr>
         <!-- <th><a href="individuals" class="button_orange">Individuals<span style="font-size:14px;font-weight:normal"><br><br>(Volunteers, Donors, Staff, Friends, etc.)</span></a></th> -->
-        <th><%= link_to("Individuals<span style='font-size:14px;font-weight:normal'><br><br>(Volunteers, Donors, Staff, Friends, etc.)</span>".html_safe, individuals_path, class: "button_orange") %></th>
+        <th><%= link_to("Individuals<span style='font-size:14px;font-weight:normal'><br><br>(Volunteers, Donors, Staff, Friends, etc.)</span>".html_safe, individuals_path, :class => "button_orange") %></th>
 
        <!-- <th><a href="organizations" class="button_blue">Organizations<span style="font-size:14px;font-weight:normal"><br><br>(Partners, Customers, Similar Organizations, etc.)</span></a></th> -->
-        <th><%= link_to("Organizations<span style='font-size:14px;font-weight:normal'><br><br>(Partners, Customers, Similar Organizations, etc.)</span>".html_safe, individuals_path, class: "button_blue") %></th>
+        <th><%= link_to("Organizations<span style='font-size:14px;font-weight:normal'><br><br>(Partners, Customers, Similar Organizations, etc.)</span>".html_safe, individuals_path, :class => "button_blue") %></th>
 
        <!-- <th><a href="grantmakers" class="button_purple">Grants<span style="font-size:14px;font-weight:normal"><br><br>(Find foundations, add grant records, etc.)</span></a></th> -->
-        <th><%= link_to("Grants<span style='font-size:14px;font-weight:normal'><br><br>(Find foundations, add grant records, etc.)</span>".html_safe, individuals_path, class: "button_purple") %></th>
+        <th><%= link_to("Grants<span style='font-size:14px;font-weight:normal'><br><br>(Find foundations, add grant records, etc.)</span>".html_safe, individuals_path, :class => "button_purple") %></th>
    </tr></table>
 
 </body>
