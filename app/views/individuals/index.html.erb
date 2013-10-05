@@ -17,7 +17,7 @@
 <table cellspacing=5px padding=15px>
     <tr>
         <th>
-<h3><%= link_to 'Add New Individual', new_individual_path %></h3> </th><th>
+<h3><%#= link_to 'Add New Individual', new_individual_path %></h3> </th><th>
 
 <h3>Search Individuals</h3></th><th>
 
@@ -65,9 +65,9 @@
     <th></th>
     <th></th>
   </tr>
-  <td><%= link_to 'Show', individual %></td>
-  <td><%= link_to 'Edit', edit_individual_path(individual) %></td>
-  <td><%= link_to 'Destroy', individual, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  <td><%#= link_to 'Show', individual %></td>
+  <td><%#= link_to 'Edit', edit_individual_path(individual) %></td>
+  <td><%#= link_to 'Destroy', individual, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
