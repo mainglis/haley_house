@@ -1,49 +1,24 @@
 HaleyHouse::Application.routes.draw do
+  
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  root :to => 'application#index'
+
   resources :grantmakers
-
-
   resources :grant_records
-
-
   resources :individual_skill_records
-
-
   resources :individual_organization_records
-
-
   resources :individual_role_records
-
-
   resources :events
-
-
   resources :notes
-
-
   resources :donations
-
-
   resources :occupations
-
-
   resources :roles
-
-
   resources :skills
-
-
   resources :event_attendance_records
-
-
   resources :individuals
-
-
   resources :deadlines
-
-
   resources :volunteers
-
-
   resources :organizations
 
 
@@ -93,10 +68,6 @@ HaleyHouse::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'application#index'
 
   # See how all your routes lay out with "rake routes"
 
