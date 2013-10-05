@@ -1,27 +1,25 @@
 HaleyHouse::Application.routes.draw do
-
+  
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'application#index'
 
-  scope(:path => '/') do
-    resources :grantmakers
-    resources :grant_records
-    resources :individual_skill_records
-    resources :individual_organization_records
-    resources :individual_role_records
-    resources :events
-    resources :notes
-    resources :donations
-    resources :occupations
-    resources :roles
-    resources :skills
-    resources :event_attendance_records
-    resources :individuals
-    resources :deadlines
-    resources :volunteers
-    resources :organizations
-  end
+  resources :grantmakers
+  resources :grant_records
+  resources :individual_skill_records
+  resources :individual_organization_records
+  resources :individual_role_records
+  resources :events
+  resources :notes
+  resources :donations
+  resources :occupations
+  resources :roles
+  resources :skills
+  resources :event_attendance_records
+  resources :individuals
+  resources :deadlines
+  resources :volunteers
+  resources :organizations
 
 
   # The priority is based upon order of creation:

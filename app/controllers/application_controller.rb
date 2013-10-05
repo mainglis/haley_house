@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   end
  
   before_filter :basic_http_authentication
+  
+  before_filter :subdomain_view_path
  
   private
  
@@ -15,4 +17,9 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def subdomain_view_path
+    prepend_view_path "app/views/#{request.subdomain}_subdomain" if request.subdomain.present?
+  end
+
 end
