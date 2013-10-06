@@ -4,24 +4,10 @@ HaleyHouse::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'application#index'
 
-  match 'individuals', :to => 'individuals#index'
-
-  resources :grantmakers
-  resources :grant_records
-  resources :individual_skill_records
-  resources :individual_organization_records
-  resources :individual_role_records
-  resources :events
-  resources :notes
-  resources :donations
-  resources :occupations
-  resources :roles
-  resources :skills
-  resources :event_attendance_records
-  # resources :individuals
-  resources :deadlines
-  resources :volunteers
-  resources :organizations
+  resources :grantmakers, :grant_records, :deadlines, :notes
+  resources :individuals, :individual_skill_records, :individual_organization_records, :individual_role_records
+  resources :donations, :occupations, :roles, :skills, :volunteers, :organizations
+  resources :events, :event_attendance_records
 
 
   # The priority is based upon order of creation:
