@@ -83,6 +83,6 @@ class IndividualsController < ApplicationController
 
   def import
     Individual.import(params[:file])
-    redirect_to individuals_url, notice: "Individuals imported."
+    redirect_to individuals_url, :notice => "Individuals imported."
   end
 end
