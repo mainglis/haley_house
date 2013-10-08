@@ -3,23 +3,97 @@
   <head>
 
     <title>Haley House Database</title>
-
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+      <![endif]-->
     <%= stylesheet_link_tag     "application", :media => "all" %> 
-
-    <%#= javascript_include_tag "application" %>
-
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
   <body>
+    
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Haley House Database</a>
+            <div class="nav-collapse">
+          
+              <ul class="nav">
+              <li><%= link_to "Individuals", individuals_path %></li>
+              <li><%= link_to "Grants", grantmakers_path %></li>
+              <li><%= link_to "Organizations", organizations_path %></li>
+              <li><%= link_to "Help" %></li>
+            </ul>
+            <!-- <p class="navbar-text pull-right">
+                Logged in as <a href="#" class="navbar-link">Username</a>
+              </p> -->
 
-    <!-- <img src="haley_house/app/assets/haleyhousemug.jpg"> -->
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
 
-    <%= link_to("Haley House Database", root_path, :class => "button_index") %>
+    <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                <li class="nav-header"><%= link_to "Individuals", individuals_path %></li>
+                <!-- <li class="active"><a href="#">Link</a></li> -->
+                <li><a href="#">Search individuals</a></li>
+                <li><a href="#">Add/edit information</a></li>
+                <li><a href="#">Pull individual reports</a></li>
+                <li class="nav-header"><%= link_to "Grants", grantmakers_path %></li>
+                <li><a href="#">Search grants</a></li>
+                <li><a href="#">Add/edit information</a></li>
+                <li><a href="#">Pull grant reports</a></li>
+    
+                <li class="nav-header"><%= link_to "Organizations", organizations_path %></li>
+                <li><a href="#">Search organizations</a></li>
+                <li><a href="#">Add/edit information</a></li>
+                <li><a href="#">Pull organziation reports</a></li>
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
 
-    <p></p>
+    <!-- <div class="container">
+      <div class="row">
+        <div class="span3"><%#= yield %></div>
+          <div class="span9">
+              <h2>Trying This</h2>
+              <p>And more</p>
+          </div>
+      </div> -->
 
-    <%= yield %>
+    <div class="span9"><%= yield %>
+            <!--<div class="hero-unit"><%#= yield %>
+              <h1>Hello, Haley House!</h1>
+              <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+              <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            </div> -->
 
+             
+            
+          </div><!--/span-->
+        </div><!--/row-->
+
+        <hr>
+
+        <footer>
+          <!-- <p>&copy; Company 2013</p> -->
+        </footer>
+
+      </div>  
+    
+    <%#= link_to("Haley House Database", root_path, :class => "button_index") %>
+ 
+    </div>
   </body>
 </html>

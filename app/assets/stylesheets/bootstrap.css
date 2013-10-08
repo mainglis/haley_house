@@ -2336,6 +2336,33 @@ fieldset[disabled] .btn-link:focus {
   border-radius: 3px;
 }
 
+.btn-sm-blue,
+.btn-xs-blue {
+  background-color: #7A999E;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.btn-sm-orange,
+.btn-xs-orange {
+  background-color: #C25E2C;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.btn-sm-purple,
+.btn-xs-purple {
+  background-color: #B286A6;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
 .btn-xs {
   padding: 1px 5px;
 }
