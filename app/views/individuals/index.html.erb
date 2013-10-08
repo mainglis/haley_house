@@ -85,6 +85,12 @@
   <% end %>
 </table>
 
+<h2>Import Individuals</h2>
+<%= form_tag import_individuals_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
 <br />
 
 

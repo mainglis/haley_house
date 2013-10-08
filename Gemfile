@@ -18,12 +18,14 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
 
 gem 'execjs'
 gem 'therubyracer', :require => 'execjs'
+gem "less-rails"
 
 gem 'meta_search'  # Last officially released gem
 # gem "meta_search", :git => "git://github.com/ernie/meta_search.git" # Track git repo

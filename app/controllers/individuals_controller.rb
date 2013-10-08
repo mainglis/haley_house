@@ -80,4 +80,9 @@ class IndividualsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def import
+    Individual.import(params[:file])
+    redirect_to individuals_url, notice: "Individuals imported."
+  end
 end
