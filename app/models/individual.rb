@@ -8,7 +8,7 @@ class Individual < ActiveRecord::Base
                   :permanent_zip, :phone_home, :phone_mobile, :phone_mobile, :phone_work, :processed_date, :salutation
                   
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach(file.path, :headers => true) do |row|
       Individual.create! row.to_hash
     end
   end
