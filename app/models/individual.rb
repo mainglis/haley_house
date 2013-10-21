@@ -9,7 +9,10 @@ class Individual < ActiveRecord::Base
                   
   def self.import(file)
     CSV.foreach(file.path, :headers => true) do |row|
-      Individual.create! row.to_hash
+      individual = find_by_id(row["id"]) || new
+      individual.attributes = row.to_hash.slice(*accessible_attributes)
+      individual.save!
     end
-  end
+  end  
 end
+
