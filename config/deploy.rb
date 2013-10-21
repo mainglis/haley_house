@@ -1,4 +1,7 @@
 require 'bundler/capistrano'
+#/ require 'capistrano/ext/multistage'
+#/ set :stages, ["staging", "production"]
+#/ set :default_stage, "staging"
 
 set :user, 'adamjcas'
 set :domain, '75.98.164.214'
