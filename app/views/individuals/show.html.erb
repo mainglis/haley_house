@@ -1,120 +1,63 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Individual -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <b>First name:</b>
-  <%= @individual.first_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @individual.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @individual.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:salutation) %>:</strong></dt>
+  <dd><%= @individual.salutation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @individual.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:current_street_address) %>:</strong></dt>
+  <dd><%= @individual.current_street_address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:current_city) %>:</strong></dt>
+  <dd><%= @individual.current_city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:current_zip) %>:</strong></dt>
+  <dd><%= @individual.current_zip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:permanent_street_address) %>:</strong></dt>
+  <dd><%= @individual.permanent_street_address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:permanent_city) %>:</strong></dt>
+  <dd><%= @individual.permanent_city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:permanent_zip) %>:</strong></dt>
+  <dd><%= @individual.permanent_zip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_mobile) %>:</strong></dt>
+  <dd><%= @individual.phone_mobile %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_work) %>:</strong></dt>
+  <dd><%= @individual.phone_work %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_home) %>:</strong></dt>
+  <dd><%= @individual.phone_home %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emergency_contact_name) %>:</strong></dt>
+  <dd><%= @individual.emergency_contact_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emergency_contact_street_address) %>:</strong></dt>
+  <dd><%= @individual.emergency_contact_street_address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emergency_contact_city) %>:</strong></dt>
+  <dd><%= @individual.emergency_contact_city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:emergency_contact_zip) %>:</strong></dt>
+  <dd><%= @individual.emergency_contact_zip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email_newsletter) %>:</strong></dt>
+  <dd><%= @individual.email_newsletter %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mail_newsletter) %>:</strong></dt>
+  <dd><%= @individual.mail_newsletter %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:applied_date) %>:</strong></dt>
+  <dd><%= @individual.applied_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:processed_date) %>:</strong></dt>
+  <dd><%= @individual.processed_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:inactive_date) %>:</strong></dt>
+  <dd><%= @individual.inactive_date %></dd>
+</dl>
 
-<p>
-  <b>Last name:</b>
-  <%= @individual.last_name %>
-</p>
-
-<p>
-  <b>Salutation:</b>
-  <%= @individual.salutation %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @individual.email %>
-</p>
-
-<p>
-  <b>Current street address:</b>
-  <%= @individual.current_street_address %>
-</p>
-
-<p>
-  <b>Current city:</b>
-  <%= @individual.current_city %>
-</p>
-
-<p>
-  <b>Current zip:</b>
-  <%= @individual.current_zip %>
-</p>
-
-<p>
-  <b>Permanent street address:</b>
-  <%= @individual.permanent_street_address %>
-</p>
-
-<p>
-  <b>Permanent city:</b>
-  <%= @individual.permanent_city %>
-</p>
-
-<p>
-  <b>Permanent zip:</b>
-  <%= @individual.permanent_zip %>
-</p>
-
-<p>
-  <b>Phone mobile:</b>
-  <%= @individual.phone_mobile %>
-</p>
-
-<p>
-  <b>Phone work:</b>
-  <%= @individual.phone_work %>
-</p>
-
-<p>
-  <b>Phone home:</b>
-  <%= @individual.phone_home %>
-</p>
-
-<p>
-  <b>Phone mobile:</b>
-  <%= @individual.phone_mobile %>
-</p>
-
-<p>
-  <b>Emergency contact name:</b>
-  <%= @individual.emergency_contact_name %>
-</p>
-
-<p>
-  <b>Emergency contact street address:</b>
-  <%= @individual.emergency_contact_street_address %>
-</p>
-
-<p>
-  <b>Emergency contact city:</b>
-  <%= @individual.emergency_contact_city %>
-</p>
-
-<p>
-  <b>Emergency contact zip:</b>
-  <%= @individual.emergency_contact_zip %>
-</p>
-
-<p>
-  <b>Email newsletter:</b>
-  <%= @individual.email_newsletter %>
-</p>
-
-<p>
-  <b>Mail newsletter:</b>
-  <%= @individual.mail_newsletter %>
-</p>
-
-<p>
-  <b>Applied date:</b>
-  <%= @individual.applied_date %>
-</p>
-
-<p>
-  <b>Processed date:</b>
-  <%= @individual.processed_date %>
-</p>
-
-<p>
-  <b>Inactive date:</b>
-  <%= @individual.inactive_date %>
-</p>
-
-
-<%= link_to 'Edit', edit_individual_path(@individual) %> |
-<%= link_to 'Back', individuals_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              individuals_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_individual_path(@individual), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              individual_path(@individual),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

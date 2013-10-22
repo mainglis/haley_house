@@ -7,8 +7,11 @@ class IndividualsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @individuals }
+       format.csv { render :text => @individuals.to_csv }
+       #/ format.xls { send_data @individuals.to_csv(col_sep: "/t") }
     end
   end
+  
 
   # GET /individuals/1
   # GET /individuals/1.json

@@ -1,74 +1,66 @@
-<h3><%= link_to 'New Grantmaker', new_grantmaker_path %></h3>
-
-<h3>Search Grantmakers</h3>
-<%= form_for @search, :url => grantmakers_path, :html => {:method => :get} do |f| %>
-  <%= f.label :name_contains, 'Name contains:' %>
-  <%= f.text_field :name_contains %><br />
-  <%= f.label :city_contains, 'City:' %>
-  <%= f.text_field :city_contains %><br />
-  <%= f.label :grant_records_fiscal_year_contains, 'Fiscal Year:' %>
-  <%= f.text_field :grant_records_fiscal_year_contains %><br />
-  <!-- -->
-  <%= f.submit 'Search' %>
-  <%= f.submit 'Clear' %>
-<% end %>
-
-<h3>Listing Grantmakers</h3>
-
-<% if @grantmakers.size > 0 %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Rank</th>
-    <th>Unsolicited proposals</th>
-    <th>Mission</th>
-    <th>Website</th>
-    <th>Street address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip code</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Contact first name</th>
-    <th>Contact last name</th>
-    <th>Contact email</th>
-    <th>Contact phone number</th>
-    <th>Notes</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @grantmakers.each do |grantmaker| %>
-  <tr>
-    <td><%= grantmaker.name %></td>
-    <td><%= grantmaker.rank %></td>
-    <td><%= grantmaker.unsolicited_proposals %></td>
-    <td><%= grantmaker.mission %></td>
-    <td><%= grantmaker.website %></td>
-    <td><%= grantmaker.street_address %></td>
-    <td><%= grantmaker.city %></td>
-    <td><%= grantmaker.state %></td>
-    <td><%= grantmaker.zip_code %></td>
-    <td><%= grantmaker.phone %></td>
-    <td><%= grantmaker.email %></td>
-    <td><%= grantmaker.contact_first_name %></td>
-    <td><%= grantmaker.contact_last_name %></td>
-    <td><%= grantmaker.contact_email %></td>
-    <td><%= grantmaker.contact_phone_number %></td>
-    <td><%= grantmaker.notes %></td>
-    <td><%= link_to 'Show', grantmaker %></td>
-    <td><%= link_to 'Edit', edit_grantmaker_path(grantmaker) %></td>
-    <td><%= link_to 'Destroy', grantmaker, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Grantmaker -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:rank) %></th>
+      <th><%= model_class.human_attribute_name(:unsolicited_proposals) %></th>
+      <th><%= model_class.human_attribute_name(:mission) %></th>
+      <th><%= model_class.human_attribute_name(:website) %></th>
+      <th><%= model_class.human_attribute_name(:street_address) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zip_code) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:contact_first_name) %></th>
+      <th><%= model_class.human_attribute_name(:contact_last_name) %></th>
+      <th><%= model_class.human_attribute_name(:contact_email) %></th>
+      <th><%= model_class.human_attribute_name(:contact_phone_number) %></th>
+      <th><%= model_class.human_attribute_name(:notes) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grantmakers.each do |grantmaker| %>
+      <tr>
+        <td><%= link_to grantmaker.id, grantmaker_path(grantmaker) %></td>
+        <td><%= grantmaker.name %></td>
+        <td><%= grantmaker.rank %></td>
+        <td><%= grantmaker.unsolicited_proposals %></td>
+        <td><%= grantmaker.mission %></td>
+        <td><%= grantmaker.website %></td>
+        <td><%= grantmaker.street_address %></td>
+        <td><%= grantmaker.city %></td>
+        <td><%= grantmaker.state %></td>
+        <td><%= grantmaker.zip_code %></td>
+        <td><%= grantmaker.phone %></td>
+        <td><%= grantmaker.email %></td>
+        <td><%= grantmaker.contact_first_name %></td>
+        <td><%= grantmaker.contact_last_name %></td>
+        <td><%= grantmaker.contact_email %></td>
+        <td><%= grantmaker.contact_phone_number %></td>
+        <td><%= grantmaker.notes %></td>
+        <td><%=l grantmaker.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_grantmaker_path(grantmaker), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      grantmaker_path(grantmaker),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<% else %>
-    Sorry, no organizations matched your search!
-<% end %>
-
-<br />
-<br />
-
-
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_grantmaker_path,
+            :class => 'btn btn-primary' %>

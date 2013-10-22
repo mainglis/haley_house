@@ -1,121 +1,140 @@
-<%= form_for(@individual) do |f| %>
-  <% if @individual.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@individual.errors.count, "error") %> prohibited this individual from being saved:</h2>
-
-      <ul>
-      <% @individual.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @individual, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :first_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :first_name, :class => 'text_field' %>
     </div>
-  <% end %>
-      <table class="table_individuals">
-        <tr><th>
-      <div class="field">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
-      </div></th></tr>
-    <tr><th>
-      <div class="field">
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
-      </div></th></tr>
-    <tr><th>
-      <div class="field">
-        <%= f.label :salutation %>
-        <%= f.text_field :salutation %>
-      </div></th></tr>
-    <tr><th>
-      <div class="field">
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-      </div></th></tr>
-    <tr><th>
-      <div class="field">
-        <%= f.label :current_street_address %>
-        <%= f.text_field :current_street_address %>
-      </div></th></tr>
-    <tr><th>
-      <div class="field">
-        <%= f.label :current_city %>
-        <%= f.text_field :current_city %>
-      </div></th></tr>
-    <tr><th>
-      <div class="field">
-        <%= f.label :current_zip %>
-        <%= f.text_field :current_zip %>
-      </div>
-    </th></tr>
-    <tr><th>
-      <div class="field">
-        <%= f.label :permanent_street_address %>
-        <%= f.text_field :permanent_street_address %>
-      </div></th></tr>
-    <tr><th>
-      <div class="field">
-        <%= f.label :permanent_city %>
-        <%= f.text_field :permanent_city %>
-      </div>
-      <div class="field">
-        <%= f.label :permanent_zip %>
-        <%= f.text_field :permanent_zip %>
-      </div>
-      <div class="field">
-        <%= f.label :phone_mobile %>
-        <%= f.text_field :phone_mobile %>
-      </div>
-      <div class="field">
-        <%= f.label :phone_work %>
-        <%= f.text_field :phone_work %>
-      </div>
-      <div class="field">
-        <%= f.label :phone_home %>
-        <%= f.text_field :phone_home %>
-      </div>
-      <div class="field">
-        <%= f.label :phone_mobile %>
-        <%= f.text_field :phone_mobile %>
-      </div>
-      </th><th>
-      <div class="field">
-        <%= f.label :emergency_contact_name %>
-        <%= f.text_field :emergency_contact_name %>
-      </div>
-      <div class="field">
-        <%= f.label :emergency_contact_street_address %>
-        <%= f.text_field :emergency_contact_street_address %>
-      </div>
-      <div class="field">
-        <%= f.label :emergency_contact_city %>
-        <%= f.text_field :emergency_contact_city %>
-      </div>
-      <div class="field">
-        <%= f.label :emergency_contact_zip %>
-        <%= f.text_field :emergency_contact_zip %>
-      </div>
-          </th><th>
-      <div class="field">
-        <%= f.label :email_newsletter %>
-        <%= f.check_box :email_newsletter %>
-      </div>
-      <div class="field">
-        <%= f.label :mail_newsletter %>
-        <%= f.check_box :mail_newsletter %>
-      </div>
-      <div class="field">
-        <%= f.label :applied_date %>
-        <%= f.date_select :applied_date %>
-      </div>
-      <div class="field">
-        <%= f.label :processed_date %>
-        <%= f.date_select :processed_date %>
-      </div>
-      <div class="field">
-        <%= f.label :inactive_date %>
-        <%= f.date_select :inactive_date %>
-      </div>
-  <div class="actions">
-    <%= f.submit %>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :last_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :salutation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :salutation, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :current_street_address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :current_street_address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :current_city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :current_city, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :current_zip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :current_zip, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :permanent_street_address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :permanent_street_address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :permanent_city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :permanent_city, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :permanent_zip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :permanent_zip, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :phone_mobile, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone_mobile, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :phone_work, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone_work, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :phone_home, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone_home, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :emergency_contact_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :emergency_contact_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :emergency_contact_street_address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :emergency_contact_street_address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :emergency_contact_city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :emergency_contact_city, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :emergency_contact_zip, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :emergency_contact_zip, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email_newsletter, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :email_newsletter, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mail_newsletter, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :mail_newsletter, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :applied_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :applied_date, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :processed_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :processed_date, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :inactive_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :inactive_date, :class => 'date_select' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                individuals_path, :class => 'btn' %>
   </div>
 <% end %>

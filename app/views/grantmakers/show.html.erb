@@ -1,133 +1,51 @@
-<h2>Showing Grantmaker</h2>
+<%- model_class = Grantmaker -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p id="notice"><%= notice %></p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @grantmaker.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rank) %>:</strong></dt>
+  <dd><%= @grantmaker.rank %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:unsolicited_proposals) %>:</strong></dt>
+  <dd><%= @grantmaker.unsolicited_proposals %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mission) %>:</strong></dt>
+  <dd><%= @grantmaker.mission %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
+  <dd><%= @grantmaker.website %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:street_address) %>:</strong></dt>
+  <dd><%= @grantmaker.street_address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @grantmaker.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= @grantmaker.state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zip_code) %>:</strong></dt>
+  <dd><%= @grantmaker.zip_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @grantmaker.phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @grantmaker.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_first_name) %>:</strong></dt>
+  <dd><%= @grantmaker.contact_first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_last_name) %>:</strong></dt>
+  <dd><%= @grantmaker.contact_last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
+  <dd><%= @grantmaker.contact_email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_phone_number) %>:</strong></dt>
+  <dd><%= @grantmaker.contact_phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
+  <dd><%= @grantmaker.notes %></dd>
+</dl>
 
-<p>
-  <b>Name:</b>
-  <%= @grantmaker.name %>
-</p>
-
-<p>
-  <b>Rank:</b>
-  <%= @grantmaker.rank %>
-</p>
-
-<p>
-  <b>Unsolicited proposals:</b>
-  <%= @grantmaker.unsolicited_proposals %>
-</p>
-
-<p>
-  <b>Mission:</b>
-  <%= @grantmaker.mission %>
-</p>
-
-<p>
-  <b>Website:</b>
-  <%= @grantmaker.website %>
-</p>
-
-<p>
-  <b>Street address:</b>
-  <%= @grantmaker.street_address %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @grantmaker.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @grantmaker.state %>
-</p>
-
-<p>
-  <b>Zip code:</b>
-  <%= @grantmaker.zip_code %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @grantmaker.phone %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @grantmaker.email %>
-</p>
-
-<p>
-  <b>Contact first name:</b>
-  <%= @grantmaker.contact_first_name %>
-</p>
-
-<p>
-  <b>Contact last name:</b>
-  <%= @grantmaker.contact_last_name %>
-</p>
-
-<p>
-  <b>Contact email:</b>
-  <%= @grantmaker.contact_email %>
-</p>
-
-<p>
-  <b>Contact phone number:</b>
-  <%= @grantmaker.contact_phone_number %>
-</p>
-
-<p>
-  <b>Notes:</b>
-  <%= @grantmaker.notes %>
-</p>
-
-
-<%= link_to 'Edit', edit_grantmaker_path(@grantmaker) %> |
-<%= link_to 'Back', grantmakers_path %>
-
-<h2>Listing Grant Records</h2>
-
-<% if @grant_records.nil? %>
-  There are no grand records for this grantmaker
-<% else %>
-
-  <table>
-    <tr>
-      <th>Grantmaker</th>
-      <th>Organization</th>
-      <th>Fiscal year</th>
-      <th>Notification date</th>
-      <th>Ask status</th>
-      <th>Request type</th>
-      <th>Funding type</th>
-      <th>Amount</th>
-      <th>Program</th>
-      <th>Notes</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  <% @grant_records.each do |grant_record| %>
-    <tr>
-      <td><%= grant_record.grantmaker_id %></td>
-      <td><%= grant_record.organization_id %></td>
-      <td><%= grant_record.fiscal_year %></td>
-      <td><%= grant_record.notification_date %></td>
-      <td><%= grant_record.ask_status %></td>
-      <td><%= grant_record.request_type %></td>
-      <td><%= grant_record.funding_type %></td>
-      <td><%= grant_record.amount %></td>
-      <td><%= grant_record.program %></td>
-      <td><%= grant_record.notes %></td>
-      <td><%= link_to 'Show', grant_record %></td>
-      <td><%= link_to 'Edit', edit_grant_record_path(grant_record) %></td>
-      <td><%= link_to 'Destroy', grant_record, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </table>
-
-  <br />
-
-  <%= link_to 'New Grant record', new_grant_record_path %>
-<% end %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              grantmakers_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_grantmaker_path(@grantmaker), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              grantmaker_path(@grantmaker),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
