@@ -18,14 +18,19 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
 end
 
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 
 gem 'execjs'
-gem 'therubyracer', :require => 'execjs'
+
+gem 'less-rails-bootstrap'
 gem 'less-rails'
+gem 'less'
+gem 'therubyracer', :require => 'execjs'
+gem 'libv8'
 gem 'roo'
 
 
