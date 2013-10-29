@@ -29,9 +29,9 @@ gem 'execjs'
 gem 'less-rails-bootstrap'
 gem 'less-rails'
 gem 'less'
-gem 'therubyracer', :require => 'execjs'
-gem 'libv8'
-gem 'roo'
+# gem 'therubyracer', :require => 'execjs'
+# gem 'libv8'
+# gem 'roo'
 
 
 gem 'meta_search'  # Last officially released gem
@@ -47,7 +47,7 @@ gem 'meta_search'  # Last officially released gem
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '~> 2.15.5'
 # gem 'rvm-capistrano'
 
 # To use debugger
