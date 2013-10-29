@@ -29,7 +29,7 @@ gem 'execjs'
 gem 'less-rails-bootstrap'
 gem 'less-rails'
 gem 'less'
-# gem 'therubyracer', :require => 'execjs'
+gem 'therubyracer', :require => 'execjs'
 # gem 'libv8'
 # gem 'roo'
 
