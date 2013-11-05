@@ -1,16 +1,5 @@
 <%= render :partial => 'header' %>
 
-<!-- <div class="well">
-
-  <input type="search"> 
-  <form class="form-search">Search by name/location/etc.
-    <div class="input-append">
-    <input type="text" class="span8 search-query">
-        <button type="submit" class="btn"><i class="icon-search"></i></button>
-    </div>
-  </form>
-
-</div> <!--/.well --> 
 <div class="well">
 <%= form_for @search, :url => individuals_path, :html => {:method => :get} do |f| %>
   <%= f.label :first_name_or_last_name_contains, "Enter First or Last Name" %>

@@ -1,0 +1,7 @@
+<%= render :partial => 'header' %>
+
+<h2>Import Organization Records</h2>
+<%= form_tag import_organizations_path, :multipart => true do%>
+<%= file_field_tag :file %>
+<%= submit_tag "Import" %>
+<% end %>

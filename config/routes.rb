@@ -4,14 +4,24 @@ HaleyHouse::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'application#index'
 
-  resources :grantmakers, :grant_records, :deadlines, :notes
+
+  resources :grant_records, :deadlines, :notes
   resources :individual_skill_records, :individual_organization_records, :individual_role_records
-  resources :donations, :occupations, :roles, :skills, :volunteers, :organizations
+  resources :donations, :occupations, :roles, :skills, :volunteers
   resources :events, :event_attendance_records
   resources :individuals do
     collection { post :import }
     collection { get :new_import }
   end
+  resources :grantmakers do 
+    collection { post :import }
+    collection { get :new_import }
+  end 
+  resources :organizations do 
+    collection { post :import }
+    collection { get :new_import }
+  end 
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

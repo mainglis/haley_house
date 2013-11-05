@@ -1,32 +1,16 @@
- <ul class="nav nav-tabs">
-    <li class="tab-pane"><%= link_to "Search", individuals_path %></li>
-    <li class="tab-pane"><%= link_to "Add new", individuals_path %></li>
-    <li class="tab-pane"><%= link_to "Edit", organizations_path %></li>
-    <li class="tab-pane" ><%= link_to "Pull report" %></li>
-</ul>
+<%= render :partial => 'header' %>
+
 <div class="well">
-  <!-- <input type="search"> -->
-  <form class="form-search">Search by name/location/etc.
-    <div class="input-append">
-    <input type="text" class="span8 search-query">
-        <button type="submit" class="btn"><i class="icon-search"></i></button>
-    </div>
-  </form>
+ <%= form_for @search, :url => grantmakers_path, :html => {:method => :get} do |f| %>
+  <%= f.label :name_contains, "Search by Name" %>
+  <%= f.text_field :name_contains %><br />
+  <%#= f.label :comments_created_at_greater_than, 'With comments after' %>
+  <%#= f.datetime_select :comments_created_at_greater_than, :include_blank => true %><br />
+  <!-- etc... -->
+  <%= f.submit "Search", :class => "btn" %>
+<% end %>
 </div> <!--/.well -->
-<div class="span3">
-            <div class="well sidebar-nav">
-              <ul class="nav nav-list">
-
-                <li class="nav-header"><%= link_to "Grants", grantmakers_path %></li>
-                <li><a href="#">Search grants</a></li>
-                <li><a href="#">Add/edit information</a></li>
-                <li><a href="#">Pull grant reports</a></li>
-
-              </ul>
-            </div><!--/.well -->
-          </div><!--/span-->
-
-    <div class="span9">   
+<div class="span9">   
 
 <%- model_class = Grantmaker -%>
 <div class="page-header">
@@ -35,7 +19,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:rank) %></th>
       <th><%= model_class.human_attribute_name(:unsolicited_proposals) %></th>
@@ -43,23 +27,23 @@
       <th><%= model_class.human_attribute_name(:website) %></th>
       <th><%= model_class.human_attribute_name(:street_address) %></th>
       <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%= model_class.human_attribute_name(:state) %></th>
+<!--       <th><%= model_class.human_attribute_name(:state) %></th>
       <th><%= model_class.human_attribute_name(:zip_code) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:contact_first_name) %></th>
       <th><%= model_class.human_attribute_name(:contact_last_name) %></th>
       <th><%= model_class.human_attribute_name(:contact_email) %></th>
-      <th><%= model_class.human_attribute_name(:contact_phone_number) %></th>
+      <th><%= model_class.human_attribute_name(:contact_phone_number) %></th> -->
       <th><%= model_class.human_attribute_name(:notes) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+ <!--      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
     </tr>
   </thead>
   <tbody>
     <% @grantmakers.each do |grantmaker| %>
       <tr>
-        <td><%= link_to grantmaker.id, grantmaker_path(grantmaker) %></td>
+        <!-- <td><%= link_to grantmaker.id, grantmaker_path(grantmaker) %></td> -->
         <td><%= grantmaker.name %></td>
         <td><%= grantmaker.rank %></td>
         <td><%= grantmaker.unsolicited_proposals %></td>
@@ -67,17 +51,19 @@
         <td><%= grantmaker.website %></td>
         <td><%= grantmaker.street_address %></td>
         <td><%= grantmaker.city %></td>
-        <td><%= grantmaker.state %></td>
+        <!-- <td><%= grantmaker.state %></td>
         <td><%= grantmaker.zip_code %></td>
         <td><%= grantmaker.phone %></td>
         <td><%= grantmaker.email %></td>
         <td><%= grantmaker.contact_first_name %></td>
         <td><%= grantmaker.contact_last_name %></td>
         <td><%= grantmaker.contact_email %></td>
-        <td><%= grantmaker.contact_phone_number %></td>
+        <td><%= grantmaker.contact_phone_number %></td> -->
         <td><%= grantmaker.notes %></td>
-        <td><%=l grantmaker.created_at %></td>
+        <!-- <td><%=l grantmaker.created_at %></td> -->
         <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                            grantmaker_path(grantmaker), :class => 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_grantmaker_path(grantmaker), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
