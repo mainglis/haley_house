@@ -1,5 +1,16 @@
-<%- model_class = Individual -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
-</div>
+<%= render :partial => 'header' %>
+
+<ul class="nav nav-tabs">
+    <li class="tab-pane"><%= link_to "Search", individuals_path %></li>
+    <li class="tab-pane"><%= link_to "Add new", new_individual_path %></li>
+    <li class="tab-pane"><%= link_to "Edit", organizations_path %></li>
+    <li class="tab-pane" ><%= link_to "Pull report" %></li>
+</ul>
+<div class="well">
+  <%- model_class = Individual -%>
+
+  <h4><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h4>
+
 <%= render :partial => 'form' %>
+
+</div> <!--/.well -->

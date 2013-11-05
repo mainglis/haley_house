@@ -1,3 +1,33 @@
+ <ul class="nav nav-tabs">
+    <li class="tab-pane"><%= link_to "Search", individuals_path %></li>
+    <li class="tab-pane"><%= link_to "Add new", individuals_path %></li>
+    <li class="tab-pane"><%= link_to "Edit", organizations_path %></li>
+    <li class="tab-pane" ><%= link_to "Pull report" %></li>
+</ul>
+<div class="well">
+  <!-- <input type="search"> -->
+  <form class="form-search">Search by name/location/etc.
+    <div class="input-append">
+    <input type="text" class="span8 search-query">
+        <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+</div> <!--/.well -->
+<div class="span3">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+
+                <li class="nav-header"><%= link_to "Grants", grantmakers_path %></li>
+                <li><a href="#">Search grants</a></li>
+                <li><a href="#">Add/edit information</a></li>
+                <li><a href="#">Pull grant reports</a></li>
+
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
+
+    <div class="span9">   
+
 <%- model_class = Grantmaker -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
@@ -64,3 +94,5 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_grantmaker_path,
             :class => 'btn btn-primary' %>
+
+</div><!--/span-->

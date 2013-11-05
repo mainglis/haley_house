@@ -10,6 +10,7 @@ HaleyHouse::Application.routes.draw do
   resources :events, :event_attendance_records
   resources :individuals do
     collection { post :import }
+    collection { get :new_import }
   end
 
   # The priority is based upon order of creation:

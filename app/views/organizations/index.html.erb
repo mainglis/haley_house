@@ -1,3 +1,48 @@
+ <ul class="nav nav-tabs">
+    <li class="tab-pane"><%= link_to "Search", organizations_path %></li>
+    <li class="tab-pane"><%= link_to "Add new", new_organization_path %></li>
+    <li class="tab-pane"><%= link_to "Edit", organizations_path %></li>
+    <li class="tab-pane" ><%= link_to "Pull report" %></li>
+</ul>
+
+<!-- Original example of nav-tabs pulled from online 
+<ul class="nav nav-tabs">
+  <li><a href="index.html.erb" data-toggle="tab">Home</a></li>
+  <li><a href="new.html.erb" data-toggle="tab">New</a></li>
+  <li><a href="#messages" data-toggle="tab">Messages</a></li>
+  <li><a href="#settings" data-toggle="tab">Settings</a></li>
+</ul>
+-->
+<!-- Not sure why we need this 
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home">...</div>
+  <div class="tab-pane" id="profile">...</div>
+  <div class="tab-pane" id="messages">...</div>
+  <div class="tab-pane" id="settings">...</div>
+</div>
+ 
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+</script>
+-->
+<div class="well">
+  <!-- <input type="search"> -->
+  <form class="form-search">Search by name/location/etc.
+    <div class="input-append">
+    <input type="text" class="span8 search-query">
+        <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+</div> <!--/.well -->
+
+
+   
+
+    <div class="span9">
+
 <%- model_class = Organization -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
@@ -56,3 +101,5 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_organization_path,
             :class => 'btn btn-primary' %>
+
+     </div><!--/span-->

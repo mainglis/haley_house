@@ -1,0 +1,13 @@
+ <ul class="nav nav-tabs">
+    <li class="tab-pane"><%= (@action == 'index') ? link_to("-Search-", individuals_path) : link_to("Search", individuals_path) %></li>
+    <li class="tab-pane"><%= link_to "Add new", new_individual_path %></li>
+    <li class="tab-pane"><%= link_to "Import Records", new_import_individuals_path %></li>
+    <li class="tab-pane" ><%= link_to "Pull report" %></li>
+</ul>
+
+<!--  <ul class="nav nav-tabs">
+    <li class="<%= @action == 'index' ? "selected" : "tab-pane"%>"><%= link_to("Search", individuals_path) %></li>
+    <li class="tab-pane"><%= link_to "Add new", new_individual_path %></li>
+    <li class="tab-pane"><%= link_to "Import Records", new_import_individuals_path %></li>
+    <li class="tab-pane" ><%= link_to "Pull report" %></li>
+</ul> -->
