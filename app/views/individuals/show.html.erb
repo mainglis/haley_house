@@ -52,6 +52,12 @@
   <dd><%= @individual.inactive_date %></dd>
 </dl>
 
+<h2>Roles</h2>
+<% @individual.individual_role_records.each do |individual_role_record| %>
+  <%= individual_role_record.role.name %><br/>
+<% end -%>
+<%= link_to "Create New Role Record", new_individual_role_record_path %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               individuals_path, :class => 'btn'  %>
