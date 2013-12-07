@@ -1,0 +1,6 @@
+ <ul class="nav nav-tabs">
+    <li class="tab-pane"><%= (@action == 'index') ? link_to("-Search-", grantmakers_path) : link_to("Search", grantmakers_path) %></li>
+    <li class="tab-pane"><%= link_to "Add new", new_grantmaker_path %></li>
+    <li class="tab-pane"><%= link_to "Import Records", new_import_grantmakers_path %></li>
+    <li class="tab-pane" ><%= link_to "Pull report" %></li>
+</ul>

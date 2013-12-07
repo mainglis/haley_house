@@ -1,5 +1,16 @@
-<h3>New individual</h3>
+<%= render :partial => 'header' %>
 
-<%= render 'form' %>
+<ul class="nav nav-tabs">
+    <li class="tab-pane"><%= link_to "Search", individuals_path %></li>
+    <li class="tab-pane"><%= link_to "Add new", new_individual_path %></li>
+    <li class="tab-pane"><%= link_to "Edit", organizations_path %></li>
+    <li class="tab-pane" ><%= link_to "Pull report" %></li>
+</ul>
+<div class="well">
+  <%- model_class = Individual -%>
 
-<%= link_to 'Back', individuals_path %>
+  <h4><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h4>
+
+<%= render :partial => 'form' %>
+
+</div> <!--/.well -->

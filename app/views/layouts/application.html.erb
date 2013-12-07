@@ -3,23 +3,93 @@
   <head>
 
     <title>Haley House Database</title>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+      <![endif]-->
 
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <!-- Bootstrap required javascript -->
+    <script src="/assets/javascripts/bootstrap.js"></script>
+    <script src="/assets/javascripts/carousel.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-    <%#= javascript_include_tag "application" %>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/assets/stylesheets/carousel.css">
 
+    <!-- Ruby Styling -->
+    <%= stylesheet_link_tag     "application", :media => "all" %> 
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
   <body>
+    
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="brand" href="#">Haley House Database</a> -->
+            <a class="brand active" <%= link_to "Haley House Database", individuals_path %>
+            <div class="nav-collapse">
+              
+            <!-- Trying to make a tabbed nav bar 
+              <ul class="nav nav-tabs">
+                <li><a <%#= link_to "Individuals", individuals_path %> data-toggle="tab" </li>
+                <li><a <%#= link_to "Grants", grantmakers_path %> data-toggle="tab" </li>
+                <li><a <%#= link_to "Organizations", organizations_path %> data-toggle="tab" </li>
+                <li><a <%#= link_to "Help", organizations_path %> data-toggle="tab" </li>
+            -->
+            <!-- Leaving here for reference -->
+              <!--  <li><a href="#profile" data-toggle="tab">Profile</a></li>
+                <li><a href="#messages" data-toggle="tab">Messages</a></li>
+                <li><a href="#settings" data-toggle="tab">Settings</a></li>
+              </ul> -->
 
-    <!-- <img src="haley_house/app/assets/haleyhousemug.jpg"> -->
+              <!-- Working nav bar tabs  
+              <ul class="nav nav-tabs">
+                <li class="tab-pane"><%#= link_to "Individuals", individuals_path %></li>
+                <li class="tab-pane"><%#= link_to "Grants", grantmakers_path %></li>
+                <li class="tab-pane"><%#= link_to "Organizations", organizations_path %></li>
+                <li class="tab-pane" ><%#= link_to "Help" %></li>
+              </ul>
+              -->
 
-    <%= link_to("Haley House Database", root_path, :class => "button_index") %>
+              <ul class="nav navbar-nav">
+                <li><%= link_to "Individuals", individuals_path %></li>
+                <li><%= link_to "Grants", grantmakers_path %></li>
+                <li><%= link_to "Organizations", organizations_path %></li>
+              </ul>
+            <p class="navbar-text pull-right">
+              <?php if($user): ?>Logged in as <?=$user->username?><a href="#" class="navbar-link">Username</a><?php endif: ?>
+              </p>
 
-    <p></p>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
 
-    <%= yield %>
+    <div class="container-fluid">
+        <div class="row-fluid">
 
+          <%= yield %>
+          
+        </div><!--/row-->
+
+        <hr>
+
+        <footer>
+          <!-- <p>&copy; Company 2013</p> -->
+        </footer>
+
+      </div>  
+    
+    <%#= link_to("Haley House Database", root_path, :class => "button_index") %>
+ 
+    </div>
   </body>
 </html>

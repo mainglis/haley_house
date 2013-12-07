@@ -1,50 +1,43 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Organization -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <b>ID:</b>
-  <%= @organization.id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @organization.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mission) %>:</strong></dt>
+  <dd><%= @organization.mission %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:program) %>:</strong></dt>
+  <dd><%= @organization.program %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
+  <dd><%= @organization.website %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:street_address) %>:</strong></dt>
+  <dd><%= @organization.street_address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @organization.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= @organization.state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zip) %>:</strong></dt>
+  <dd><%= @organization.zip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_first_name) %>:</strong></dt>
+  <dd><%= @organization.contact_first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_last_name) %>:</strong></dt>
+  <dd><%= @organization.contact_last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_phone_number) %>:</strong></dt>
+  <dd><%= @organization.contact_phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
+  <dd><%= @organization.contact_email %></dd>
+</dl>
 
-<p>
-  <b>Name:</b>
-  <%= @organization.name %>
-</p>
-
-<p>
-  <b>Mission:</b>
-  <%= @organization.mission %>
-</p>
-
-<p>
-  <b>Program:</b>
-  <%= @organization.program %>
-</p>
-
-<p>
-  <b>Website:</b>
-  <%= @organization.website %>
-</p>
-
-<p>
-  <b>Street address:</b>
-  <%= @organization.street_address %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @organization.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @organization.state %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%= @organization.zip %>
-</p>
-
-
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              organizations_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_organization_path(@organization), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              organization_path(@organization),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

@@ -1,0 +1,6 @@
+ <ul class="nav nav-tabs">
+    <li class="tab-pane"><%= (@action == 'index') ? link_to("-Search-", organizations_path) : link_to("Search", organizations_path) %></li>
+    <li class="tab-pane"><%= link_to "Add new", new_organization_path %></li>
+    <li class="tab-pane"><%= link_to "Import Records", new_import_organizations_path %></li>
+    <li class="tab-pane" ><%= link_to "Pull report" %></li>
+</ul>

@@ -1,6 +1,7 @@
-<h2>Editing Individual Record</h2>
+<%= render :partial => 'header' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @individual %> |
-<%= link_to 'Back', individuals_path %>
+<%- model_class = Individual -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

@@ -2,13 +2,20 @@ class IndividualsController < ApplicationController
   # GET /individuals
   # GET /individuals.json
   def index
-    @individuals = Individual.all
+    @action = "index"
+    @search = Individual.search(params[:search])
+    @individuals = @search.all   # load all matching records
+    # @articles = @search.relation # Retrieve the relation, to lazy-load in view
+    # @articles = @search.paginate(:page => params[:page]) # Who doesn't love will_paginate?
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @individuals }
+      format.csv { render :text => @individuals.to_csv }
+       #/ format.xls { send_data @individuals.to_csv(col_sep: "/t") }
     end
   end
+  
 
   # GET /individuals/1
   # GET /individuals/1.json
@@ -79,5 +86,13 @@ class IndividualsController < ApplicationController
       format.html { redirect_to individuals_url }
       format.json { head :no_content }
     end
+  end
+
+  def import
+    Individual.import(params[:file])
+    redirect_to individuals_url, :notice => "Individuals imported."
+  end
+
+  def new_import
   end
 end

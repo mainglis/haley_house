@@ -18,12 +18,21 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
 end
 
+gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 
 gem 'execjs'
+
+gem 'less-rails-bootstrap'
+gem 'less-rails'
+gem 'less'
 gem 'therubyracer', :require => 'execjs'
+# gem 'libv8'
+# gem 'roo'
+
 
 gem 'meta_search'  # Last officially released gem
 # gem "meta_search", :git => "git://github.com/ernie/meta_search.git" # Track git repo
@@ -38,7 +47,7 @@ gem 'meta_search'  # Last officially released gem
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '~> 2.15.5'
 # gem 'rvm-capistrano'
 
 # To use debugger
