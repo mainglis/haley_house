@@ -8,7 +8,9 @@
   <div class="control-group">
     <%= f.label :rank, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :rank, :class => 'number_field' %>
+      <%= f.select :rank, Grantmaker.ranks %>
+     
+
     </div>
   </div>
   <div class="control-group">

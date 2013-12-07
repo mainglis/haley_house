@@ -25,6 +25,7 @@ class IndividualRoleRecordsController < ApplicationController
   # GET /individual_role_records/new.json
   def new
     @individual_role_record = IndividualRoleRecord.new
+    @roles = Role.all.map { |role| [role.name, role.id] }
 
     respond_to do |format|
       format.html # new.html.erb

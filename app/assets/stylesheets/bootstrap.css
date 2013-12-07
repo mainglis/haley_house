@@ -3953,6 +3953,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .nav-stacked > li {
   float: none;
+  border-style: solid;
+  border-color: #000000;
 }
 
 .nav-stacked > li + li {

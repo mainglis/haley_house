@@ -63,7 +63,16 @@ a:hover {
 	padding: 0px;
 	text-align:bottom;
 }
-			
+.box {
+  padding: 10px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  border-top-left-radius:1em;
+  border-top-right-radius:1em;
+  border-bottom-left-radius:1em;
+  border-bottom-right-radius:1em;
+}	
 
 .button_orange {
 	display: block;
