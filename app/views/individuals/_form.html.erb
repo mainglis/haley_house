@@ -105,15 +105,15 @@
       </div>
       <div class="field">
         <%= f.label :applied_date %>
-        <%= f.date_select :applied_date %>
+        <%= f.date_select :applied_date, :include_blank => true %>
       </div>
       <div class="field">
         <%= f.label :processed_date %>
-        <%= f.date_select :processed_date %>
+        <%= f.date_select :processed_date, :include_blank => true %>
       </div>
       <div class="field">
         <%= f.label :inactive_date %>
-        <%= f.date_select :inactive_date %>
+        <%= f.date_select :inactive_date, :include_blank => true %>
       </div>
   <div class="actions">
     <%= f.submit %>
