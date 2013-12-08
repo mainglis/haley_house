@@ -50,6 +50,10 @@ p.helptext {
 
 }
 
+.text-field {
+    background-color: #000000;
+}
+
 /* This is the original brown link color. a  {color: #4e372c} */
 a  {color: #4e372c}
 
