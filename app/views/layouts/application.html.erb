@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/assets/stylesheets/carousel.css">
 
     <!-- Ruby Styling -->
-    <%= stylesheet_link_tag     "application", :media => "all" %> <!-- try duplicating this and making a ruby link for bootstrap.css-->
+    <%= stylesheet_link_tag "application", :media => "all" %> <!-- try duplicating this and making a ruby link for bootstrap.css-->
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,27 +28,26 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container-fluid">
-            <a class="brand active" <%= link_to "Haley House Database", individuals_path %>
-          </div>
-        
-        </div>
-      </div>
-      <div class="navbar navbar-inverse">
-          <div class="navbar-inner">
-            <div class="container-fluid">              
+              <div class="row">
+
+                    <a class="brand active" <%= link_to "Haley House Database", individuals_path %> </a>
+                    
+
+              </div><!--/row-->
+              <div class="row">
               <div class="nav-collapse">
-                <ul class="nav navbar-nav">
-                  <li><%= link_to "Individuals", individuals_path %></li>
-                  <li><%= link_to "Grants", grantmakers_path %></li>
-                  <li><%= link_to "Organizations", organizations_path %></li>
-                </ul>
-              </div><!--/.nav-collapse -->
-
-            </div>
-          </div>
-        </div>
-
-    <div class="container-fluid">
+                  <ul class="nav navbar-nav">
+                    <li><%= link_to "Individuals", individuals_path %></li>
+                    <li><%= link_to "Grants", grantmakers_path %></li>
+                    <li><%= link_to "Organizations", organizations_path %></li>
+                  </ul>
+              </div><!--/nav-collapse-->
+              </div><!--/row-->
+          </div><!--/container-fluid-->
+        </div><!--/navbar-inner-->
+      </div><!--/navbar-inverse and fixed-top-->
+      
+    <div class="container-fluid" style="margin-top:60px">
 
           <%= yield %>
           
