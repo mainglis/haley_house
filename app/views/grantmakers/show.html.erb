@@ -1,51 +1,92 @@
-<%- model_class = Grantmaker -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+            <!-- <li class="nav-header">Navigate</li> -->
+              <!-- <li class="active"><a href="#">Export Link</a></li> -->
+              <li><%= link_to t('.back', :default => t("helpers.links.back_to_search")),
+                      grantmakers_path, :class => 'btn'  %></li>
+        </ul>
+      </div><!--/.well sidebar-nav -->
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+    
+            <li class="nav-header">Jump to...</li>
+              <!-- <li class="active"><a href="#">Export Link</a></li> -->
+              <li><a href="#">Contact Information</a></li>
+              <li><a href="#">Grant History</a></li>
+              <li><a href="#">Deadlines</a></li>
+              <li><a href="#">Similar Organizations Funded</a></li>
+              <li><a href="#">Notes</a></li>
+        </ul>
+      </div><!--/.well sidebar-nav -->
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+          
+            <li class="nav-header">Actions</li>
+              <!-- <li class="active"><a href="#">Export Link</a></li> -->
+              <li><a href="#">Download as PDF</a></li>
+              <li><a href="#">Print</a></li>
+        </ul>
+      </div><!--/.well sidebar-nav -->
+    </div><!--/span3--> 
+    <div class="span9">
+      <div class="row-fluid">
+        <%- model_class = Grantmaker -%>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @grantmaker.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rank) %>:</strong></dt>
-  <dd><%= @grantmaker.rank %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:unsolicited_proposals) %>:</strong></dt>
-  <dd><%= @grantmaker.unsolicited_proposals %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mission) %>:</strong></dt>
-  <dd><%= @grantmaker.mission %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
-  <dd><%= @grantmaker.website %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:street_address) %>:</strong></dt>
-  <dd><%= @grantmaker.street_address %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
-  <dd><%= @grantmaker.city %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
-  <dd><%= @grantmaker.state %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:zip_code) %>:</strong></dt>
-  <dd><%= @grantmaker.zip_code %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
-  <dd><%= @grantmaker.phone %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @grantmaker.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_first_name) %>:</strong></dt>
-  <dd><%= @grantmaker.contact_first_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_last_name) %>:</strong></dt>
-  <dd><%= @grantmaker.contact_last_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
-  <dd><%= @grantmaker.contact_email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_phone_number) %>:</strong></dt>
-  <dd><%= @grantmaker.contact_phone_number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
-  <dd><%= @grantmaker.notes %></dd>
-</dl>
+        <div class="page-header">
+          <h2><%=t '.title', :default => model_class.model_name.human.titleize %></h2>
+        </div>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              grantmakers_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_grantmaker_path(@grantmaker), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              grantmaker_path(@grantmaker),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-</div>
+        <dl class="dl-horizontal">
+          <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+          <dd><%= @grantmaker.name %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:rank) %>:</strong></dt>
+          <dd><%= @grantmaker.rank %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:unsolicited_proposals) %>:</strong></dt>
+          <dd><%= @grantmaker.unsolicited_proposals %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:mission) %>:</strong></dt>
+          <dd><%= @grantmaker.mission %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
+          <dd><%= @grantmaker.website %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:street_address) %>:</strong></dt>
+          <dd><%= @grantmaker.street_address %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+          <dd><%= @grantmaker.city %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+          <dd><%= @grantmaker.state %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:zip_code) %>:</strong></dt>
+          <dd><%= @grantmaker.zip_code %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+          <dd><%= @grantmaker.phone %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+          <dd><%= @grantmaker.email %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:contact_first_name) %>:</strong></dt>
+          <dd><%= @grantmaker.contact_first_name %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:contact_last_name) %>:</strong></dt>
+          <dd><%= @grantmaker.contact_last_name %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
+          <dd><%= @grantmaker.contact_email %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:contact_phone_number) %>:</strong></dt>
+          <dd><%= @grantmaker.contact_phone_number %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
+          <dd><%= @grantmaker.notes %></dd>
+        </dl>
+
+        <div class="row-fluid">
+          <%= link_to t('.back', :default => t("helpers.links.back")),
+                      grantmakers_path, :class => 'btn'  %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_grantmaker_path(@grantmaker), :class => 'btn' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      grantmaker_path(@grantmaker),
+                      :method => 'delete',
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger' %>
+        </div>
+
+      </div><!--/row-fluid-->
+    </div><!--/span9-->
+  </div><!--/row-fluid-->  
+</div><!--/container-fluid-->

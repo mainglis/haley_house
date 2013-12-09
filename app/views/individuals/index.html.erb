@@ -16,10 +16,12 @@
       </div><!--/.well sidebar-nav -->
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
-          
-            <li class="nav-header">Import</li>
-              <!-- <li class="active"><a href="#">Export Link</a></li> -->
-              <li><a href="#">Link</a></li>
+            <li class="nav-header">Actions</li>
+            <li><%= link_to t('.new', :default => t("helpers.links.add_new")),
+                    new_individual_path,
+                    :class => 'btn btn-small' %></li>
+            <li><a href="#">Export</a></li>
+            <li><a href="#">Import</a></li>
         </ul>
       </div><!--/.well sidebar-nav -->
     </div><!--/span3-->
