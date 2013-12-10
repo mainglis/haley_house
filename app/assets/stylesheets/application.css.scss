@@ -1,0 +1,144 @@
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require bootstrap_and_overrides
+ *= require twitter/bootstrap
+
+ */
+
+h1 {
+        font-size: 28px;
+        color: #6d8538;
+      }
+h2 { 
+		font-size:24px;
+		color: #000;
+	}
+
+h3 { 
+		font-family: Arial, sans-serif;
+        font-size: 14px;
+		color: #fff;
+	}
+
+body {
+	margin-left: 30px;
+	background-color: #000000;
+}
+
+p {
+	margin-left: 0px;
+	color: black;
+}
+
+p.helptext {
+	font-style: italic;
+
+}
+
+.field {
+	text-align: left;
+	vertical-align: top;
+
+}
+
+.text-field {
+    background-color: #000000;
+}
+
+/* This is the original brown link color. a  {color: #4e372c} */
+a  {color: #4e372c}
+
+a:hover {
+        background-color: #484848;
+        color: white;
+        text-decoration: none;
+      }
+      
+#table_individuals {
+	padding: 0px;
+	text-align:bottom;
+}
+.box {
+  padding: 10px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  border-top-left-radius:1em;
+  border-top-right-radius:1em;
+  border-bottom-left-radius:1em;
+  border-bottom-right-radius:1em;
+}	
+
+.button_index {
+	display: block;
+	height: 30px;
+	width: 300px;
+	background: #ffffff;
+	color: rgba(0, 0, 0, 0.55);
+	padding-top: 1%;
+    text-align: center;
+    font-color: #000000; 
+    font-size: 26px;
+    font-weight: bold "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+a.button_index {
+	text-decoration: none;
+}
+
+a.button_index:hover {
+	background: #000000;
+    background: -webkit-linear-gradient(top, #ffffff, #ffffff);
+    background: -moz-linear-gradient(top, #ffffff, #ffffff);
+    background: -o-linear-gradient(top, #ffffff, #ffffff);
+    background: -ms-linear-gradient(top, #ffffff, #ffffff);
+    background: linear-gradient(top, #ffffff, #ffffff);
+    color: black;
+    ;
+}
+
+.maintable {
+    background-color: #b9b9b9;
+    /*height: 500px;*/
+    /*width: 900px;*/
+    text-align: left;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.stripedtable
+{
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+border-collapse:collapse;
+}
+.stripedtable td, .stripedtable th 
+{
+font-size:1em;
+border:0px solid #98bf21;
+padding:3px 20px 2px 7px;
+}
+.stripedtable th 
+{
+font-size:1.1em;
+text-align:left;
+padding-top:5px;
+padding-bottom:4px;
+background-color:darkgray;
+color:#ffffff;
+}
+.stripedtable tr.alt td 
+{
+color:#000000;
+background-color:lightgray;
+}
+

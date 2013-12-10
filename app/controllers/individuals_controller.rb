@@ -5,8 +5,6 @@ class IndividualsController < ApplicationController
     @action = "index"
     @search = Individual.search(params[:search])
     @individuals = @search.all   # load all matching records
-    # @articles = @search.relation # Retrieve the relation, to lazy-load in view
-    # @articles = @search.paginate(:page => params[:page]) # Who doesn't love will_paginate?
 
     respond_to do |format|
       format.html # index.html.erb

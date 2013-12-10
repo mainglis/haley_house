@@ -7,19 +7,19 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
       <![endif]-->
 
-    <!-- Bootstrap required javascript -->
-    <script src="/assets/javascripts/bootstrap.js"></script>
-    <script src="/assets/javascripts/carousel.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.css">
-    <link rel="stylesheet" href="/assets/stylesheets/carousel.css">
+    
+    <!-- <link rel="stylesheet" href="/assets/stylesheets/carousel.css"> -->
 
     <!-- Ruby Styling -->
-    <%= stylesheet_link_tag "application", :media => "all" %> <!-- try duplicating this and making a ruby link for bootstrap.css-->
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%#= stylesheet_link_tag "bootstrap", :media => "all" %> <!-- try duplicating this and making a ruby link for bootstrap.css-->
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <!-- <link rel="stylesheet" href="/assets/stylesheets/bootstrap.css">
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   </head>
@@ -29,17 +29,12 @@
         <div class="navbar-inner">
           <div class="container-fluid">
               <div class="row">
-
-                    <a class="brand active" <%= link_to "Haley House Database", individuals_path %> </a>
-                    
-
-              </div><!--/row-->
-              <div class="row">
-              <div class="nav-collapse">
-                  <ul class="nav navbar-nav">
-                    <li><%= link_to "Individuals", individuals_path %></li>
-                    <li><%= link_to "Grants", grantmakers_path %></li>
-                    <li><%= link_to "Organizations", organizations_path %></li>
+                <div class="nav-collapse">
+                    <ul class="nav navbar-nav">
+                      <li style="font-size:20px;"><%= link_to "Haley House Dababase", individuals_path %></li>
+                        <li><%= link_to "Individuals", individuals_path, :class => 'btn-small' %></li>
+                        <li><%= link_to "Grants", grantmakers_path, :class => 'btn-small' %></li>
+                        <li><%= link_to "Organizations", organizations_path, :class => 'btn-small' %></li>
                   </ul>
               </div><!--/nav-collapse-->
               </div><!--/row-->
@@ -56,5 +51,11 @@
     <%#= link_to("Haley House Database", root_path, :class => "button_index") %>
  
     </div>
+
+    <!-- Bootstrap required javascript -->
+    <script src="/assets/javascripts/bootstrap.js"></script>
+    <script src="/assets/javascripts/carousel.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
   </body>
 </html>

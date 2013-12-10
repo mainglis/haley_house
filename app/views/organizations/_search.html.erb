@@ -1,4 +1,4 @@
-  <%= form_for @search, :url => organizations_path, :html => {:method => :get} do |f| %>
+ <%= form_for @search, :url => organizations_path, :html => {:method => :get} do |f| %>
   <%= f.label :name_contains, "Search by Name" %>
   <%= f.text_field :name_contains %><br />
   <%#= f.label :comments_created_at_greater_than, 'With comments after' %>

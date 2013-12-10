@@ -1,6 +1,6 @@
 <%= form_for @individual, :html => { :class => 'form-horizontal' } do |f| %>
 
-  <h3>Basic Information</h3>
+  <h5>Basic Information</h5>
   <div class="control-group">
     <%= f.label :first_name, :class => 'control-label' %>
     <div class="controls">
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <h3>Address and Phone</h3>
+  <h5>Address and Phone</h5>
   <div class="control-group">
     <%= f.label :current_street_address, :class => 'control-label' %>
     <div class="controls">
@@ -82,7 +82,7 @@
     </div>
   </div>
 
-  <h3>Emergency Contact Information</h3>
+  <h5>Emergency Contact Information</h5>
   <div class="control-group">
     <%= f.label :emergency_contact_name, :class => 'control-label' %>
     <div class="controls">
@@ -108,7 +108,7 @@
     </div>
   </div>
 
-  <h3>Additional Information</h3>
+  <h5>Additional Information</h5>
   <div class="control-group">
     <%= f.label :email_newsletter, :class => 'control-label' %>
     <div class="controls">
@@ -140,7 +140,7 @@
     </div>
   </div>
 
-  <div class="form-actions">
+  <div class="form-horizontal">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 individuals_path, :class => 'btn' %>

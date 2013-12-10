@@ -15,8 +15,8 @@
             <li class="nav-header">Jump to...</li>
               <!-- <li class="active"><a href="#">Export Link</a></li> -->
               <li><a href="#">Contact Information</a></li>
-              <li><a href="#">Mission</a></li> <!--Type of person, event_attendance_records, donation_records-->
-              <li><a href="#">Funders</a></li> <!--Thank yous, invites to events, do they get eNewsletters or Newsletters? -->
+              <li><a href="#">Activity Record</a></li> <!--Type of person, event_attendance_records, donation_records-->
+              <li><a href="#">Communications</a></li> <!--Thank yous, invites to events, do they get eNewsletters or Newsletters? -->
               <li><a href="#">Notes</a></li>
         </ul>
       </div><!--/.well sidebar-nav -->
@@ -32,12 +32,3 @@
     </div><!--/span3--> 
     <div class="span9">
       <div class="row-fluid">
-      	<%- model_class = Organization -%>
-			<div class="page-header">
-			  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
-			</div>
-			<%= render :partial => 'form' %>
-		</div><!--/row-fluid-->
-    </div><!--/span9-->
-  </div><!--/row-fluid-->  
-</div><!--/container-fluid-->

@@ -36,7 +36,7 @@
         <%- model_class = Grantmaker -%>
 
         <div class="page-header">
-          <h2><%=t '.title', :default => model_class.model_name.human.titleize %></h2>
+          <h2>View Grantmaker</h2>
         </div>
 
         <dl class="dl-horizontal">
@@ -44,6 +44,8 @@
           <dd><%= @grantmaker.name %></dd>
           <dt><strong><%= model_class.human_attribute_name(:rank) %>:</strong></dt>
           <dd><%= @grantmaker.rank %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:years_funded) %>:</strong></dt>
+          <dd><%= @years_funded %></dd>
           <dt><strong><%= model_class.human_attribute_name(:unsolicited_proposals) %>:</strong></dt>
           <dd><%= @grantmaker.unsolicited_proposals %></dd>
           <dt><strong><%= model_class.human_attribute_name(:mission) %>:</strong></dt>

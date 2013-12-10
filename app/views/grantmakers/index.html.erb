@@ -33,11 +33,12 @@
               <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
               <th><%= model_class.human_attribute_name(:name) %></th>
               <th><%= model_class.human_attribute_name(:rank) %></th>
-              <th><%= model_class.human_attribute_name(:unsolicited_proposals) %></th>
-              <th><%= model_class.human_attribute_name(:mission) %></th>
+              <!-- <th><%= model_class.human_attribute_name(:unsolicited_proposals) %></th> -->
+              <th><%= model_class.human_attribute_name(:last_year_funded) %></th>
+              <!-- <th><%#= model_class.human_attribute_name(:upcoming_deadlines) %></th> -->
+              <th><%= model_class.human_attribute_name(:amount) %></th>
+              <th><%= model_class.human_attribute_name(:program) %></th>
               <th><%= model_class.human_attribute_name(:website) %></th>
-              <th><%= model_class.human_attribute_name(:street_address) %></th>
-              <th><%= model_class.human_attribute_name(:city) %></th>
         <!--       <th><%= model_class.human_attribute_name(:state) %></th>
               <th><%= model_class.human_attribute_name(:zip_code) %></th>
               <th><%= model_class.human_attribute_name(:phone) %></th>
@@ -57,11 +58,12 @@
                 <!-- <td><%= link_to grantmaker.id, grantmaker_path(grantmaker) %></td> -->
                 <td><%= grantmaker.name %></td>
                 <td><%= grantmaker.rank %></td>
-                <td><%= grantmaker.unsolicited_proposals %></td>
-                <td><%= grantmaker.mission %></td>
+                <!-- <td><%= grantmaker.unsolicited_proposals %></td> -->
+                <td><%= grantmaker.last_year_funded %></td>
+               <!--  <td><%#= grantmaker.upcoming_deadlines %></td> -->
+                <td><%= grantmaker.amount %></td>
+                <td><%= grantmaker.program %></td>
                 <td><%= grantmaker.website %></td>
-                <td><%= grantmaker.street_address %></td>
-                <td><%= grantmaker.city %></td>
                 <!-- <td><%= grantmaker.state %></td>
                 <td><%= grantmaker.zip_code %></td>
                 <td><%= grantmaker.phone %></td>
@@ -74,6 +76,8 @@
                 <!-- <td><%=l grantmaker.created_at %></td> -->
                 <td>
                   <%= link_to t('.show', :default => t("helpers.links.show")),
+                                    grantmaker_path(grantmaker), :class => 'btn btn-mini' %>
+                  <%= link_to t('.edit', :default => t("helpers.links.add_record")),
                                     grantmaker_path(grantmaker), :class => 'btn btn-mini' %>
                   <%= link_to t('.edit', :default => t("helpers.links.edit")),
                               edit_grantmaker_path(grantmaker), :class => 'btn btn-mini' %>
@@ -88,18 +92,13 @@
           </tbody>
         </table>
 
-        <%= link_to t('.new', :default => t("helpers.links.new")),
+        <%= link_to t('.new', :default => t("helpers.links.add_new_grantmaker")),
                     new_grantmaker_path,
                     :class => 'btn btn-primary' %>
 
         </div><!--/row-fluid-->
-      
-   
-        <h3>Results</h3>
-        <p>This is where the results will be put</p>
-        <p><a href="#" class="btn btn-primary btn-small">Learn more &raquo;</a></p>
-      </div><!--/span9-->
-  </div><!--/row-fluid-->  
+        
+  </div><!--/span9--> 
 </div><!--/container-fluid-->
 
 

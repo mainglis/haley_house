@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
@@ -27,11 +26,11 @@
     </div><!--/span3-->
 
     <div class="span9">
+      <div class="well">
       <div class="row-fluid">
       <%- model_class = Individual -%>
-      <div class="page-header">
-        <h2><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h2>
-      </div>
+
+      <h4>Individuals</h4>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -107,6 +106,14 @@
           <% end %>
         </tbody>
       </table>
+    </div>
+  </div> <!--/well-->
+  <div class="well">
+
+      <%= link_to t('.new', :default => t("helpers.links.add_new")),
+                    new_individual_path,
+                    :class => 'btn btn-primary' %>
+  </div>
     </div><!--/row-fluid-->
   </div><!--/span9-->
               
