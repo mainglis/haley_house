@@ -1,6 +1,7 @@
  <%= form_for @search, :url => organizations_path, :html => {:method => :get} do |f| %>
-  <%= f.label :name_contains, "Search by Name" %>
-  <%= f.text_field :name_contains %><br />
+  <h4>Search</h4>
+  <%= f.label :name_contains, "Name" %>
+  <%= f.text_field :name_contains, :class => "span12" %><br />
   <%#= f.label :comments_created_at_greater_than, 'With comments after' %>
   <%#= f.datetime_select :comments_created_at_greater_than, :include_blank => true %><br />
   <!-- etc... -->
