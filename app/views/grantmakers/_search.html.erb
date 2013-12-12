@@ -1,8 +1,7 @@
 <%= form_for @search, :url => grantmakers_path, :html => {:method => :get} do |f| %>
-  <!-- <h4>Search</h4> -->
-  <li class="nav-header">Search</li>
-  <li><%= f.label :name_contains, "Name", :size => "50x10" %></li>
-  <li><%= f.text_field :name_contains, "size" => 150 %><br /></li>
+  <h4>Search</h4>
+  <li><%= f.label :name_contains, "Name" %></li>
+  <li><%= f.text_field :name_contains, :class => "span12" %><br /></li>
   <li><%= f.label :rank_equals, "Rank" %></li>
   <li><%= f.select :rank_equals, Grantmaker.ranks, :include_blank => true %><br /></li>
   <%#= f.label :current_street_address_contains, "Current Street Address" %>

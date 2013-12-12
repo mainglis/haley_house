@@ -20,11 +20,12 @@
     </div><!--/span3--> 
 
     <div class="span9">
+      <div class="well">
     <div class="row-fluid"> 
 
 <%- model_class = Organization -%>
 <div class="page-header">
-  <h2><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h2>
+  <h4><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h4>
 </div>
 <table class="table table-striped">
   <thead>
@@ -78,9 +79,10 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
+<div class="well">
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_organization_path,
             :class => 'btn btn-primary' %>
-
+</div>
      </div><!--/span-->
