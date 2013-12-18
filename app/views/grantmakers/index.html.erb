@@ -36,8 +36,8 @@
               <th><%= model_class.human_attribute_name(:rank) %></th>
               <!-- <th><%= model_class.human_attribute_name(:unsolicited_proposals) %></th> -->
               <th><%= model_class.human_attribute_name(:last_year_funded) %></th>
-              <!-- <th><%#= model_class.human_attribute_name(:upcoming_deadlines) %></th> -->
-              <th><%= model_class.human_attribute_name(:amount) %></th>
+              <th><%= model_class.human_attribute_name(:upcoming_deadlines) %></th>
+              <th><%= model_class.human_attribute_name(:last_amount_received) %></th>
               <th><%= model_class.human_attribute_name(:program) %></th>
               <th><%= model_class.human_attribute_name(:website) %></th>
         <!--       <th><%= model_class.human_attribute_name(:state) %></th>
@@ -61,9 +61,9 @@
                 <td><%= grantmaker.rank %></td>
                 <!-- <td><%= grantmaker.unsolicited_proposals %></td> -->
                 <td><%= grantmaker.last_year_funded %></td>
-               <!--  <td><%#= grantmaker.upcoming_deadlines %></td> -->
-                <td><%= grantmaker.amount %></td>
-                <td><%= grantmaker.program %></td>
+               <td><%= grantmaker.upcoming_deadlines %></td>
+                <td><%= number_to_currency grantmaker.last_amount_received %></td>
+                <td><%= grantmaker.last_grant_received.program if grantmaker.last_grant_received %></td>
                 <td><%= grantmaker.website %></td>
                 <!-- <td><%= grantmaker.state %></td>
                 <td><%= grantmaker.zip_code %></td>

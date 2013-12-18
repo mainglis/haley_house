@@ -14,7 +14,7 @@
 <% @deadlines.each do |deadline| %>
   <tr>
     <td><%= deadline.grant_record_id %></td>
-    <td><%= deadline.type %></td>
+    <td><%= deadline.deadline_type %></td>
     <td><%= deadline.date %></td>
     <td><%= deadline.notes %></td>
     <td><%= link_to 'Show', deadline %></td>

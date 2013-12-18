@@ -1,5 +1,4 @@
 class GrantRecord < ActiveRecord::Base
-
   belongs_to :grantmaker
   has_many :deadlines
   
