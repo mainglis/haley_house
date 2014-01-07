@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217144222) do
+ActiveRecord::Schema.define(:version => 20140107135457) do
 
   create_table "deadlines", :force => true do |t|
     t.integer  "grant_record_id"
@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(:version => 20131217144222) do
 
   create_table "notes", :force => true do |t|
     t.integer  "individual_id"
-    t.string   "note"
+    t.text     "note"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -154,14 +154,6 @@ ActiveRecord::Schema.define(:version => 20131217144222) do
     t.date     "end_date"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
-  end
-
-  create_table "organization_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "organization_id"
-    t.date     "start_date"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
   end
 
   create_table "organizations", :force => true do |t|
@@ -181,45 +173,11 @@ ActiveRecord::Schema.define(:version => 20131217144222) do
     t.string   "contact_email"
   end
 
-  create_table "organizations_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "organization_id"
-    t.date     "start_date"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  create_table "role_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "role_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "roles_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "role_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "skill_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "skill_id"
-    t.date     "date_gained"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
   end
 
   create_table "skills", :force => true do |t|
@@ -228,32 +186,6 @@ ActiveRecord::Schema.define(:version => 20131217144222) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "skills_rosters", :force => true do |t|
-    t.integer  "individual_id"
-    t.integer  "skill_id"
-    t.date     "date_gained"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,  :null => false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-  end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "volunteers", :force => true do |t|
     t.string   "first_name"

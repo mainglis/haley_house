@@ -32,7 +32,6 @@ class Grantmaker < ActiveRecord::Base
     deadlines = []
     grant_records.each do |grant_record|
       deadlines += grant_record.deadlines.where(:date => (Date.today)..(Date.today + 6.months))
-      #.where("date >= ?", Date.today).map { |deadline| deadline.date }.sort
     end
     return deadlines.join('; ')
   end
