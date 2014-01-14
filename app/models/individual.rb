@@ -8,9 +8,9 @@ class Individual < ActiveRecord::Base
                   :first_name, :inactive_date, :last_name, :mail_newsletter, :permanent_city, :permanent_street_address, 
                   :permanent_zip, :phone_home, :phone_mobile, :phone_mobile, :phone_work, :processed_date, :salutation
 
-  # def to_s
-  #   "#{first_name} #{last_name}"
-  # end
+  def to_s
+    "#{first_name} #{last_name}"
+  end
                   
   def self.import(file)
     CSV.foreach(file.path, :headers => true) do |row|

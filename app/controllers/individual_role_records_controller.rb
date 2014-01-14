@@ -25,7 +25,8 @@ class IndividualRoleRecordsController < ApplicationController
   # GET /individual_role_records/new.json
   def new
     @individual_role_record = IndividualRoleRecord.new
-    @roles = Role.all.map { |role| [role.name, role.id] }
+    @individuals = Individual.all.map { |individual| [individual, individual.id] }
+    @roles = Role.all.map { |role| [role, role.id] }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +46,7 @@ class IndividualRoleRecordsController < ApplicationController
 
     respond_to do |format|
       if @individual_role_record.save
-        format.html { redirect_to @individual_role_record, :notice => 'Individual role record was successfully created.' }
+        format.html { redirect_to @individual_role_record.individual, :notice => 'Individual role record was successfully created.' }
         format.json { render :json => @individual_role_record, :status => :created, :location => @individual_role_record }
       else
         format.html { render :action => "new" }

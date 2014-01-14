@@ -3,4 +3,12 @@ class IndividualRoleRecord < ActiveRecord::Base
 
   belongs_to :role
   belongs_to :individual
+
+  def to_s
+  	"#{role.name} (#{s(start_date)} - #{s(end_date)})"
+  end
+
+  def s(date)
+  	date ? date.strftime("%m/%d/%Y") : ""
+  end
 end

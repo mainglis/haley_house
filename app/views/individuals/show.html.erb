@@ -87,7 +87,7 @@
 
           <h2>Roles</h2>
           <% @individual.individual_role_records.each do |individual_role_record| %>
-            <%= individual_role_record.role.name %><br/>
+            <%= individual_role_record %><br/>
           <% end -%>
           <%= link_to "Create New Role Record", new_individual_role_record_path %>
 
