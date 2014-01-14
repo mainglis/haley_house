@@ -6,12 +6,12 @@
   <%= f.text_field :email_contains, :class => "span12" %><br />
   <%= f.label :current_street_address_contains, "Current Street Address" %>
   <%= f.text_field :current_street_address_contains, :class => "span12" %><br />
-  <%= f.label :email_newsletter_is_true, "Receiving Email Newsletter" %>
-  <%= f.check_box :email_newsletter_is_true %><br />
-  <%= f.label :mail_newsletter_is_true, "Receiving Mail Newsletter" %>
-  <%= f.check_box :mail_newsletter_is_true %><br />
   <%= f.label :individual_role_records_role_name_contains, "Role" %>
   <%= f.text_field :individual_role_records_role_name_contains, :class => "span12" %><br />
+  <%= f.check_box :email_newsletter_is_true %>
+  <%= f.label :email_newsletter_is_true, "Email Newsletter", :class => "checkbox inline" %><br />
+  <%= f.check_box :mail_newsletter_is_true %>
+  <%= f.label :mail_newsletter_is_true, "Mail Newsletter", :class => "checkbox inline" %><br />
   <%#= f.label :comments_created_at_greater_than, 'With comments after' %>
   <%#= f.datetime_select :comments_created_at_greater_than, :include_blank => true %><br />
   <!-- etc... -->
