@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140107135457) do
+ActiveRecord::Schema.define(:version => 20140121134321) do
 
   create_table "deadlines", :force => true do |t|
     t.integer  "grant_record_id"
@@ -133,6 +133,9 @@ ActiveRecord::Schema.define(:version => 20140107135457) do
     t.date     "inactive_date"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.string   "current_apartment_number"
+    t.string   "organization"
+    t.string   "current_state"
   end
 
   create_table "notes", :force => true do |t|
