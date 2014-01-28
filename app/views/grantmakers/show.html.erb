@@ -12,7 +12,7 @@
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
     
-            <li class="nav-header">Jump to...</li>
+            <li class="nav-header">View or Edit</li>
               <!-- <li class="active"><a href="#">Export Link</a></li> -->
               <li><a href="#">Contact Information</a></li>
               <li><a href="#">Grant History</a></li>
@@ -38,43 +38,35 @@
         <div class="page-header">
           <h2>View Grantmaker</h2>
         </div>
-
         <dl class="dl-horizontal">
-          <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-          <dd><%= @grantmaker.name %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:rank) %>:</strong></dt>
-          <dd><%= @grantmaker.rank %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:years_funded) %>:</strong></dt>
-          <dd><%= @years_funded %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:unsolicited_proposals) %>:</strong></dt>
-          <dd><%= @grantmaker.unsolicited_proposals %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:mission) %>:</strong></dt>
-          <dd><%= @grantmaker.mission %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
-          <dd><%= @grantmaker.website %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:street_address) %>:</strong></dt>
-          <dd><%= @grantmaker.street_address %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
-          <dd><%= @grantmaker.city %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
-          <dd><%= @grantmaker.state %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:zip_code) %>:</strong></dt>
-          <dd><%= @grantmaker.zip_code %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
-          <dd><%= @grantmaker.phone %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-          <dd><%= @grantmaker.email %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:contact_first_name) %>:</strong></dt>
-          <dd><%= @grantmaker.contact_first_name %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:contact_last_name) %>:</strong></dt>
-          <dd><%= @grantmaker.contact_last_name %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
-          <dd><%= @grantmaker.contact_email %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:contact_phone_number) %>:</strong></dt>
-          <dd><%= @grantmaker.contact_phone_number %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
-          <dd><%= @grantmaker.notes %></dd>
-        </dl>
+          <% attributes_order = [
+            "name",
+            "rank",
+            "years_funded",
+            "unsolicited_proposals",
+            "mission",
+            "website",
+            "street_address",
+            "city",
+            "state",
+            "zip_code",
+            "phone",
+            "email",
+            "contact_first_name",
+            "contact_last_name",
+            "contact_email",
+            "contact_phone_number",
+            "notes",
+          ] %>
+            <% attributes_order.each do |attribute| %>
+              <% next if @grantmaker.attributes[attribute].blank? %>
+              <dt><strong><%= model_class.human_attribute_name(attribute.to_sym) + ':' %></strong></dt>
+              <dd><%= @grantmaker.attributes[attribute] %></dd>
+            <% end -%>   
+            <dt><strong><%= model_class.human_attribute_name(:years_funded) %>:</strong></dt>
+            <dd><%= @years_funded %></dd>
+          </dl>
+
 
         <div class="row-fluid">
           <%= link_to t('.back', :default => t("helpers.links.back")),

@@ -1,17 +1,44 @@
-<h1>Listing Grant Records</h1>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+            <%= render :partial => 'search' %>
+        </ul>
+      </div><!--/.well sidebar-nav -->
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+ <!--    
+            <li class="nav-header">Actions</li> -->
+            <h4>Actions</h4>
+              <!-- <li class="active"><a href="#">Export Link</a></li> -->
+              <li><%= link_to t('.new', :default => t("helpers.links.add_new")), new_grant_record_path %></li>
+              <li><%= link_to "Export (Excel or CSV)", grant_records_path(:format => "csv") %></li>
+              <li><%= link_to "Import (Excel or CSV)" %></li>
+        </ul>
+      </div><!--/.well sidebar-nav -->
+    </div><!--/span3--> 
+    <div class="span9">
+      <div class="well">
+      <div class="row-fluid">
+   <%- model_class = GrantRecord -%>
+        <div class="page-header">
 
-<table>
+<h4>Grant Records</h4>
+
+<table class="table table-striped">
   <tr>
-    <th>Grantmaker</th>
-    <th>Organization</th>
-    <th>Fiscal year</th>
-    <th>Notification date</th>
-    <th>Ask status</th>
-    <th>Request type</th>
-    <th>Funding type</th>
-    <th>Amount</th>
-    <th>Program</th>
-    <th>Notes</th>
+    <th><%= model_class.human_attribute_name(:name) %></th>
+<!--     <th>Organization</th> -->
+    <th><%= model_class.human_attribute_name(:fiscal_year) %></th>
+    <th><%= model_class.human_attribute_name(:notification_date) %></th>
+    <th><%= model_class.human_attribute_name(:ask_status) %></th>
+    <th><%= model_class.human_attribute_name(:request_type) %></th>
+    <th><%= model_class.human_attribute_name(:upcoming_deadlines) %></th>
+    <th><%= model_class.human_attribute_name(:funding_type) %></th>
+    <th><%= model_class.human_attribute_name(:amount) %></th>
+    <th><%= model_class.human_attribute_name(:program) %></th>
+    <th><%= model_class.human_attribute_name(:notes) %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,14 +46,15 @@
 
 <% @grant_records.each do |grant_record| %>
   <tr>
-    <td><%= grant_record.grantmaker_id %></td>
-    <td><%= grant_record.organization_id %></td>
+    <td><%= grant_record.grantmaker.name %></td>
+<!--     <td><%= grant_record.organization_id %></td> -->
     <td><%= grant_record.fiscal_year %></td>
     <td><%= grant_record.notification_date %></td>
     <td><%= grant_record.ask_status %></td>
     <td><%= grant_record.request_type %></td>
+    <td><%= grant_record.grantmaker.upcoming_deadlines %></td>
     <td><%= grant_record.funding_type %></td>
-    <td><%= grant_record.amount %></td>
+    <td><%= number_to_currency grant_record.amount %></td>
     <td><%= grant_record.program %></td>
     <td><%= grant_record.notes %></td>
     <td><%= link_to 'Show', grant_record %></td>

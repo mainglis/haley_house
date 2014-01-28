@@ -10,14 +10,13 @@
       </div><!--/.well sidebar-nav -->
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
-    
-            <li class="nav-header">Actions</li>
+ <!--    
+            <li class="nav-header">Actions</li> -->
+            <h4>Actions</h4>
               <!-- <li class="active"><a href="#">Export Link</a></li> -->
-              <li><%= link_to t('.new', :default => t("helpers.links.add_new")),
-                    new_grantmaker_path,
-                    :class => 'btn btn-small' %></li>
-              <li><a href="#">Export</a></li>
-              <li><a href="#">Import</a></li>
+              <li><%= link_to t('.new', :default => t("helpers.links.add_new_grantmaker")), new_grantmaker_path %></li>
+              <li><%= link_to "Export (Excel or CSV)", grantmakers_path(:format => "csv") %></li>
+              <li><%= link_to "Import (Excel or CSV)" %></li>
         </ul>
       </div><!--/.well sidebar-nav -->
     </div><!--/span3--> 
@@ -26,7 +25,8 @@
       <div class="row-fluid">
         <%- model_class = Grantmaker -%>
         <div class="page-header">
-          <h4>Grantmakers</h4>
+          <h4>Grantmakers</h4>     
+          <%#= link_to t('.new', :default => t("helpers.links.add_new_grantmaker")), new_grantmaker_path, :class => 'tn btn-primary' %>
         </div>
         <table class="table table-striped">
           <thead>
@@ -93,12 +93,8 @@
           </tbody>
         </table>
       </div> <!--/well-->
-      <div class="well">
-        <%= link_to t('.new', :default => t("helpers.links.add_new_grantmaker")),
-                    new_grantmaker_path,
-                    :class => 'btn btn-primary' %>
-      </div>          
-        </div><!--/row-fluid-->
+       
+    </div><!--/row-fluid-->
         
   </div><!--/span9--> 
 </div><!--/container-fluid-->

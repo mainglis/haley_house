@@ -1,4 +1,10 @@
-<%= render :partial => 'layout' %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+      <%= render :partial => 'sidebar' %>
+    </div><!--/span3--> 
+    <div class="span9">
+      <div class="row-fluid">
 		<%- model_class = Individual -%>
 		<div class="page-header">
 		 <h2>New Individual</h2>

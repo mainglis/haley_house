@@ -1,0 +1,17 @@
+<%= form_for @search, :url => grant_records_path, :html => {:method => :get} do |f| %>
+  <h4>Search</h4>
+  <li><%= f.label :grantmaker_name_contains, "Name" %></li>
+  <li><%= f.text_field :grantmaker_name_contains, :class => "span12" %><br /></li>
+  <li><%= f.label :grantmaker_rank_equals, "Rank" %></li>
+  <li><%= f.select :grantmaker_rank_equals, Grantmaker.ranks, :include_blank => true %><br /></li>
+  <li><%= f.label :fiscal_year_contains, "Fiscal Year" %></li>
+  <li><%= f.text_field :fiscal_year_contains, :class => "span12" %><br /></li>
+
+  <li><%= f.label :ask_status_contains, "Ask Status" %></li>
+  <li><%= f.text_field :ask_status_contains, :class => "span12" %><br /></li>
+
+  <li><%= f.label :funding_type, "Funding Type" %></li>
+  <li><%= f.text_field :funding_type_contains, :class => "span12" %><br /></li>
+
+  <%= f.submit "Search", :class => "btn" %>
+<% end %>

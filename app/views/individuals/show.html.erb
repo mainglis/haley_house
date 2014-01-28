@@ -1,95 +1,97 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
-      <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-            <!-- <li class="nav-header">Navigate</li> -->
-              <!-- <li class="active"><a href="#">Export Link</a></li> -->
-              <li><%= link_to t('.back', :default => t("helpers.links.back_to_search")),
-              individuals_path, :class => 'btn-small'  %></li>
-        </ul>
-      </div><!--/.well sidebar-nav -->
-      <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-    
-            <li class="nav-header">Jump to...</li>
-              <!-- <li class="active"><a href="#">Export Link</a></li> -->
-              <li><a href="#">Contact Information</a></li>
-              <li><a href="#">Activity Record</a></li> <!--Type of person, event_attendance_records, donation_records-->
-              <li><a href="#">Communications</a></li> <!--Thank yous, invites to events, do they get eNewsletters or Newsletters? -->
-              <li><a href="#">Notes</a></li>
-        </ul>
-      </div><!--/.well sidebar-nav -->
-      <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-          
-            <li class="nav-header">Actions</li>
-              <!-- <li class="active"><a href="#">Export Link</a></li> -->
-              <li><a href="#">Email</a></li>
-              <li><a href="#">Write Letter</a></li>
-        </ul>
-      </div><!--/.well sidebar-nav -->
+      <%= render :partial => 'sidebar' %>
     </div><!--/span3--> 
     <div class="span9">
       <div class="row-fluid">
 
         <%- model_class = Individual -%>
           <div class="page-header">
-            <h2><%=t '.title', :default => model_class.model_name.human.titleize %></h2>
+            <h3>Basic Information  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_individual_path(@individual), :class => 'btn'%></h3>
           </div>
-
           <dl class="dl-horizontal">
-            <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
-            <dd><%= @individual.first_name %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
-            <dd><%= @individual.last_name %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:salutation) %>:</strong></dt>
-            <dd><%= @individual.salutation %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-            <dd><%= @individual.email %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:current_street_address) %>:</strong></dt>
-            <dd><%= @individual.current_street_address %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:current_city) %>:</strong></dt>
-            <dd><%= @individual.current_city %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:current_zip) %>:</strong></dt>
-            <dd><%= @individual.current_zip %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:permanent_street_address) %>:</strong></dt>
-            <dd><%= @individual.permanent_street_address %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:permanent_city) %>:</strong></dt>
-            <dd><%= @individual.permanent_city %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:permanent_zip) %>:</strong></dt>
-            <dd><%= @individual.permanent_zip %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:phone_mobile) %>:</strong></dt>
-            <dd><%= @individual.phone_mobile %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:phone_work) %>:</strong></dt>
-            <dd><%= @individual.phone_work %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:phone_home) %>:</strong></dt>
-            <dd><%= @individual.phone_home %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:emergency_contact_name) %>:</strong></dt>
-            <dd><%= @individual.emergency_contact_name %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:emergency_contact_street_address) %>:</strong></dt>
-            <dd><%= @individual.emergency_contact_street_address %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:emergency_contact_city) %>:</strong></dt>
-            <dd><%= @individual.emergency_contact_city %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:emergency_contact_zip) %>:</strong></dt>
-            <dd><%= @individual.emergency_contact_zip %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:email_newsletter) %>:</strong></dt>
-            <dd><%= @individual.email_newsletter %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:mail_newsletter) %>:</strong></dt>
-            <dd><%= @individual.mail_newsletter %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:applied_date) %>:</strong></dt>
-            <dd><%= @individual.applied_date %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:processed_date) %>:</strong></dt>
-            <dd><%= @individual.processed_date %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:inactive_date) %>:</strong></dt>
-            <dd><%= @individual.inactive_date %></dd>
+            <% attributes_order = [ 
+                "first_name",
+                "last_name",
+                "salutation",
+                "email",
+                "current_street_address",
+                "current_city",
+                "current_state",
+                "current_zip",
+                "permanent_street_address",
+                "permanent_city",
+                "permanent_zip",
+                "phone_mobile",
+                "phone_work",
+                "phone_home",
+                "emergency_contact_name",
+                "emergency_contact_street_address",
+                "emergency_contact_city",
+                "emergency_contact_zip",
+                "email_newsletter",
+                "mail_newsletter",
+                "applied_date",
+                "processed_date",
+                "inactive_date",
+              ] %>
+            <% attributes_order.each do |attribute| %>
+              <dt><strong><%= model_class.human_attribute_name(attribute.to_sym) + ':' unless @individual.attributes[attribute].blank? %></strong></dt>
+              <dd><%= @individual.attributes[attribute] %></dd>
+            <% end -%>   
           </dl>
 
-          <h2>Roles</h2>
+<!-- _____________________________________________________________
+  _____________________________________________________________ -->
+
+          <div id="donations"> 
+            <h3>Donations <%= link_to 'Add New', new_donation_path, :class => 'btn' %></h3>
+          </div>
+
+            <table class="table table-striped">
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Details</th>
+                <th></th>
+                <th></th>
+              </tr>
+
+            <% @individual.donations.each do |donation| %>
+              <tr>
+                <td><%= donation.date %></td>
+                <td><%= donation.amount %></td>
+                <td><%= donation.method %></td>
+                <td><%= link_to 'View Details', donation, :class => 'button' %></td>
+                <td><%= link_to 'Add New', new_donation_path, :class => 'btn btn-mini' %></td>
+              </tr>
+            <% end %>
+            </table>
+<!-- _____________________________________________________________
+  _____________________________________________________________ -->
+
+          <div id="roles" class="page-header">
+            <h3>Roles <%= link_to "Edit", new_individual_role_record_path, :class => 'btn' %></h3>
+          </div>
           <% @individual.individual_role_records.each do |individual_role_record| %>
             <%= individual_role_record %><br/>
           <% end -%>
           <%= link_to "Create New Role Record", new_individual_role_record_path %>
+
+<!-- _____________________________________________________________
+  _____________________________________________________________ -->
+
+          <div id="notes" class="page-header">
+            <h3>Notes <%= link_to "Add New", new_note_path, :class => 'btn' %></h3>
+          </div>
+          <% @individual.notes.each do |notes| %>
+            <%= notes %><br/>
+          <% end -%>
+<!-- _____________________________________________________________
+  _____________________________________________________________ -->                  
 
           <div class="form-actions">
             <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -101,8 +103,7 @@
                         :method => 'delete',
                         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                         :class => 'btn btn-danger' %>
-          </div>
-      </div><!--/row-fluid-->
-    </div><!--/span9-->
-  </div><!--/row-fluid-->  
+
+
+                   
 </div><!--/container-fluid-->

@@ -8,12 +8,14 @@
       </div><!--/.well sidebar-nav -->
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
-          <li class="nav-header">Export Individuals</li>
-          <li><%= link_to "CSV", individuals_path(:format => "csv") %></li>
-          <li><%= link_to "Excel", individuals_path(:format => "xls") %></li>
+          <h4>Actions</h4>
+          <!-- <li class="nav-header">Actions</li> -->
+          <li><%= link_to t('.new', :default => t("helpers.links.add_new")), new_individual_path %></li>
+          <li><%= link_to "Export (Excel or CSV)", individuals_path(:format => "csv") %></li> <!-- or :format => 'xls' -->
+          <li><%= link_to "Import (Excel or CSV)" %></li> 
         </ul>
       </div><!--/.well sidebar-nav -->
-      <div class="well sidebar-nav">
+      <!-- <div class="well sidebar-nav">
         <ul class="nav nav-list">
             <li class="nav-header">Actions</li>
             <li><%= link_to t('.new', :default => t("helpers.links.add_new")),
@@ -22,7 +24,7 @@
             <li><a href="#">Export</a></li>
             <li><a href="#">Import</a></li>
         </ul>
-      </div><!--/.well sidebar-nav -->
+      </div></.well sidebar-nav -->
     </div><!--/span3-->
 
     <div class="span9">
@@ -34,60 +36,23 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th><%#= model_class.human_attribute_name(:id) %></th>
-            <th><%= model_class.human_attribute_name(:first_name) %></th>
+            <th><%= sort_link @search, :first_name %></th>
             <th><%= model_class.human_attribute_name(:last_name) %></th>
-            <th><%#= model_class.human_attribute_name(:salutation) %></th>
             <th><%= model_class.human_attribute_name(:email) %></th>
             <th><%= model_class.human_attribute_name(:current_street_address) %></th>
             <th><%= model_class.human_attribute_name(:current_city) %></th>
             <th><%= model_class.human_attribute_name(:current_zip) %></th>
-      <!--       <th><%#= model_class.human_attribute_name(:permanent_street_address) %></th>
-            <th><%#= model_class.human_attribute_name(:permanent_city) %></th>
-            <th><%#= model_class.human_attribute_name(:permanent_zip) %></th>
-            <th><%#= model_class.human_attribute_name(:phone_mobile) %></th>
-            <th><%#= model_class.human_attribute_name(:phone_work) %></th>
-            <th><%#= model_class.human_attribute_name(:phone_home) %></th>
-            <th><%#= model_class.human_attribute_name(:emergency_contact_name) %></th>
-            <th><%#= model_class.human_attribute_name(:emergency_contact_street_address) %></th>
-            <th><%#= model_class.human_attribute_name(:emergency_contact_city) %></th>
-            <th><%#= model_class.human_attribute_name(:emergency_contact_zip) %></th>
-            <th><%#= model_class.human_attribute_name(:email_newsletter) %></th>
-            <th><%#= model_class.human_attribute_name(:mail_newsletter) %></th>
-            <th><%#= model_class.human_attribute_name(:applied_date) %></th>
-            <th><%#= model_class.human_attribute_name(:processed_date) %></th>
-            <th><%#= model_class.human_attribute_name(:inactive_date) %></th> 
-            <th><%#= model_class.human_attribute_name(:created_at) %></th> 
-            <th><%#=t '.actions', :default => t("helpers.actions") %></th> -->
           </tr>
         </thead>
         <tbody>
           <% @individuals.each do |individual| %>
             <tr>
-              <td><%#= link_to individual.id, individual_path(individual) %></td>
               <td><%= individual.first_name %></td>
               <td><%= individual.last_name %></td>
-              <td><%#= individual.salutation %></td>
               <td><%= individual.email %></td>
               <td><%= individual.current_street_address %></td>
               <td><%= individual.current_city %></td>
               <td><%= individual.current_zip %></td>
-             <!--  <td><%#= individual.permanent_street_address %></td>
-              <td><%#= individual.permanent_city %></td>
-              <td><%#= individual.permanent_zip %></td>
-              <td><%#= individual.phone_mobile %></td>
-              <td><%#= individual.phone_work %></td>
-              <td><%#= individual.phone_home %></td>
-              <td><%#= individual.emergency_contact_name %></td>
-              <td><%#= individual.emergency_contact_street_address %></td>
-              <td><%#= individual.emergency_contact_city %></td>
-              <td><%#= individual.emergency_contact_zip %></td>
-              <td><%#= individual.email_newsletter %></td>
-              <td><%#= individual.mail_newsletter %></td>
-              <td><%#= individual.applied_date %></td>
-              <td><%#= individual.processed_date %></td>
-              <td><%#= individual.inactive_date %></td>  
-              <td><%#=l individual.created_at %></td> -->
               <td>
                 <%= link_to t('.show', :default => t("helpers.links.show")),
                             individual_path(individual), :class => 'btn btn-mini' %>

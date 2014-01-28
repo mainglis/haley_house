@@ -1,8 +1,8 @@
-<h1>Listing notes</h1>
+<h3>Listing Notes <%= link_to 'New Note', new_note_path, :class => 'btn' %></h3>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <th>Individual</th>
+    <th>Name</th>
     <th>Note</th>
     <th></th>
     <th></th>
@@ -11,15 +11,14 @@
 
 <% @notes.each do |note| %>
   <tr>
-    <td><%= note.individual_id %></td>
+    <td><%= note.individual %></td>
     <td><%= note.note %></td>
-    <td><%= link_to 'Show', note %></td>
+    <td><%= link_to 'View Details', note %></td>
     <td><%= link_to 'Edit', edit_note_path(note) %></td>
-    <td><%= link_to 'Destroy', note, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', note, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Note', new_note_path %>

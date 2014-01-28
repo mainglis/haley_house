@@ -1,6 +1,20 @@
-<h1>Editing Grant Record</h1>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    <%= render :partial => 'sidebar' %>
+    </div><!--/span3--> 
+    <div class="span9">
+      <div class="row-fluid">
+		<%- model_class = GrantRecord -%>
+		<div class="page-header">
+		  <h2>Edit Grant Record</h2>
+		</div>
+		<%= render :partial => 'form' %>
+	</div><!--/row-fluid-->
+    </div><!--/span9-->
+  </div><!--/row-fluid-->  
+</div><!--/container-fluid-->
 
-<%= render 'form' %>
 
 <%= link_to 'Show', @grant_record %> |
 <%= link_to 'Back', grant_records_path %>

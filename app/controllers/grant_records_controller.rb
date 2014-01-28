@@ -2,11 +2,17 @@ class GrantRecordsController < ApplicationController
   # GET /grant_records
   # GET /grant_records.json
   def index
-    @grant_records = GrantRecord.all
+    if params[:commit] == "Clear"
+      params[:search].each_key { |k| params[:search][k] = '' }
+    end 
+
+    @search = GrantRecord.search(params[:search])
+    @grant_records = @search.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @grant_records }
+      format.csv { render :text => @grant_records.to_csv }
     end
   end
 

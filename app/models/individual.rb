@@ -2,6 +2,8 @@ class Individual < ActiveRecord::Base
 
   has_many :event_attendance_records
 	has_many :individual_role_records
+  has_many :donations
+  has_many :notes
 
   attr_accessible :applied_date, :current_city, :current_street_address, :current_apartment_number, :current_state, :current_zip, :email, :email_newsletter, 
                   :emergency_contact_city, :emergency_contact_name, :emergency_contact_street_address, :emergency_contact_zip, 

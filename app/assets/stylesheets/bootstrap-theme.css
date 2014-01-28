@@ -25,6 +25,10 @@
           box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
+.btn-right {
+  text-align: right;
+}
+
 .btn:active,
 .btn.active {
   background-image: none;
@@ -126,6 +130,10 @@
 .btn-info.active {
   background-color: #31b0d5;
   border-color: #2aabd2;
+}
+
+.btn-pullright {
+  float: right !important;
 }
 
 .thumbnail,
