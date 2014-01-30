@@ -12,3 +12,6 @@
 
 # SEARCH
 # Add search categories to grantmakers and organizations
+
+# QUESTIONS
+# How should we handle linking to edits of grantmaker contact information? From within grant_records?
