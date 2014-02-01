@@ -4,7 +4,7 @@
 # Find a way to separated "Update Options" column into a "Email updates" and "Mail updates" column
 
 
-# VALIDATION
+# VALIDATION OF FORMS
 # Validate format of zip codes
 # Validate state initials
 # Validate format of names (e.g. capitalizations)
