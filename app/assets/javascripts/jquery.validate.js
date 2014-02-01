@@ -9,16 +9,22 @@
  *   http://www.opensource.org/licenses/mit-license.php
  */
 
-
-$(document).ready(function () {
-$(“#new_individual”).validate({
-debug: true,
+$().ready(function() {
+$("form_for").validate(@individual);
 rules: {
-“individual[email]“: {required: true, email: true},
-
-}
-});
-});
+      first_name: "required",
+      last_name: "required",
+        required: true,
+        minlength: 2
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      email: "Please enter a valid email address",
+      agree: "Please accept our policy"
+    }
+  });
 
 
 (function($) {

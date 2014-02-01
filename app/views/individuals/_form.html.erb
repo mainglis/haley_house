@@ -3,7 +3,7 @@
 
   <h5>Basic Information</h5>
   <div class="control-group">
-    <%= f.label :first_name, :class => 'control-label' %>
+    <%= f.label :first_name, :class => 'control-label', :input => 'required' %>
     <div class="controls">
       <%= f.text_field :first_name, :class => 'text_field', :minlength => 3 %>
     </div>
@@ -153,3 +153,23 @@
                 individuals_path, :class => 'btn' %>
   </div>
 <% end %>
+<!-- <script src="/assets/javascripts/jquery.js"></script>
+<script src="/assets/javascripts/jquery.validation.js"></script> -->
+<script>
+$().ready(function() {
+$("form_for").validate(@individual);
+rules: {
+      first_name: "required",
+      last_name: "required",
+        required: true,
+        minlength: 2
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      email: "Please enter a valid email address",
+      agree: "Please accept our policy"
+    }
+  });
+</script>
