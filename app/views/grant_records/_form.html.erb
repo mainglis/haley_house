@@ -1,15 +1,5 @@
 <%= form_for(@grant_record) do |f| %>
-  <% if @grant_record.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@grant_record.errors.count, "error") %> prohibited this grant_record from being saved:</h2>
-
-      <ul>
-      <% @grant_record.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/error_messages", :target => @grant_record %> 
 
   <div class="field">
     <%= f.label :grantmaker_id %> <!-- make this display name not ID -->

@@ -15,3 +15,14 @@
 //= require twitter/bootstrap
 <!-- //= require bootstrap_and_overrides -->
 //= require_tree .
+
+// $(document).ready(function () {
+// $(“#new_individual”).validate({
+// debug: true,
+// rules: {
+// “individual[email]“: {required: true, email: true},
+
+// }
+// });
+// });
+

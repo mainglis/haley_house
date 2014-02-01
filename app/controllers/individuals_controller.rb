@@ -31,10 +31,13 @@ class IndividualsController < ApplicationController
   # GET /individuals/new.json
   def new
     @individual = Individual.new
+    
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @individual }
+      # new.valid? 
+      # new.errors.messages
     end
   end
 
