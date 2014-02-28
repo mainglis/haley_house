@@ -1,9 +1,9 @@
 class Individual < ActiveRecord::Base
 
-  validates :first_name, :last_name, :current_street_address, :current_city, :current_state, :current_zip, :presence => true
-  validates :current_zip, :permanent_zip, :length => { :is => 5 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, :format => { :with => VALID_EMAIL_REGEX }
+  # validates :first_name, :last_name, :current_street_address, :current_city, :current_state, :current_zip, :presence => true
+  # validates :current_zip, :permanent_zip, :length => { :is => 5 }
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # validates :email, :format => { :with => VALID_EMAIL_REGEX }
 
   has_many :event_attendance_records
 	has_many :individual_role_records

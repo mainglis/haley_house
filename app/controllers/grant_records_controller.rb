@@ -1,4 +1,7 @@
 class GrantRecordsController < ApplicationController
+
+  before_filter :load_select_arrays
+
   # GET /grant_records
   # GET /grant_records.json
   def index
@@ -85,5 +88,10 @@ class GrantRecordsController < ApplicationController
       format.html { redirect_to grant_records_url }
       format.json { head :no_content }
     end
+  end
+
+  def load_select_arrays
+    @grantmakers = Grantmaker.all.map { |grantmaker| [grantmaker, grantmaker.id] }
+    @organizations = Organization.all.map { |organization| [organization, organization.id] }
   end
 end

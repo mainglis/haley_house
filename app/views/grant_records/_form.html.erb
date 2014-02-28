@@ -3,11 +3,11 @@
 
   <div class="field">
     <%= f.label :grantmaker_id %> <!-- make this display name not ID -->
-    <%= f.number_field :grantmaker_id %>
+    <%= f.select :grantmaker_id, (@grantmakers || []) %>
   </div>
   <div class="field">
     <%= f.label :organization_id %>
-    <%= f.number_field :organization_id %>
+    <%= f.select :organization_id, (@organizations || []) %>
   </div>
   <div class="field">
     <%= f.label :fiscal_year %>

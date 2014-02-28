@@ -62,8 +62,8 @@
 
             <% @individual.donations.each do |donation| %>
               <tr>
-                <td><%= donation.date %></td>
-                <td><%= donation.amount %></td>
+                <td><%= donation.date_string %></td>
+                <td><%= number_to_currency donation.amount %></td>
                 <td><%= donation.method %></td>
                 <td><%= link_to 'View Details', donation, :class => 'button' %></td>
                 <td><%= link_to 'Add New', new_donation_path, :class => 'btn btn-mini' %></td>

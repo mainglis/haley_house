@@ -1,4 +1,7 @@
 class IndividualRoleRecordsController < ApplicationController
+
+  before_filter :load_select_arrays, :only => :update
+
   # GET /individual_role_records
   # GET /individual_role_records.json
   def index
@@ -25,8 +28,6 @@ class IndividualRoleRecordsController < ApplicationController
   # GET /individual_role_records/new.json
   def new
     @individual_role_record = IndividualRoleRecord.new
-    @individuals = Individual.all.map { |individual| [individual, individual.id] }
-    @roles = Role.all.map { |role| [role, role.id] }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -82,4 +83,10 @@ class IndividualRoleRecordsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def load_select_arrays
+    @individuals = Individual.all.map { |individual| [individual, individual.id] }
+    @roles = Role.all.map { |role| [role, role.id] }
+  end
+
 end
