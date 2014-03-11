@@ -1,9 +1,7 @@
 <%= form_for @search, :url => individuals_path, :html => {:method => :get} do |f| %>
   <h4>Search</h4>
-  <%= f.label :first_name_or_last_name_contains, "Name" %>
-  <%= f.text_field :first_name_or_last_name_contains, :class => "span12" %><br />
-  <%= f.label :email_contains, "Email" %>
-  <%= f.text_field :email_contains, :class => "span12" %><br />
+  <%= f.label :first_name_or_last_name_or_email_contains, "Name or Email" %>
+  <%= f.text_field :first_name_or_last_name_or_email_contains, :class => "span12" %><br />
   <%= f.label :current_street_address_contains, "Current Street Address" %>
   <%= f.text_field :current_street_address_contains, :class => "span12" %><br />
   <%= f.label :individual_role_records_role_name_contains, "Role" %>

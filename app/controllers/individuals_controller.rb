@@ -4,7 +4,7 @@ class IndividualsController < ApplicationController
   def index
     @action = "index"
     @search = Individual.limit(100).search(params[:search])
-    @individuals = @search.all   # load all matching 
+    @individuals = @search.all.group("individuals.id")   # load all matching 
     # @individuals = @search.paginate(:page => params[:page]) # Who doesn't love will_paginate?
 
     respond_to do |format|

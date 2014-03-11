@@ -38,7 +38,7 @@
                 "inactive_date",
               ] %>
             <% attributes_order.each do |attribute| %>
-              <dt><strong><%= model_class.human_attribute_name(attribute.to_sym) + ':' unless @individual.attributes[attribute].blank? %></strong></dt>
+              <dt><strong><%= model_class.human_attribute_name(attribute.to_sym) + ':' %></strong></dt>
               <dd><%= @individual.attributes[attribute] %></dd>
             <% end -%>   
           </dl>

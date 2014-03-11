@@ -40,9 +40,7 @@
             <th><%= model_class.human_attribute_name(:first_name) %></th>
             <th><%= model_class.human_attribute_name(:last_name) %></th>
             <th><%= model_class.human_attribute_name(:email) %></th>
-            <th><%= model_class.human_attribute_name(:current_street_address) %></th>
             <th><%= model_class.human_attribute_name(:current_city) %></th>
-            <th><%= model_class.human_attribute_name(:current_zip) %></th>
           </tr>
         </thead>
         <tbody>
@@ -51,9 +49,7 @@
               <td><%= individual.first_name %></td>
               <td><%= individual.last_name %></td>
               <td><%= individual.email %></td>
-              <td><%= individual.current_street_address %></td>
               <td><%= individual.current_city %></td>
-              <td><%= individual.current_zip %></td>
               <td>
                 <%= link_to t('.show', :default => t("helpers.links.show")),
                             individual_path(individual), :class => 'btn btn-mini' %>
