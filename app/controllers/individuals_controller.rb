@@ -3,8 +3,8 @@ class IndividualsController < ApplicationController
   # GET /individuals.json
   def index
     @action = "index"
-    @search = Individual.limit(100).search(params[:search])
-    @individuals = @search.all.group("individuals.id")   # load all matching 
+    @search = Individual.group("individuals.id").search(params[:search])
+    @individuals = @search.all   # load all matching 
     # @individuals = @search.paginate(:page => params[:page]) # Who doesn't love will_paginate?
 
     respond_to do |format|

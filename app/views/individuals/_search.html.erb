@@ -1,17 +1,35 @@
 <%= form_for @search, :url => individuals_path, :html => {:method => :get} do |f| %>
   <h4>Search</h4>
-  <%= f.label :first_name_or_last_name_or_email_contains, "Name or Email" %>
-  <%= f.text_field :first_name_or_last_name_or_email_contains, :class => "span12" %><br />
-  <%= f.label :current_street_address_contains, "Current Street Address" %>
-  <%= f.text_field :current_street_address_contains, :class => "span12" %><br />
-  <%= f.label :individual_role_records_role_name_contains, "Role" %>
-  <%= f.text_field :individual_role_records_role_name_contains, :class => "span12" %><br />
-  <%= f.check_box :email_newsletter_is_true %>
-  <%= f.label :email_newsletter_is_true, "Email Newsletter", :class => "checkbox inline" %><br />
-  <%= f.check_box :mail_newsletter_is_true %>
-  <%= f.label :mail_newsletter_is_true, "Mail Newsletter", :class => "checkbox inline" %><br />
-  <%#= f.label :comments_created_at_greater_than, 'With comments after' %>
-  <%#= f.datetime_select :comments_created_at_greater_than, :include_blank => true %><br />
-  <!-- etc... -->
-  <%= f.submit "Search", :class => "btn" %>
+  <p>
+    <%= f.label :first_name_or_last_name_or_email_contains, 'Name or Email' %>
+    <%= f.text_field :first_name_or_last_name_or_email_contains, :class => 'span12' %><br />
+    <%= f.label :individual_role_records_role_name_contains, 'Role' %>
+    <%= f.select :individual_role_records_role_name_contains, options_for_select(Role.all), {:include_blank => true}, { :class => 'span12' } %><br />
+    <%= f.label :current_street_address_like, 'Street Address' %>
+    <%= f.text_field :current_street_address_like, :class => 'span12' %><br />
+    <%= f.label :current_city_like, 'City' %>
+    <%= f.text_field :current_city_like, :class => 'span12' %><br />
+    <%= f.label :current_zip_like, 'Zip Code' %>
+    <%= f.text_field :current_zip_like, :class => 'span12' %><br />
+  </p>
+  <p>
+    <%= f.label :donations_amount_gteq, 'Donation between' %>
+    $ <%= f.text_field :donations_amount_gteq, :class => 'span4' %>
+    <%= ' and ' %>
+    $ <%= f.text_field :donations_amount_lteq, :class => 'span4' %>
+  </p>
+  <p>
+    <%= f.label :donations_date_gteq, 'Donation date between' %>
+    <%= f.text_field :donations_date_gteq, :class => 'span8' %>
+    <%= f.label :donations_date_lteq, 'and' %>
+    <%= f.text_field :donations_date_lteq, :class => 'span8' %>
+  </p>
+  <p>
+    <%= f.check_box :email_newsletter_is_true %>
+    <%= f.label :email_newsletter_is_true, 'Email Newsletter', :class => 'checkbox inline' %><br />
+    <%= f.check_box :mail_newsletter_is_true %>
+    <%= f.label :mail_newsletter_is_true, 'Mail Newsletter', :class => 'checkbox inline' %>
+  </p>
+
+  <%= f.submit 'Search', :class => 'btn' %>
 <% end %>

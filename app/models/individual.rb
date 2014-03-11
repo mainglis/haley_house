@@ -1,6 +1,6 @@
 class Individual < ActiveRecord::Base
 
-  # validates :first_name, :last_name, :current_street_address, :current_city, :current_state, :current_zip, :presence => true
+  # validates_presence_of :first_name, :last_name, :current_street_address, :current_city, :current_state, :current_zip
   # validates :current_zip, :permanent_zip, :length => { :is => 5 }
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # validates :email, :format => { :with => VALID_EMAIL_REGEX }
@@ -25,5 +25,12 @@ class Individual < ActiveRecord::Base
       individual.attributes = row.to_hash.slice(*accessible_attributes)
       individual.save!
     end
-  end  
+  end
+
+  def donations_summary
+    limit = 2
+    donations_summary_string = donations.order("date DESC").limit(limit).map { |d| "#{d.amount} (#{d.date.strftime('%-m/%-d')})" }.join(', $')
+    donations_summary_string += ', ...' if donations.count > limit
+    return '$' + donations_summary_string
+  end
 end
