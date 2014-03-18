@@ -1,5 +1,7 @@
 class Individual < ActiveRecord::Base
 
+  require 'csv'
+
   # validates_presence_of :first_name, :last_name, :current_street_address, :current_city, :current_state, :current_zip
   # validates :current_zip, :permanent_zip, :length => { :is => 5 }
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -18,6 +20,13 @@ class Individual < ActiveRecord::Base
   def to_s
     "#{first_name} #{last_name}"
   end
+
+  def donations_summary
+    limit = 2
+    donations_summary_string = donations.order("date DESC").limit(limit).map { |d| "#{d.amount} (#{d.date.strftime('%-m/%-d')})" }.join(', $')
+    donations_summary_string += ', ...' if donations.count > limit
+    return '$' + donations_summary_string
+  end
                   
   def self.import(file)
     CSV.foreach(file.path, :headers => true) do |row|
@@ -27,10 +36,33 @@ class Individual < ActiveRecord::Base
     end
   end
 
-  def donations_summary
-    limit = 2
-    donations_summary_string = donations.order("date DESC").limit(limit).map { |d| "#{d.amount} (#{d.date.strftime('%-m/%-d')})" }.join(', $')
-    donations_summary_string += ', ...' if donations.count > limit
-    return '$' + donations_summary_string
+  # This method imports individuals from a csv file. The header row must contain attribute names.
+  def self.import_from_csv(file_name, options = { :file_path => "original_data/" })
+    csv_rows = []
+    CSV.open(options[:file_path] + file_name, 'r', ?,, ?\r) { |row| csv_rows << row }
+
+    header = csv_rows.first
+    csv_rows.delete(header)
+
+    csv_rows.each do |row|
+      row_attributes = {}
+      notes = []
+      i = 0
+
+      row.each do |col|
+        attribute_name = header[i]
+        if attribute_name.nil?
+          raise "Must have a header for every column. header[#{i}] is nil! Value without a header was '#{col}'"
+        elsif attribute_name == 'notes'
+          notes << col
+        else
+          row_attributes[attribute_name.to_s.to_sym] = col
+        end
+        i += 1
+      end
+
+      individual = Individual.create!(row_attributes)
+      notes.each { |note| individual.notes.create(:note => note) unless note.nil? }
+    end
   end
 end

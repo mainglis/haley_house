@@ -3,6 +3,8 @@ class Note < ActiveRecord::Base
 
   belongs_to :individual
 
+  validates_presence_of :individual, :note
+
   def to_s
   	note
   end

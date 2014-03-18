@@ -1,10 +1,10 @@
 require 'csv'
 
-# def import_individuals(file_name)
-def import_individuals
+def import_individuals(file_name)
+# def import_individuals
     file_path = "original_data/"
 
-    file_name = "donorsRSP.csv"
+    # file_name = "donorsRSP.csv"
     # file_name = "WithoutDonors.csv"
     # file_name = "ListWithNotes.csv"
 
@@ -35,6 +35,8 @@ def import_individuals
     end
 end
 
-# ["donorsRSP.csv", "WithoutDonors.csv"].each do |file_name|
-#     import_individuals(file_name)
-# end
+["donorsRSP.csv", "WithoutDonors.csv"].each do |file_name|
+    import_individuals(file_name)
+end
+
+["donorsRSP.csv", "WithoutDonors.csv"].each { |f| Individual.import_from_csv(f) }
