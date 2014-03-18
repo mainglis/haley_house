@@ -37,6 +37,9 @@ gem 'therubyracer', :require => 'execjs'
 gem 'meta_search'  # Last officially released gem
 # gem "meta_search", :git => "git://github.com/ernie/meta_search.git" # Track git repo
 
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
