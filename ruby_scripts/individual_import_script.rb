@@ -40,3 +40,15 @@ end
 end
 
 ["donorsRSP.csv", "WithoutDonors.csv"].each { |f| Individual.import_from_csv(f) }
+
+
+list = Individual.where "organization IS NOT NULL and first_name is NULL"
+list.each { |e| e.convert_to_organization! }
+
+list = Individual.where "first_name is NULL and last_name not like '%family%'"
+list.each do |record|
+    puts "Is #{record.last_name} an organization? (y/n)"
+    is_organization = gets.chomp == 'y'
+    record.convert_to_organization! if is_organization
+end
+

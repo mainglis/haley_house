@@ -12,10 +12,12 @@ class Individual < ActiveRecord::Base
   has_many :donations
   has_many :notes
 
-  attr_accessible :applied_date, :current_city, :current_street_address, :current_apartment_number, :current_state, :current_zip, :email, :email_newsletter, 
-                  :emergency_contact_city, :emergency_contact_name, :emergency_contact_street_address, :emergency_contact_zip, 
-                  :first_name, :inactive_date, :last_name, :mail_newsletter, :permanent_city, :permanent_street_address, 
-                  :permanent_zip, :phone_home, :phone_mobile, :phone_mobile, :phone_work, :processed_date, :salutation, :organization
+  attr_accessible :first_name, :last_name, :salutation, :email, :organization, :mail_newsletter, :email_newsletter,
+    :current_street_address, :current_apartment_number, :current_city, :current_state, :current_zip, 
+    :emergency_contact_name, :emergency_contact_street_address, :emergency_contact_city, :emergency_contact_state, :emergency_contact_zip, 
+    :permanent_street_address, :permanent_city, :permanent_state, :permanent_zip,
+    :phone_home, :phone_mobile, :phone_work,
+    :applied_date, :inactive_date, :processed_date
 
   def to_s
     "#{first_name} #{last_name}"
@@ -25,7 +27,40 @@ class Individual < ActiveRecord::Base
     limit = 2
     donations_summary_string = donations.order("date DESC").limit(limit).map { |d| "#{d.amount} (#{d.date.strftime('%-m/%-d')})" }.join(', $')
     donations_summary_string += ', ...' if donations.count > limit
-    return '$' + donations_summary_string
+    if donations_summary_string.blank?
+      return 'None'
+    else
+      return '$' + donations_summary_string
+    end
+  end
+
+  def to_organization
+    current_street_address = [current_street_address, current_apartment_number].join(', ') unless current_apartment_number.blank?
+    Organization.create(
+      :name => organization || [first_name, last_name].join(' '),
+      :city => current_city || permanent_city || emergency_contact_city,
+      # :mission => ,
+      # :program => ,
+      :state => current_state || permanent_state || emergency_contact_state,
+      :street_address => current_street_address || permanent_street_address || emergency_contact_street_address,
+      # :website => ,
+      :zip => current_zip || permanent_zip || emergency_contact_zip,
+      :contact_phone_number => phone_work || phone_home || phone_mobile,
+      :contact_email => email,
+      :contact_first_name => first_name || emergency_contact_name,
+      :contact_last_name => last_name
+    )
+  end
+
+  def convert_to_organization!
+    unless [event_attendance_records, individual_role_records, donations, notes].all? { |child_records| child_records.empty? }
+      raise "Cannot convert individual with child records! Individual #{self.id}"
+    end
+    new_organization = self.to_organization
+    if new_organization.save!
+      self.destroy
+      return new_organization
+    end
   end
                   
   def self.import(file)
