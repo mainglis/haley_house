@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140121134321) do
+ActiveRecord::Schema.define(:version => 20140325000000) do
 
   create_table "deadlines", :force => true do |t|
     t.integer  "grant_record_id"
@@ -136,6 +136,8 @@ ActiveRecord::Schema.define(:version => 20140121134321) do
     t.string   "current_apartment_number"
     t.string   "organization"
     t.string   "current_state"
+    t.string   "emergency_contact_state"
+    t.string   "permanent_state"
   end
 
   create_table "notes", :force => true do |t|
