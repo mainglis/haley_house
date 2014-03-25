@@ -32,38 +32,18 @@
     <tr>
      <!--  <th><%= model_class.human_attribute_name(:id) %></th> -->
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:mission) %></th>
-      <th><%= model_class.human_attribute_name(:program) %></th>
-      <th><%= model_class.human_attribute_name(:website) %></th>
-      <th><%= model_class.human_attribute_name(:street_address) %></th>
       <th><%= model_class.human_attribute_name(:city) %></th>
       <th><%= model_class.human_attribute_name(:state) %></th>
-    <!--   <th><%= model_class.human_attribute_name(:zip) %></th>
-      <th><%= model_class.human_attribute_name(:contact_first_name) %></th>
-      <th><%= model_class.human_attribute_name(:contact_last_name) %></th>
-      <th><%= model_class.human_attribute_name(:contact_phone_number) %></th>
-      <th><%= model_class.human_attribute_name(:contact_email) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @organizations.each do |organization| %>
       <tr>
-        <!-- <td><%= link_to organization.id, organization_path(organization) %></td> -->
-        <td><%= organization.name %></td>
-        <td><%= organization.mission %></td>
-        <td><%= organization.program %></td>
-        <td><%= organization.website %></td>
-        <td><%= organization.street_address %></td>
+        <td><%= link_to organization, organization %></td>
+        <!-- <td><%= organization.name %></td> -->
         <td><%= organization.city %></td>
         <td><%= organization.state %></td>
-        <!-- <td><%= organization.zip %></td>
-        <td><%= organization.contact_first_name %></td>
-        <td><%= organization.contact_last_name %></td>
-        <td><%= organization.contact_phone_number %></td>
-        <td><%= organization.contact_email %></td>
-        <td><%=l organization.created_at %></td> -->
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                             organization_path(organization), :class => 'btn btn-mini' %>

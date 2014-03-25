@@ -38,30 +38,25 @@
             </div>
 
             <dl class="dl-horizontal">
-              <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-              <dd><%= @organization.name %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:mission) %>:</strong></dt>
-              <dd><%= @organization.mission %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:program) %>:</strong></dt>
-              <dd><%= @organization.program %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
-              <dd><%= @organization.website %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:street_address) %>:</strong></dt>
-              <dd><%= @organization.street_address %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
-              <dd><%= @organization.city %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
-              <dd><%= @organization.state %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:zip) %>:</strong></dt>
-              <dd><%= @organization.zip %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:contact_first_name) %>:</strong></dt>
-              <dd><%= @organization.contact_first_name %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:contact_last_name) %>:</strong></dt>
-              <dd><%= @organization.contact_last_name %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:contact_phone_number) %>:</strong></dt>
-              <dd><%= @organization.contact_phone_number %></dd>
-              <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
-              <dd><%= @organization.contact_email %></dd>
+              <% attributes_order = [ 
+                  "name",
+                  "mission",
+                  "program",
+                  "website",
+                  "street_address",
+                  "city",
+                  "state",
+                  "zip",
+                  "contact_first_name",
+                  "contact_last_name",
+                  "contact_phone_number",
+                  "contact_email",
+                ] %>
+              <% attributes_order.each do |attribute| %>
+                <% next if @organization.attributes[attribute].blank? %>
+                <dt><strong><%= model_class.human_attribute_name(attribute.to_sym) + ':' %></strong></dt>
+                <dd><%= @organization.attributes[attribute] %></dd>
+              <% end %>  
             </dl>
 
             <div class="form-actions">
