@@ -2,7 +2,7 @@
   <div class="row-fluid">
     <div class="span3">
       <%= render :partial => 'sidebar' %>
-    </div><!--/span3--> 
+    </div><!--/span3-->
     <div class="span9">
       <div class="row-fluid">
 
@@ -12,7 +12,7 @@
                         edit_individual_path(@individual), :class => 'btn'%></h3>
           </div>
           <dl class="dl-horizontal">
-            <% attributes_order = [ 
+            <% attributes_order = [
                 "first_name",
                 "last_name",
                 "salutation",
@@ -42,14 +42,14 @@
               <% next if @individual.attributes[attribute].blank? %>
               <dt><strong><%= model_class.human_attribute_name(attribute.to_sym) + ':' %></strong></dt>
               <dd><%= @individual.attributes[attribute] %></dd>
-            <% end %>   
+            <% end %>
           </dl>
 
 <!-- _____________________________________________________________
   _____________________________________________________________ -->
 
-          <div id="donations"> 
-            <h3>Donations <%= link_to 'Add New', new_donation_path, :class => 'btn' %></h3>
+          <div id="donations">
+            <h3>Donations <%= link_to 'Add New', new_donation_path(:individual_id => @individual.id), :class => 'btn' %></h3>
           </div>
 
             <table class="table table-striped">
@@ -68,7 +68,7 @@
                 <td><%= number_to_currency donation.amount %></td>
                 <td><%= donation.method %></td>
                 <td><%= link_to 'View Details', donation, :class => 'button' %></td>
-                <td><%= link_to 'Add New', new_donation_path, :class => 'btn btn-mini' %></td>
+                <td><%= link_to 'Add New', new_donation_path(:individual_id => @individual.id), :class => 'btn btn-mini' %></td>
               </tr>
             <% end %>
             </table>
@@ -93,7 +93,7 @@
             <%= notes %><br/>
           <% end -%>
 <!-- _____________________________________________________________
-  _____________________________________________________________ -->                  
+  _____________________________________________________________ -->
 
           <div class="form-actions">
             <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -107,5 +107,5 @@
                         :class => 'btn btn-danger' %>
 
 
-                   
+
 </div><!--/container-fluid-->

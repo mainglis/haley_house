@@ -1,26 +1,17 @@
 <%= form_for(@donation) do |f| %>
-  <% if @donation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
-
-      <ul>
-      <% @donation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/error_messages", :target => @donation %>
 
   <div class="control-group">
     <%= f.label :individual_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :individual_id, :class => 'text_field' %>
+      <%= @donation.individual.to_s %>
+      <%= f.hidden_field :individual_id %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :date, {:order => [:month, :day, :year], :include_blank => true}, {:class => 'date-select'} %>
+      <%= f.date_select :date, {:order => [:month, :day, :year], :include_blank => false}, {:class => 'date-select'} %>
     </div>
   </div>
   <div class="control-group">
