@@ -5,9 +5,9 @@
 #   gem 'sqlite3'
 development:
   adapter: mysql2
-  database: haleyhouse-staging
-  username: rails
-  password: railspw
+  database: haleyhouse
+  username: root
+  password: 
   host: 127.0.0.1
 
 # Warning: The database defined as "test" will be erased and
