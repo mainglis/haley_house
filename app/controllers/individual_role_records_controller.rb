@@ -1,6 +1,6 @@
 class IndividualRoleRecordsController < ApplicationController
 
-  before_filter :load_select_arrays, :only => :update
+  before_filter :load_select_arrays, :only => [:new, :edit]
 
   # GET /individual_role_records
   # GET /individual_role_records.json
