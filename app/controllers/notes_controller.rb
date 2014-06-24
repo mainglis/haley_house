@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_filter :load_parents
+
   # GET /notes
   # GET /notes.json
   def index
@@ -43,8 +45,8 @@ class NotesController < ApplicationController
     @note = Note.new(params[:note])
 
     respond_to do |format|
-      if @note.save
-        format.html { redirect_to @note, :notice => 'Note was successfully created.' }
+      if @note.save!
+        format.html { redirect_to polymorphic_path(@individual, :anchor => 'notes'), :notice => 'Note was successfully created.' }
         format.json { render :json => @note, :status => :created, :location => @note }
       else
         format.html { render :action => "new" }
@@ -60,7 +62,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to @note, :notice => 'Note was successfully updated.' }
+        format.html { redirect_to @individual, :notice => 'Note was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -76,8 +78,13 @@ class NotesController < ApplicationController
     @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to notes_url }
+      format.html { redirect_to @individual }
       format.json { head :no_content }
     end
+  end
+
+  def load_parents
+    @individual ||= Individual.find(params[:individual_id]) if params[:individual_id]
+    @individual ||= @note.individual if @note
   end
 end

@@ -1,6 +1,7 @@
 class IndividualRoleRecordsController < ApplicationController
 
   before_filter :load_select_arrays, :only => [:new, :edit]
+  before_filter :load_parents
 
   # GET /individual_role_records
   # GET /individual_role_records.json
@@ -44,9 +45,10 @@ class IndividualRoleRecordsController < ApplicationController
   # POST /individual_role_records.json
   def create
     @individual_role_record = IndividualRoleRecord.new(params[:individual_role_record])
+    @individual_role_record.individual_id = params[:individual_id]
 
     respond_to do |format|
-      if @individual_role_record.save
+      if @individual_role_record.save!
         format.html { redirect_to @individual_role_record.individual, :notice => 'Individual role record was successfully created.' }
         format.json { render :json => @individual_role_record, :status => :created, :location => @individual_role_record }
       else
@@ -63,7 +65,7 @@ class IndividualRoleRecordsController < ApplicationController
 
     respond_to do |format|
       if @individual_role_record.update_attributes(params[:individual_role_record])
-        format.html { redirect_to @individual_role_record, :notice => 'Individual role record was successfully updated.' }
+        format.html { redirect_to @individual_role_record.individual, :notice => 'Individual role record was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -85,8 +87,11 @@ class IndividualRoleRecordsController < ApplicationController
   end
 
   def load_select_arrays
-    @individuals = Individual.all.map { |individual| [individual, individual.id] }
     @roles = Role.all.map { |role| [role, role.id] }
   end
 
+  def load_parents
+    @individual ||= Individual.find(params[:individual_id]) if params[:individual_id]
+    @individual ||= @individual_role_record.individual if @individual_role_record
+  end
 end

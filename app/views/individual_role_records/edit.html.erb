@@ -2,5 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @individual_role_record %> |
-<%= link_to 'Back', individual_role_records_path %>
+<%= link_to 'Back', polymorphic_path(@individual, :anchor => 'roles') %>
