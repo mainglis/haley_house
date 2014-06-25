@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :deadline_type %><br />
-    <%= f.text_field :deadline_type %>
+    <%= f.select :deadline_type, Deadline.load_select_array %>
   </div>
   <div class="field">
     <%= f.label :date %><br />

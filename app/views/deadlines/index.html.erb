@@ -1,29 +1,49 @@
-<h1>Listing Deadlines</h1>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+            <%= render :partial => 'search' %>
+        </ul>
+      </div><!--/.well sidebar-nav -->
+    </div><!--/span3-->
+    <div class="span9">
+      <div class="well">
+        <div class="row-fluid">
+          <%- model_class = Deadline -%>
+          <div class="page-header">
+            <h4>Deadlines</h4>
+          </div>
 
-<table>
-  <tr>
-    <th>Grant Record ID</th>
-    <th>Type</th>
-    <th>Date</th>
-    <th>Notes</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+          <table class="table table-striped">
+            <tr>
+              <th>Date</th>
+              <th>Grant Record ID</th>
+              <th>Type</th>
+              <th>Notes</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
 
-<% @deadlines.each do |deadline| %>
-  <tr>
-    <td><%= deadline.grant_record_id %></td>
-    <td><%= deadline.deadline_type %></td>
-    <td><%= deadline.date %></td>
-    <td><%= deadline.notes %></td>
-    <td><%= link_to 'Show', deadline %></td>
-    <td><%= link_to 'Edit', edit_deadline_path(deadline) %></td>
-    <td><%= link_to 'Destroy', deadline, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+            <% Deadline.all.each do |deadline| %>
+              <tr>
+                <td><%= deadline.date.to_s(:long) %></td>
+                <td><%= deadline.grant_record_id %></td>
+                <td><%= deadline.deadline_type_string %></td>
+                <td><%= deadline.notes %></td>
+                <td><%= link_to 'Show', deadline %></td>
+                <td><%= link_to 'Edit', edit_deadline_path(deadline) %></td>
+                <td><%= link_to 'Destroy', deadline, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div><!--/row-fluid-->
+      </div> <!--/well-->
 
-<br />
-
-<%= link_to 'New Deadline', new_deadline_path %>
+      <div class="well">
+        <%= link_to t('.new', :default => t("helpers.links.add_new")), new_deadline_path, :class => 'btn btn-primary' %>
+      </div> <!--/well-->
+    </div><!--/span9-->
+  </div><!--/row-fluid-->
+</div><!--/container-fluid-->

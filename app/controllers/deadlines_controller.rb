@@ -2,7 +2,12 @@ class DeadlinesController < ApplicationController
   # GET /deadlines
   # GET /deadlines.json
   def index
-    @deadlines = Deadline.all
+    if params[:commit] == "Clear"
+      params[:search].each_key { |k| params[:search][k] = '' }
+    end
+
+    @search = Deadline.search(params[:search])
+    @deadlines = @search.all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,0 +1,7 @@
+<%= form_for @search, :url => deadlines_path, :html => {:method => :get} do |f| %>
+  <h4>Search</h4>
+  <li><%= f.label :grant_record_id_eq, "Grand record ID" %></li>
+  <li><%= f.text_field :grant_record_id_eq, :class => "span12" %><br /></li>
+
+  <%= f.submit "Search", :class => "btn" %>
+<% end %>
