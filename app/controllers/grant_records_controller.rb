@@ -7,7 +7,7 @@ class GrantRecordsController < ApplicationController
   def index
     if params[:commit] == "Clear"
       params[:search].each_key { |k| params[:search][k] = '' }
-    end 
+    end
 
     @search = GrantRecord.search(params[:search])
     @grant_records = @search.all
