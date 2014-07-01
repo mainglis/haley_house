@@ -6,6 +6,7 @@ class GrantRecord < ActiveRecord::Base
   validates :fiscal_year, :length => { :is => 4 }
 
   belongs_to :grantmaker
+  belongs_to :organization
   has_many :deadlines
 
   ASK_STATUSES = %w{submitting pending received rejected accepted}
@@ -14,8 +15,20 @@ class GrantRecord < ActiveRecord::Base
   validate :ask_status_must_be_valid
   validate :request_type_must_be_valid
 
-  def self.ranks
-    return [1, 2, 3, 4, 5]
+  def to_s
+    "#{grantmaker} (#{fiscal_year})"
+  end
+
+  # def self.ranks
+  #   return [1, 2, 3, 4, 5]
+  # end
+
+  def self.ask_statuses
+    return ASK_STATUSES
+  end
+
+  def self.request_types
+    return REQUEST_TYPES
   end
 
  def self.program

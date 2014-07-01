@@ -1,4 +1,4 @@
-<%= form_for(@deadline) do |f| %>
+<%= form_for([@grant_record, @deadline]) do |f| %>
   <% if @deadline.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@deadline.errors.count, "error") %> prohibited this deadline from being saved:</h2>
@@ -11,10 +11,13 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :grant_record_id, :value => params[:grant_record_id].to_i %>
+
   <div class="field">
-    <%= f.label :grant_record_id %><br />
-    <%= f.number_field :grant_record_id %>
+    <%= "Grant record: #{@deadline.grant_record}" %>
   </div>
+  <br>
+  <br>
   <div class="field">
     <%= f.label :deadline_type %><br />
     <%= f.select :deadline_type, Deadline.load_select_array %>

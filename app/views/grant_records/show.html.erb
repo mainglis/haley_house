@@ -2,51 +2,105 @@
   <div class="row-fluid">
     <div class="span3">
       <%= render :partial => 'sidebar' %>
-    </div><!--/span3--> 
+    </div><!--/span3-->
     <div class="span9">
       <div class="row-fluid">
 
         <%- model_class = GrantRecord -%>
-          <div class="page-header">
-            <h3>Grant Information  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_grant_record_path(@grant_record), :class => 'btn'%></h3>
-          </div>
+        <div class="page-header">
+          <h1><%= @grant_record %></h1>
+        </div>
+
+        <h3>Basic Information <%= link_to 'Edit Basic Information', edit_grant_record_path(@grant_record), :class => 'btn' %></h3>
+        <dl class="dl-horizontal">
+          <dt><b><%= model_class.human_attribute_name(:grantmaker) + ':' %></b></dt>
+          <dd><%= @grant_record.grantmaker %></dd>
+
+          <dt><b><%= model_class.human_attribute_name(:organization) + ':' %></b></dt>
+          <dd><%= @grant_record.organization %></dd>
+
+          <dt><b><%= model_class.human_attribute_name(:fiscal_year) + ':' %></b></dt>
+          <dd><%= @grant_record.fiscal_year %></dd>
+
+          <dt><b><%= model_class.human_attribute_name(:notification_date) + ':' %></b></dt>
+          <dd><%= @grant_record.notification_date.to_s(:long) %></dd>
+
+          <dt><b><%= model_class.human_attribute_name(:ask_status) + ':' %></b></dt>
+          <dd><%= @grant_record.ask_status %></dd>
+
+          <dt><b><%= model_class.human_attribute_name(:request_type) + ':' %></b></dt>
+          <dd><%= @grant_record.request_type %></dd>
+
+          <dt><b><%= model_class.human_attribute_name(:funding_type) + ':' %></b></dt>
+          <dd><%= @grant_record.funding_type %></dd>
+
+          <dt><b><%= model_class.human_attribute_name(:amount) + ':' %></b></dt>
+          <dd><%= number_to_currency(@grant_record.amount) %></dd>
+
+          <dt><b><%= model_class.human_attribute_name(:program) + ':' %></b></dt>
+          <dd><%= @grant_record.program %></dd>
+
+          <dt><b><%= model_class.human_attribute_name(:notes) + ':' %></b></dt>
+          <dd><%= @grant_record.notes %></dd>
+        </dl>
 
 
-<p id="notice"><%= notice %></p>
-
-<p><b>Grantmaker:</b><%= @grant_record.grantmaker_id %></p>
-<p><b>Organization:</b><%= @grant_record.organization_id %></p>
-<p><b>Fiscal year:</b><%= @grant_record.fiscal_year %></p>
-<p><b>Notification date:</b><%= @grant_record.notification_date %></p>
-<p><b>Ask status:</b><%= @grant_record.ask_status %></p>
-<p><b>Request type:</b><%= @grant_record.request_type %></p>
-<p><b>Funding type:</b><%= @grant_record.funding_type %></p>
-<p><b>Amount:</b><%= @grant_record.amount %></p>
-<p><b>Program:</b><%= @grant_record.program %></p>
-<p><b>Notes:</b><%= @grant_record.notes %></p>
-
-<!-- _____________________________________________________________
+<!-- DEADLINES ____________________________________________________
   _____________________________________________________________ -->
 
-  <div id="basic"> 
-    <h3>Contact Information<%= link_to 'Add New', new_grantmaker_path, :class => 'btn' %></h3>
+  <div id="basic">
+    <h3>Deadlines <%= link_to 'Add New Deadline', [:new, @grant_record, :deadline], :class => 'btn' %></h3>
   </div>
 
-    <table class="table table-striped">
-      <tr>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Method</th>
-        <th>Details</th>
-        <th></th>
-        <th></th>
-      </tr>
+  <%- model_class = Deadline -%>
 
-    </table>
+  <table class="table table-striped">
+    <tr>
+      <th></th>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+
+    <% @grant_record.deadlines.each do |deadline| %>
+      <tr>
+        <td><%= deadline.id %></td>
+        <td><%= deadline.type %></td>
+        <td><%= deadline.date.to_s(:long) %></td>
+        <td><%= link_to t('helpers.links.edit'), [:edit, @grant_record, :deadline], :class => 'btn btn-mini' %>
+            <%= link_to t('helpers.links.destroy'), [@grant_record, deadline], :method => 'delete', :data => { :confirm => t('helpers.links.confirm') }, :class => 'btn btn-mini btn-danger' %></td></td>
+      </tr>
+    <% end %>
+
+
+  </table>
+
+
+<!-- GRANTMAKER ___________________________________________________
+  _____________________________________________________________ -->
+
+  <div id="basic">
+    <h3>Grantmaker Contact Information <%= link_to 'Edit Grantmaker', edit_grantmaker_path(@grant_record.grantmaker), :class => 'btn' %></h3>
+  </div>
+
+  <%- model_class = Grantmaker -%>
+  <dl class="dl-horizontal">
+    <dt><b><%= model_class.human_attribute_name(:contact_email) + ':' %></b></dt>
+    <dd><%= @grant_record.grantmaker.contact_email %></dd>
+
+    <dt><b><%= model_class.human_attribute_name(:contact_first_name) + ':' %></b></dt>
+    <dd><%= @grant_record.grantmaker.contact_first_name %></dd>
+
+    <dt><b><%= model_class.human_attribute_name(:contact_last_name) + ':' %></b></dt>
+    <dd><%= @grant_record.grantmaker.contact_last_name %></dd>
+
+    <dt><b><%= model_class.human_attribute_name(:contact_phone_number) + ':' %></b></dt>
+    <dd><%= @grant_record.grantmaker.contact_phone_number %></dd>
+  </dl>
+
+
 <!-- _____________________________________________________________
   _____________________________________________________________ -->
 
 
-<%= link_to 'Edit', edit_grant_record_path(@grant_record) %> |
 <%= link_to 'Back', grant_records_path %>

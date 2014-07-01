@@ -1,4 +1,4 @@
-<% target = @note.new_record? ? [@individual, @note] : [@individual, @note] %>
+<% target = [@individual, @note] %>
 <%= form_for(target) do |f| %>
   <% if @note.errors.any? %>
     <div id="error_explanation">

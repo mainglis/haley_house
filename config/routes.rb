@@ -5,7 +5,9 @@ HaleyHouse::Application.routes.draw do
   root :to => 'application#index'
 
 
-  resources :grant_records, :deadlines
+  resources :grant_records do
+    resources :deadlines
+  end
   resources :donations, :occupations, :roles, :skills, :volunteers
   resources :events, :event_attendance_records
   resources :individuals do

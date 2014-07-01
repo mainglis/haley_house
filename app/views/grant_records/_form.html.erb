@@ -20,11 +20,11 @@
   </div>
   <div class="field">
     <%= f.label :ask_status %>
-    <%= f.text_field :ask_status %>
+    <%= f.select :ask_status, GrantRecord.ask_statuses %>
   </div>
   <div class="field">
     <%= f.label :request_type %>
-    <%= f.text_field :request_type %>
+    <%= f.select :request_type, GrantRecord.request_types %>
   </div>
   <div class="field">
     <%= f.label :funding_type %>
