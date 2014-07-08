@@ -1,8 +1,15 @@
 class DeadlinesController < ApplicationController
+  before_filter :load_parents
+
   # GET /deadlines
   # GET /deadlines.json
   def index
-    @deadlines = Deadline.all
+    if params[:commit] == "Clear"
+      params[:search].each_key { |k| params[:search][k] = '' }
+    end
+
+    @search = Deadline.search(params[:search])
+    @deadlines = @search.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,5 +86,10 @@ class DeadlinesController < ApplicationController
       format.html { redirect_to deadlines_url }
       format.json { head :no_content }
     end
+  end
+
+  def load_parents
+    @grant_record ||= GrantRecord.find(params[:grant_record_id]) if params[:grant_record_id]
+    @grant_record ||= @deadline.grant_record if @deadline
   end
 end

@@ -5,7 +5,7 @@ class Donation < ActiveRecord::Base
 
   validates_presence_of :amount, :date, :individual
 
-  VALID_METHODS = ['check', 'credit card', 'cash', 'other']
+  VALID_METHODS = ['check', 'credit card', 'cash', 'in_kind', 'other']
   validates_inclusion_of :method, :in => VALID_METHODS
 
   def to_s

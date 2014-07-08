@@ -5,23 +5,29 @@ HaleyHouse::Application.routes.draw do
   root :to => 'application#index'
 
 
-  resources :grant_records, :deadlines, :notes
-  resources :individual_skill_records, :individual_organization_records, :individual_role_records, :individual_relationship_records
+  resources :grant_records do
+    resources :deadlines
+  end
   resources :donations, :occupations, :roles, :skills, :volunteers
   resources :events, :event_attendance_records
   resources :individuals do
+    resources :individual_relationship_records
+    resources :individual_skill_records
+    resources :individual_organization_records
+    resources :individual_role_records, :except => [:index, :show]
+    resources :notes, :except => [:index, :show]
     collection { post :import }
     collection { get :new_import }
   end
-  resources :grantmakers do 
+  resources :grantmakers do
     collection { post :import }
     collection { get :new_import }
-  end 
-  resources :organizations do 
+  end
+  resources :organizations do
     collection { post :import }
     collection { get :new_import }
-  end 
-  
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

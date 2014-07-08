@@ -2,7 +2,7 @@
 
 <p>
   <b>Grant record:</b>
-  <%= @deadline.grant_record_id %>
+  <%= @deadline.grant_record %>
 </p>
 
 <p>
@@ -21,5 +21,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_deadline_path(@deadline) %> |
-<%= link_to 'Back', deadlines_path %>
+<%= link_to 'Edit', [:edit, @grant_record, @deadline] %> |
+<%= link_to 'Back', @grant_record %>

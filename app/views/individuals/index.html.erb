@@ -3,7 +3,7 @@
     <div class="span3">
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
-          <%= render :partial => 'search' %>  
+          <%= render :partial => 'search' %>
         </ul>
       </div><!--/.well sidebar-nav -->
       <div class="well sidebar-nav">
@@ -11,7 +11,7 @@
           <h4>Actions</h4>
           <li><%= link_to t('.new', :default => t("helpers.links.add_new")), new_individual_path %></li>
           <li><%= link_to "Export (Excel or CSV)", individuals_path(:format => "csv") %></li> <!-- or :format => 'xls' -->
-          <li><%= link_to "Import (Excel or CSV)" %></li> 
+          <li><%= link_to "Import (Excel or CSV)" %></li>
         </ul>
       </div><!--/.well sidebar-nav -->
       <!-- <div class="well sidebar-nav">
@@ -62,4 +62,4 @@
 
   <div class="well">
     <%= link_to t('.new', :default => t("helpers.links.add_new")), new_individual_path, :class => 'btn btn-primary' %>
-  </div>
+  </div> <!--/well-->

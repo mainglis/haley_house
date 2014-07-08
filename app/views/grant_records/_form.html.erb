@@ -1,13 +1,14 @@
 <%= form_for(@grant_record) do |f| %>
-  <%= render "shared/error_messages", :target => @grant_record %> 
+  <%= render "shared/error_messages", :target => @grant_record %>
 
   <div class="field">
     <%= f.label :grantmaker_id %> <!-- make this display name not ID -->
     <%= f.select :grantmaker_id, (@grantmakers || []) %>
+    <%= link_to 'Add a new grantmaker', [:new, :grantmaker] %>
   </div>
   <div class="field">
     <%= f.label :organization_id %>
-    <%= f.select :organization_id, (@organizations || []) %>
+    <%= f.select :organization_id, (@organizations || []), :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :fiscal_year %>
@@ -19,11 +20,11 @@
   </div>
   <div class="field">
     <%= f.label :ask_status %>
-    <%= f.text_field :ask_status %>
+    <%= f.select :ask_status, GrantRecord.ask_statuses %>
   </div>
   <div class="field">
     <%= f.label :request_type %>
-    <%= f.text_field :request_type %>
+    <%= f.select :request_type, GrantRecord.request_types %>
   </div>
   <div class="field">
     <%= f.label :funding_type %>

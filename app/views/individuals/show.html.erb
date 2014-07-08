@@ -2,17 +2,18 @@
   <div class="row-fluid">
     <div class="span3">
       <%= render :partial => 'sidebar' %>
-    </div><!--/span3--> 
+    </div><!--/span3-->
     <div class="span9">
       <div class="row-fluid">
 
         <%- model_class = Individual -%>
           <div class="page-header">
-            <h3>Basic Information  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_individual_path(@individual), :class => 'btn'%></h3>
+            <h1><%= @individual %></h1>
           </div>
+
+          <h3>Basic Information <%= link_to 'Edit Basic Information', edit_individual_path(@individual), :class => 'btn' %></h3>
           <dl class="dl-horizontal">
-            <% attributes_order = [ 
+            <% attributes_order = [
                 "first_name",
                 "last_name",
                 "salutation",
@@ -42,70 +43,76 @@
               <% next if @individual.attributes[attribute].blank? %>
               <dt><strong><%= model_class.human_attribute_name(attribute.to_sym) + ':' %></strong></dt>
               <dd><%= @individual.attributes[attribute] %></dd>
-            <% end %>   
+            <% end %>
           </dl>
 
 <!-- _____________________________________________________________
   _____________________________________________________________ -->
 
-          <div id="donations"> 
-            <h3>Donations <%= link_to 'Add New', new_donation_path, :class => 'btn' %></h3>
+          <div id="donations">
+            <h3>Donations <%= link_to t('helpers.titles.new', :model => 'Donation'), new_donation_path(:individual_id => @individual.id), :class => 'btn' %></h3>
           </div>
 
-            <table class="table table-striped">
-              <tr>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Method</th>
-                <th>Details</th>
-                <th></th>
-                <th></th>
-              </tr>
-
+          <table class="table table-striped">
+            <tr>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Method</th>
+              <th>Details</th>
+              <th></th>
+            </tr>
             <% @individual.donations.each do |donation| %>
               <tr>
                 <td><%= donation.date_string %></td>
                 <td><%= number_to_currency donation.amount %></td>
                 <td><%= donation.method %></td>
                 <td><%= link_to 'View Details', donation, :class => 'button' %></td>
-                <td><%= link_to 'Add New', new_donation_path, :class => 'btn btn-mini' %></td>
+                <td><%= link_to t('helpers.links.edit'), [:edit, donation], :class => 'btn btn-mini' %></td>
               </tr>
             <% end %>
+          </table>
+<!-- _____________________________________________________________
+  _____________________________________________________________ -->
+
+          <div id="roles">
+            <h3>Roles <%= link_to t('helpers.titles.new', :model => 'Role'), [:new, @individual, :individual_role_record], :class => 'btn' %></h3>
+          </div>
+          <table class="table table-striped">
+            <% @individual.individual_role_records.each do |individual_role_record| %>
+              <tr>
+                <td><%= individual_role_record %></td>
+                <td><%= link_to t('helpers.links.edit'), [:edit, @individual, individual_role_record], :class => 'btn btn-mini' %></td>
+              </tr>
+            <% end %>
+          </table>
+
+<!-- _____________________________________________________________
+  _____________________________________________________________ -->
+
+          <div id="notes">
+            <h3>Notes <%= link_to t('helpers.titles.new', :model => 'Note'), [:new, @individual, :note], :class => 'btn' %></h3>
+            <table class="table table-striped">
+              <% @individual.notes.each do |note| %>
+                <tr>
+                  <td><%= note %></td>
+                  <td><%= link_to t('helpers.links.edit'), [:edit, @individual, note], :class => 'btn btn-mini' %>
+                    <%= link_to t('helpers.links.destroy'), [@individual, note], :method => 'delete', :data => { :confirm => t('helpers.links.confirm') }, :class => 'btn btn-mini btn-danger' %></td>
+                </tr>
+              <% end %>
             </table>
+          </div>
 <!-- _____________________________________________________________
   _____________________________________________________________ -->
-
-          <div id="roles" class="page-header">
-            <h3>Roles <%= link_to "Edit", new_individual_role_record_path, :class => 'btn' %></h3>
-          </div>
-          <% @individual.individual_role_records.each do |individual_role_record| %>
-            <%= individual_role_record %><br/>
-          <% end -%>
-          <%= link_to "Create New Role Record", new_individual_role_record_path %>
-
-<!-- _____________________________________________________________
-  _____________________________________________________________ -->
-
-          <div id="notes" class="page-header">
-            <h3>Notes <%= link_to "Add New", new_note_path, :class => 'btn' %></h3>
-          </div>
-          <% @individual.notes.each do |notes| %>
-            <%= notes %><br/>
-          <% end -%>
-<!-- _____________________________________________________________
-  _____________________________________________________________ -->                  
 
           <div class="form-actions">
             <%= link_to t('.back', :default => t("helpers.links.back")),
                         individuals_path, :class => 'btn'  %>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_individual_path(@individual), :class => 'btn' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+            <%= link_to t('.destroy', :default => t("helpers.titles.destroy", :model => @individual)),
                         individual_path(@individual),
                         :method => 'delete',
                         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                         :class => 'btn btn-danger' %>
+          </div>
 
 
-                   
 </div><!--/container-fluid-->

@@ -1,5 +1,5 @@
-<h3>New Note</h3>
+<h3>New note for <%= @individual %></h3>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', notes_path %>
+<%= link_to 'Back', polymorphic_path([@individual], :anchor => "notes") %>

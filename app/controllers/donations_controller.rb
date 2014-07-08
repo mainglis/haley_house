@@ -25,6 +25,7 @@ class DonationsController < ApplicationController
   # GET /donations/new.json
   def new
     @donation = Donation.new
+    @donation.individual = Individual.find(params[:individual_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +45,7 @@ class DonationsController < ApplicationController
 
     respond_to do |format|
       if @donation.save
-        format.html { redirect_to @donation, :notice => 'Donation was successfully created.' }
+        format.html { redirect_to @donation.individual, :notice => 'Donation was successfully created.' }
         format.json { render :json => @donation, :status => :created, :location => @donation }
       else
         format.html { render :action => "new" }
