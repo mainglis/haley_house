@@ -6,7 +6,7 @@ HaleyHouse::Application.routes.draw do
 
 
   resources :grant_records, :deadlines, :notes
-  resources :individual_skill_records, :individual_organization_records, :individual_role_records
+  resources :individual_skill_records, :individual_organization_records, :individual_role_records, :individual_relationship_records
   resources :donations, :occupations, :roles, :skills, :volunteers
   resources :events, :event_attendance_records
   resources :individuals do

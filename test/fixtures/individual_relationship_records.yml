@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  left_individual_id: 1
+  right_individual_id: 1
+  relationship: MyString
+
+two:
+  left_individual_id: 1
+  right_individual_id: 1
+  relationship: MyString

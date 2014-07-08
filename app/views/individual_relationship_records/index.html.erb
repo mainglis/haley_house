@@ -1,0 +1,27 @@
+<h1>Listing individual_relationship_records</h1>
+
+<table>
+  <tr>
+    <th>Left individual</th>
+    <th>Right individual</th>
+    <th>Relationship</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @individual_relationship_records.each do |individual_relationship_record| %>
+  <tr>
+    <td><%= individual_relationship_record.left_individual_id %></td>
+    <td><%= individual_relationship_record.right_individual_id %></td>
+    <td><%= individual_relationship_record.relationship %></td>
+    <td><%= link_to 'Show', individual_relationship_record %></td>
+    <td><%= link_to 'Edit', edit_individual_relationship_record_path(individual_relationship_record) %></td>
+    <td><%= link_to 'Destroy', individual_relationship_record, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Individual relationship record', new_individual_relationship_record_path %>

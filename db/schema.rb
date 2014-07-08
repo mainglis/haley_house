@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140325000000) do
+ActiveRecord::Schema.define(:version => 20140325132318) do
 
   create_table "deadlines", :force => true do |t|
     t.integer  "grant_record_id"
@@ -89,6 +89,14 @@ ActiveRecord::Schema.define(:version => 20140325000000) do
     t.date     "start_date"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "individual_relationship_records", :force => true do |t|
+    t.integer  "left_individual_id"
+    t.integer  "right_individual_id"
+    t.string   "relationship"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "individual_role_records", :force => true do |t|

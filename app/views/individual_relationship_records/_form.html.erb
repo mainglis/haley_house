@@ -1,0 +1,29 @@
+<%= form_for(@individual_relationship_record) do |f| %>
+  <% if @individual_relationship_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@individual_relationship_record.errors.count, "error") %> prohibited this individual_relationship_record from being saved:</h2>
+
+      <ul>
+      <% @individual_relationship_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :left_individual_id %><br />
+    <%= f.number_field :left_individual_id %>
+  </div>
+  <div class="field">
+    <%= f.label :right_individual_id %><br />
+    <%= f.number_field :right_individual_id %>
+  </div>
+  <div class="field">
+    <%= f.label :relationship %><br />
+    <%= f.text_field :relationship %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
