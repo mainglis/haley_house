@@ -1,5 +1,4 @@
-<% target = [@individual, @note] %>
-<%= form_for(target) do |f| %>
+<%= form_for([@individual, @note]) do |f| %>
   <% if @note.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
@@ -12,10 +11,6 @@
     </div>
   <% end %>
 
-   <!-- <div class="field">
-    <%= f.label :individual_id %>
-    <%= @individual %>
-  </div> -->
   <%= f.hidden_field :individual_id, :value => params[:individual_id].to_i %>
 
   <div class="field">
